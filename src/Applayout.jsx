@@ -32,10 +32,11 @@ const Title = styled.h1`
   font-weight: 400;
   width: 100%;
   text-align: center;
-  font-size: 80px;
+  /* font-size: 80px; */
+  font-size: 40px;
   color: #ffffff;
   /* margin-top: 121px; */
-  margin-top: 80px;
+  margin-top: 20px;
 `;
 const AppContentFrame = styled.div`
   display: flex;
@@ -46,6 +47,7 @@ const AppContentFrame = styled.div`
   padding: 0 200px;
   direction: ltr;
   position: relative;
+  width: 100%;
 `;
 const ParagraphContent = styled.p`
   display: flex;
@@ -54,11 +56,13 @@ const ParagraphContent = styled.p`
   flex-direction: column;
   color: #ffffff;
   font-family: 'Inter';
+  font-size: 22px;
+  width: 100%;
 `;
 const ButtonOrder = styled.button`
   box-shadow: 3px 4px #fefefe80;
-  width: 311px;
-  height: 59px;
+  width: 300px;
+  height: 50px;
   border-radius: 15px;
   gap: 10px;
   background-color: #bf9742;
@@ -67,8 +71,8 @@ const ButtonOrder = styled.button`
   font-size: 30px;
 `;
 const ImageStyle = styled.img`
-  height: 450px;
-  animation:${slideInFromLeft} 0.5s forwards
+  height: 200px;
+  animation: ${slideInFromLeft} 0.5s forwards;
 `;
 
 const AppButtonOrder = styled.div`
@@ -84,21 +88,21 @@ const ImgVector = styled.img`
   /* padding-top: 30px; */
 `;
 const TastyThursdays = styled.div`
-  width: 292px;
+  width: 180px;
   padding: 10px;
-  height: 225px;
+  height: 130px;
   position: relative;
   padding-top: 30px;
 `;
 const Thursdays = styled.p`
-  font-size: 38px;
+  font-size: 25;
   font-family: 'JockeyOne';
   font-weight: 400;
   color: #fdf8f8;
   animation: ${slideInFromLeft} 0.5s forwards;
 `;
 const Off = styled.p`
-  font-size: 80px;
+  font-size: 25px;
   font-family: 'JockeyOne';
   font-weight: 400;
   color: #bf9742;
@@ -122,16 +126,19 @@ const SpanTreeDotToShowMeal = styled.span`
   display: inline-block;
   width: 17px;
   height: 17px;
-  border-radius: 50%;cursor: pointer;
-  
-  /* background-color: #d9d9d9; */
-  background-color: ${({ active }) => (active?"#d9d9d9":"#bf9742")};
-  
-`;
+  border-radius: 50%;
+  cursor: pointer;
 
+  /* background-color: #d9d9d9; */
+  background-color: ${({ active }) => (active ? '#d9d9d9' : '#bf9742')};
+`;
+const SpanText = styled.p`
+  width: 100%;
+  font-size: 15px;
+`;
 export default function Applayout() {
   const [meal, setMeal] = useState('Burger');
-  const [active, setActive] = useState(1); 
+  const [active, setActive] = useState(1);
   return (
     <>
       <Frame>
@@ -140,15 +147,17 @@ export default function Applayout() {
           <Title>Fast Food Restaurant</Title>
 
           <ParagraphContent>
-            <span>
+            <SpanText>
               Doloremque, itaque aperiam facilis rerum, commodi, temporibus
               sapiente ad mollitia
-            </span>
-            <span>
+            </SpanText>
+            <SpanText>
               laborum quam quisquam esse error unde. Tempora ex doloremque,
               labore, sunt repellat
-            </span>
-            <span>dolore, iste magni quos nihil ducimus libero ipsam.</span>
+            </SpanText>
+            <SpanText>
+              dolore, iste magni quos nihil ducimus libero ipsam.
+            </SpanText>
           </ParagraphContent>
           <AppButtonOrder>
             <ButtonOrder>ORDER NOW</ButtonOrder>

@@ -23,13 +23,13 @@ const UserName = styled.span`
 const ItemHeader = styled.li`
   color: #ffffff;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 18px;
   font-family: 'Inter';
 `;
 const ItemHome = styled.li`
   color: #bf9742;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 18px;
   font-family: 'Inter';
 `;
 const AppItemHeader = styled.ul`
@@ -39,10 +39,10 @@ const AppItemHeader = styled.ul`
   color: #bf9742;
   font-weight: 400;
   font-size: 20px;
-  width: 470px;
+  width: 420px;
 `;
 const Logo = styled.div`
-  margin-left: 50px;
+  margin-left: 20px;
   font-size: 38px;
   color: #ffffff;
   font-weight: 400;
@@ -55,18 +55,18 @@ const AppUserInfo = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-   font-family: 'Inter';
-
+  font-family: 'Inter';
 `;
 
 const SearchInput = styled.input`
   background-color: transparent;
   border: none;
   outline: none;
+  /* padding-left:10px; */
   color: #ffffff;
   &::placeholder {
     color: #bf9742;
-    padding-left: 10px;
+    padding-left: 20px;
   }
 `;
 const ContainerSearch = styled.div`
@@ -74,7 +74,7 @@ const ContainerSearch = styled.div`
   justify-content: space-around;
   align-items: center;
   border: 1px solid #d9d9d9;
-  width: 429px;
+  width: 300px;
   border-radius: 15px;
 `;
 
@@ -94,7 +94,7 @@ export default function Header() {
       </div>
       <ContainerSearch>
         <SearchInput placeholder="Search" type="search" />
-        <FiSearch fontSize="25px" color="#bf9742" />
+        <FiSearch fontSize="20px" color="#bf9742" />
       </ContainerSearch>
       <AppUserInfo className="userInfo">
         <Image src="/images/userImage.jpg" alt="" />
@@ -103,6 +103,3 @@ export default function Header() {
     </HeaderStyle>
   );
 }
-
-
-
