@@ -98,7 +98,7 @@ export default function Header() {
       </ContainerSearch>
       <AppUserInfo className="userInfo">
         <Image src="/images/userImage.jpg" alt="" />
-        <UserName>Hi,Ahmed</UserName>
+        <UserName>Hi,Abdo</UserName>
       </AppUserInfo>
     </HeaderStyle>
   );
