@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Header from './Header';
 const Frame = styled.div`
   background: linear-gradient(to bottom, #171715 0%, #171715 79%, #c79439 100%);
@@ -17,6 +17,16 @@ const Frame = styled.div`
   @media (min-width: 1025px) {
   }
 `;
+
+const slideInFromLeft = keyframes`
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+`;
+
+// const slideOutToRight = keyframes`
+//   from { transform: translateX(0); opacity: 1; }
+//   to { transform: translateX(100%); opacity: 0; }
+// `;
 const Title = styled.h1`
   font-family: 'JockeyOne';
   font-weight: 400;
@@ -35,6 +45,7 @@ const AppContentFrame = styled.div`
   text-align: center;
   padding: 0 200px;
   direction: ltr;
+  position: relative;
 `;
 const ParagraphContent = styled.p`
   display: flex;
@@ -57,6 +68,7 @@ const ButtonOrder = styled.button`
 `;
 const ImageStyle = styled.img`
   height: 450px;
+  animation:${slideInFromLeft} 0.5s forwards
 `;
 
 const AppButtonOrder = styled.div`
@@ -83,12 +95,14 @@ const Thursdays = styled.p`
   font-family: 'JockeyOne';
   font-weight: 400;
   color: #fdf8f8;
+  animation: ${slideInFromLeft} 0.5s forwards;
 `;
 const Off = styled.p`
   font-size: 80px;
   font-family: 'JockeyOne';
   font-weight: 400;
   color: #bf9742;
+  animation: ${slideInFromLeft} 0.5s forwards;
 `;
 const ImagCircle = styled.img`
   position: absolute;
@@ -108,12 +122,16 @@ const SpanTreeDotToShowMeal = styled.span`
   display: inline-block;
   width: 17px;
   height: 17px;
-  border-radius: 50%;
-  background-color: #d9d9d9;
+  border-radius: 50%;cursor: pointer;
+  
+  /* background-color: #d9d9d9; */
+  background-color: ${({ active }) => (active?"#d9d9d9":"#bf9742")};
+  
 `;
 
 export default function Applayout() {
   const [meal, setMeal] = useState('Burger');
+  const [active, setActive] = useState(1); 
   return (
     <>
       <Frame>
@@ -159,24 +177,33 @@ export default function Applayout() {
             </TastyThursdays>
           </AppButtonOrder>
           {meal === 'Burger' && (
-            <ImageStyle src="/images/Burger.png" alt="Burger" />
+            <ImageStyle key="Burger" src="/images/Burger.png" alt="Burger" />
           )}
           {meal === 'Pizza' && (
-            <ImageStyle src="/images/pizza.png" alt="Pizza" />
+            <ImageStyle key="Pizza" src="/images/pizza.png" alt="Pizza" />
           )}
           {meal === 'Pasta' && (
-            <ImageStyle src="/images/Pasta.png" alt="Pasta" />
+            <ImageStyle key="Pasta" src="/images/Pasta.png" alt="Pasta" />
           )}
 
           <ContainerSpan>
             <SpanTreeDotToShowMeal
-              onClick={() => setMeal('Burger')}
+              active={active === 1}
+              onClick={() => {
+                (setMeal('Burger'), setActive(1));
+              }}
             ></SpanTreeDotToShowMeal>
             <SpanTreeDotToShowMeal
-              onClick={() => setMeal('Pizza')}
+              active={active === 2}
+              onClick={() => {
+                (setMeal('Pizza'), setActive(2));
+              }}
             ></SpanTreeDotToShowMeal>
             <SpanTreeDotToShowMeal
-              onClick={() => setMeal('Pasta')}
+              active={active === 3}
+              onClick={() => {
+                (setMeal('Pasta'), setActive(3));
+              }}
             ></SpanTreeDotToShowMeal>
           </ContainerSpan>
         </AppContentFrame>
