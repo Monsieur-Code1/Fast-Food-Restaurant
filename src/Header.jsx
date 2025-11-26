@@ -77,6 +77,8 @@ const ContainerSearch = styled.div`
   width: 429px;
   border-radius: 15px;
 `;
+
+// jsx
 export default function Header() {
   return (
     <HeaderStyle>
