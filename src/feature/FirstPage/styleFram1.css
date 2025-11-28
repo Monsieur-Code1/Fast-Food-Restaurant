@@ -1,0 +1,390 @@
+.Title {
+  font-family: 'JockeyOne';
+  font-weight: 400;
+  width: 100%;
+  text-align: center;
+  /* font-size: 80px; */
+  font-size: 40px;
+  color: #ffffff;
+  /* margin-top: 121px; */
+  margin-top: 20px;
+}
+.AppContentFrame {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  padding: 0 200px;
+  direction: ltr;
+  position: relative;
+  width: 100%;
+  background: linear-gradient(to bottom, #171715 0%, #171715 79%, #c79439 100%);
+
+  height: 100dvh;
+  width: 100%;
+  /* height: 1240px; */
+}
+.ParagraphContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #ffffff;
+  font-family: 'Inter';
+  font-size: 22px;
+  width: 100%;
+}
+.ButtonOrder {
+  box-shadow: 3px 4px #fefefe80;
+  width: 300px;
+  height: 50px;
+  border-radius: 15px;
+  gap: 10px;
+  background-color: #bf9742;
+  color: #ffffff;
+  font-family: 'Inter';
+  font-size: 30px;
+}
+.ImageStyle {
+  height: 200px;
+  animation: slideInFromLeft 0.5s forwards;
+  -webkit-animation: slideInFromLeft 0.5s forwards;
+}
+
+.AppButtonOrder {
+  display: flex;
+  justify-content: space-between;
+  /* width: 400px; */
+  margin-top: 20px;
+}
+
+.ImgVector {
+  width: 100px;
+  height: 50px;
+  padding: 20px 10px 0 20px;
+  /* padding-top: 30px; */
+}
+
+.TastyThursdays {
+  width: 180px;
+  padding: 10px;
+  height: 130px;
+  position: relative;
+  padding-top: 30px;
+}
+.Thursdays {
+  font-size: 25;
+  font-family: 'JockeyOne';
+  font-weight: 400;
+  color: #fdf8f8;
+  animation: slideInFromLeft 0.5s forwards;
+  -webkit-animation: slideInFromLeft 0.5s forwards;
+}
+.Off {
+  font-size: 25px;
+  font-family: 'JockeyOne';
+  font-weight: 400;
+  color: #bf9742;
+  animation: slideInFromLeft 0.5s forwards;
+  -webkit-animation: slideInFromLeft 0.5s forwards;
+}
+.ImagCircle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  /* padding: px; */
+}
+.ContainerSpan {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 292px;
+}
+.SpanTreeDotToShowMeal {
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  cursor: pointer;
+  /* background-color: #d9d9d9; */
+  background-color: #bf9742;
+}
+.SpanText {
+  width: 100%;
+  font-size: 15px;
+}
+.SpanTreeDotToShowMealActive {
+  background-color: #d9d9d9;
+}
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* --------- Mobile S --------- */
+@media (max-width: 320px) {
+  .Title {
+    font-size: 30px;
+    margin-top: 15px;
+  }
+  .AppContentFrame {
+    padding: 0 2px 10px 2px;
+    width: 100% !important;
+    height: 100dvh;
+  }
+  .ParagraphContent {
+    font-size: 10px !important;
+  }
+  .ButtonOrder {
+    margin: 10px;
+    width: 100px;
+    height: 50px;
+    font-size: 13px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+  .ImageStyle {
+    height: 80px;
+  }
+
+  .AppButtonOrder {
+    margin-top: 10px;
+  }
+
+  .ImgVector {
+    width: 70px;
+    height: 50px;
+    padding: 20px 10px 0 20px;
+    /* padding-top: 30px; */
+  }
+
+  .TastyThursdays {
+    width: 100px;
+    padding: 5px;
+    height: 120px;
+    position: relative;
+    padding-top: 30px;
+  }
+  .Thursdays {
+    font-size: 18px !important;
+  }
+  .Off {
+    font-size: 18px;
+  }
+
+  .ContainerSpan {
+    width: 250px;
+  }
+}
+
+/* ============================================= */
+/* --------- Mobile M --------- */
+@media (min-width: 321px) and (max-width: 375px) {
+  .Title {
+    font-size: 30px;
+    margin-top: 10px;
+  }
+  .AppContentFrame {
+    padding: 0 5px 10px 5px;
+    direction: ltr;
+    position: relative;
+    width: 100% !important;
+    height: 100dvh;
+  }
+  .ParagraphContent {
+    font-size: 15px;
+  }
+  .ButtonOrder {
+    margin: 10px;
+    width: 150px;
+    height: 50px;
+    font-size: 18px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+  }
+  .ImageStyle {
+    height: 100px;
+    animation: slideInFromLeft 0.5s forwards;
+    -webkit-animation: slideInFromLeft 0.5s forwards;
+  }
+
+  .AppButtonOrder {
+    margin-top: 10px;
+  }
+
+  .ImgVector {
+    width: 100px;
+    height: 50px;
+    padding: 20px 10px 0 20px;
+    /* padding-top: 30px; */
+  }
+
+  .TastyThursdays {
+    width: 120px;
+    padding: 5px;
+    height: 120px;
+    position: relative;
+    padding-top: 30px;
+  }
+  .Thursdays {
+    font-size: 18px !important;
+  }
+  .Off {
+    font-size: 18px;
+  }
+
+  .ContainerSpan {
+    width: 250px;
+  }
+}
+/* ============================================= */
+/* --------- Mobile L --------- */
+@media (min-width: 376px) and (max-width: 425px) {
+   .Title {
+    font-size: 40px;
+    margin-top: 15px;
+  }
+  .AppContentFrame {
+    padding: 0 2px 10px 2px;
+    width: 100% !important;
+    height: 100dvh;
+  }
+  .ParagraphContent {
+    font-size: 12px !important;
+  }
+  .ButtonOrder {
+    margin: 10px;
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+  .ImageStyle {
+    height: 140px;
+    width: 170px;
+  }
+
+  .AppButtonOrder {
+    margin-top: 10px;
+  }
+
+  .ImgVector {
+    width: 90px;
+    height: 50px;
+    padding: 20px 10px 0 20px;
+    /* padding-top: 30px; */
+  }
+
+  .TastyThursdays {
+    width: 120px;
+    padding: 5px;
+    height: 120px;
+    position: relative;
+    padding-top: 30px;
+  }
+  .Thursdays {
+    font-size: 18px !important;
+  }
+  .Off {
+    font-size: 18px;
+  }
+
+  .ContainerSpan {
+    width: 250px;
+  }
+}
+/* ============================================= */
+/* --------- Tablet --------- */
+@media (min-width: 426px) and (max-width: 768px) {
+    .Title {
+    font-size: 40px;
+    margin-top: 15px;
+  }
+  .AppContentFrame {
+    padding: 0 2px 10px 2px;
+    width: 100% !important;
+    height: 100dvh;
+  }
+  .ParagraphContent {
+    font-size: 12px !important;
+  }
+  .ButtonOrder {
+    margin: 10px;
+    width: 160px;
+    height: 50px;
+    font-size: 23px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+  .ImageStyle {
+    height: 160px;
+    width: 180px;
+  }
+
+  .AppButtonOrder {
+    margin-top: 10px;
+  }
+
+  .ImgVector {
+    width: 100px;
+    height: 50px;
+    padding: 20px 10px 0 20px;
+    /* padding-top: 30px; */
+  }
+
+  .TastyThursdays {
+    width: 140px;
+    padding: 5px;
+    height: 120px;
+    position: relative;
+    padding-top: 30px;
+  }
+  .Thursdays {
+    font-size: 20px !important;
+  }
+  .Off {
+    font-size: 25px;
+  }
+
+  .ContainerSpan {
+    width: 250px;
+  }
+}
+/* ============================================= */
+/* --------- Laptop S --------- */
+@media (min-width: 769px) and (max-width: 1024px) {
+}
+/* ============================================= */
+/* --------- Laptop L --------- */
+@media (min-width: 1025px) and (max-width: 1440px) {
+}
+/* ============================================= */
+/* --------- Desktop --------- */
+@media (min-width: 1441px) and (max-width: 1824px) {
+}
+/* ============================================= */
+/* --------- Big Screen --------- */
+@media (min-width: 1825px) {
+}

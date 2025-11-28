@@ -1,0 +1,305 @@
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.AppHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100dvw !important;
+  position: relative;
+}
+.Logo {
+  margin-left: 20px;
+  font-size: 38px;
+  color: #ffffff;
+  font-weight: 400;
+  font-family: 'Lobster_Two';
+}
+.HeaderStyle {
+  height: 52px;
+  display: flex;
+  justify-content: space-around !important;
+  align-items: center;
+  width: 80%;
+}
+
+.Image {
+  border-radius: 50%;
+  border: 1px solid #c79439;
+  width: 43.01px;
+  height: 43.01px;
+}
+.UserName {
+  color: #ffffff;
+  width: 93px;
+  height: 24px;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.ItemHeader {
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 18px;
+  font-family: 'Inter';
+}
+.ItemHome {
+  color: #bf9742;
+  font-weight: 400;
+  font-size: 18px;
+  font-family: 'Inter';
+}
+
+.AppItemHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #bf9742;
+  font-weight: 400;
+  font-size: 20px;
+  width: 50% !important;
+}
+
+.AppUserInfo {
+  width: 152px;
+  height: 52px;
+  gap: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Inter';
+}
+
+.SearchInput {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  /* padding-left:10px; */
+  color: #ffffff;
+}
+
+.SearchInput::placeholder {
+  color: #bf9742;
+  padding-left: 20px;
+}
+.ContainerSearch {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid #d9d9d9;
+  width: 300px;
+  border-radius: 15px;
+}
+.StyleAppMobile {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #2e2727;
+  height: 100% !important;
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  animation: slideInFromLeft 0.8s linear;
+  -webkit-animation: slideInFromLeft 0.8s linear;
+}
+.Menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 20px;
+}
+
+.AppUserNameAndCloseIcon {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+/* --------- Mobile S --------- */
+@media (mxa-width: 320px) {
+  .AppItemHeader {
+    display: flex;
+    margin-top: 30px;
+    height: 50%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: #bf9742;
+    font-weight: 400;
+    font-size: 20px;
+    width: 420px;
+  }
+  .ContainerSearch {
+    width: 250px;
+  }
+  .HeaderStyle {
+    height: 52px;
+    display: flex;
+    justify-content: space-around !important;
+    align-items: center;
+    width: 80%;
+  }
+  .Menu {
+    position: absolute;
+    margin-right: 20px;
+  }
+  .Logo {
+    position: absolute;
+  }
+}
+/* --------- Mobile M --------- */
+@media (min-width: 321px) and (max-width: 375px) {
+  .AppItemHeader {
+    display: flex;
+    margin-top: 30px;
+    height: 50%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: #bf9742;
+    font-weight: 400;
+    font-size: 20px;
+    width: 420px;
+  }
+  .ContainerSearch {
+    width: 250px;
+  }
+  .Menu {
+    position: absolute;
+    margin-right: 20px;
+  }
+  .Logo {
+    position: absolute;
+  }
+}
+
+/* --------- Mobile L --------- */
+@media (min-width: 376px) and (max-width: 425px) {
+  .AppItemHeader {
+    display: flex;
+    height: 50%;
+    margin-top: 30px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: #bf9742;
+    font-weight: 400;
+    font-size: 20px;
+    width: 420px;
+  }
+  .ContainerSearch {
+    width: 250px;
+  }
+  .Menu {
+    position: absolute;
+    margin-right: 20px;
+  }
+  .Logo {
+    position: absolute;
+  }
+}
+
+/* --------- Tablet --------- */
+@media (min-width: 426px) and (max-width: 768px) {
+  .AppItemHeader {
+    display: flex;
+    margin-top: 30px;
+    height: 50%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: #bf9742;
+    font-weight: 400;
+    font-size: 20px;
+    width: 420px;
+  }
+  .ContainerSearch {
+    width: 250px;
+  }
+  .Menu {
+    position: absolute;
+    margin-right: 20px;
+  }
+  .Logo {
+    position: absolute;
+  }
+}
+
+/* --------- Laptop S --------- */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .HeaderStyle {
+    justify-content: space-between !important;
+  }
+
+  .Image {
+    border-radius: 50%;
+    border: 1px solid #c79439;
+    width: 40px;
+    height: 40px;
+  }
+  .UserName {
+    width: 80px;
+    font-size: 15px;
+  }
+
+  .ItemHeader {
+    font-size: 15px;
+  }
+  .ItemHome {
+    font-size: 15px;
+  }
+
+  .AppItemHeader {
+    justify-content: space-around;
+    font-size: 15px;
+    width: 50% !important;
+  }
+
+  .AppUserInfo {
+    width: 130px;
+  }
+
+  .ContainerSearch {
+    width: 180px;
+  }
+  .StyleAppMobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #2e2727;
+    height: 100% !important;
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    animation: slideInFromLeft 0.8s linear;
+    -webkit-animation: slideInFromLeft 0.8s linear;
+  }
+}
+
+/* --------- Laptop L --------- */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .ContainerSearch {
+    width: 220px;
+  }
+}
+
+/* --------- Desktop --------- */
+@media (min-width: 1441px) and (max-width: 1824px) {
+}
+
+/* --------- Big Screen --------- */
+@media (min-width: 1825px) {
+}

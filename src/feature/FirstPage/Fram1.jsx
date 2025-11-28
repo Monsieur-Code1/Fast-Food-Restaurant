@@ -1,0 +1,117 @@
+import { useState } from 'react';
+import "./styleFram1.css"
+
+import useScreens from '../../hook/useMediaQuery';
+import Header from '../header/Header';
+
+
+
+export default function Frame1() {
+  const [meal, setMeal] = useState('Burger');
+  const [active, setActive] = useState(1);
+  const {
+    mobileS,
+    mobileM,
+    mobileL,
+    tablet,
+    laptopS,
+    laptopL,
+    desktop,
+    bigScreen,
+  } = useScreens();
+
+  return (
+    <div className="AppContentFrame">
+      <Header/>
+      <h1 className="Title">Fast Food Restaurant</h1>
+      <div className="ParagraphContent">
+        <p className="SpanText">
+          Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente
+          ad mollitia
+        </p>
+        <p className="SpanText">
+          laborum quam quisquam esse error unde. Tempora ex doloremque, labore,
+          sunt repellat
+        </p>
+        <p className="SpanText">
+          dolore, iste magni quos nihil ducimus libero ipsam.
+        </p>
+      </div>
+      <div className="AppButtonOrder">
+        <button className="ButtonOrder">ORDER NOW</button>
+        <img className="ImgVector" src="/images/Vector 4.png" alt="Vector" />
+        <div className="TastyThursdays">
+          {meal === 'Burger' && (
+            <>
+              <p className="Thursdays">Tasty Thursdays</p>
+              <p className="Off">20% Off</p>
+            </>
+          )}
+          {meal === 'Pizza' && (
+            <>
+              <p className="Thursdays">Pizza Days</p>
+              <p className="Off">15% Off</p>
+            </>
+          )}
+          {meal === 'Pasta' && (
+            <>
+              <p className="Thursdays">Delicious Pasta</p>
+              <p className="Off">25% Off</p>
+            </>
+          )}
+
+          <img className="ImagCircle" src="/images/Vector 6.png" />
+        </div>
+      </div>
+      {meal === 'Burger' && (
+        <img
+          className="ImageStyle"
+          key="Burger"
+          src="/images/Burger.png"
+          alt="Burger"
+        />
+      )}
+      {meal === 'Pizza' && (
+        <img
+          className="ImageStyle"
+          key="Pizza"
+          src="/images/pizza.png"
+          alt="Pizza"
+        />
+      )}
+      {meal === 'Pasta' && (
+        <img
+          className="ImageStyle"
+          key="Pasta"
+          src="/images/Pasta.png"
+          alt="Pasta"
+        />
+      )}
+
+      <div className="ContainerSpan">
+        <span
+          className={`${meal == 'Burger' && 'SpanTreeDotToShowMealActive'} SpanTreeDotToShowMeal`}
+          onClick={() => {
+            (setMeal('Burger'), setActive(1));
+          }}
+        ></span>
+        <span
+          className={`${meal == 'Pizza' && 'SpanTreeDotToShowMealActive'} SpanTreeDotToShowMeal`}
+          onClick={() => {
+            (setMeal('Pizza'), setActive(2));
+          }}
+        ></span>
+        <span
+          className={`${meal == 'Pasta' && 'SpanTreeDotToShowMealActive'} SpanTreeDotToShowMeal`}
+          onClick={() => {
+            (setMeal('Pasta'), setActive(3));
+          }}
+        ></span>
+      </div>
+    </div>
+  );
+}
+
+
+
+
