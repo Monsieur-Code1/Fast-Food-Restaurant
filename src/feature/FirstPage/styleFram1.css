@@ -1,21 +1,25 @@
+* {
+  padding: 0;
+  margin: 0;
+}
 .Title {
   font-family: 'JockeyOne';
   font-weight: 400;
   width: 100%;
   text-align: center;
   /* font-size: 80px; */
-  font-size: 40px;
+  font-size: 80px;
   color: #ffffff;
   /* margin-top: 121px; */
-  margin-top: 20px;
+  margin-top: 10px;
 }
+
 .AppContentFrame {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   text-align: center;
-  padding: 0 200px;
   direction: ltr;
   position: relative;
   width: 100%;
@@ -25,16 +29,7 @@
   width: 100%;
   /* height: 1240px; */
 }
-.ParagraphContent {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  color: #ffffff;
-  font-family: 'Inter';
-  font-size: 22px;
-  width: 100%;
-}
+
 .ButtonOrder {
   box-shadow: 3px 4px #fefefe80;
   width: 300px;
@@ -46,8 +41,10 @@
   font-family: 'Inter';
   font-size: 30px;
 }
+
 .ImageStyle {
-  height: 200px;
+  width: 100%;
+  height: 100%;
   animation: slideInFromLeft 0.5s forwards;
   -webkit-animation: slideInFromLeft 0.5s forwards;
 }
@@ -101,7 +98,17 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 292px;
+  width: 200px;
+  margin: 0;
+  padding: 10px;
+}
+.ContainerSpan {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 200px;
+  margin: 0;
+  padding: 10px;
 }
 .SpanTreeDotToShowMeal {
   display: inline-block;
@@ -113,8 +120,28 @@
   background-color: #bf9742;
 }
 .SpanText {
+  width: 60%;
+  font-size: 20px;
+  color: #ffffff;
+  font-family: 'Inter';
+}
+.container-btn-and-img {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   width: 100%;
-  font-size: 15px;
+  position: relative;
+  height: 310px;
+  margin-bottom: 0;
+  padding: 0;
+}
+.AppImageStyle {
+  position: absolute;
+  bottom: 0;
+  margin-right: 170px;
+  height: 50px !important;
+  width: 150px !important;
 }
 .SpanTreeDotToShowMealActive {
   background-color: #d9d9d9;
@@ -133,20 +160,25 @@
 /* --------- Mobile S --------- */
 @media (max-width: 320px) {
   .Title {
-    font-size: 30px;
+    font-size: 35px;
     margin-top: 15px;
   }
   .AppContentFrame {
-    padding: 0 2px 10px 2px;
+    padding: 0 2px 5px 2px;
     width: 100% !important;
     height: 100dvh;
   }
-  .ParagraphContent {
-    font-size: 10px !important;
+  .AppImageStyle {
+    position: absolute;
+    bottom: 0.9;
+    margin-right: 17px;
+    height: 170px !important;
+    width: 170px !important;
   }
+
   .ButtonOrder {
-    margin: 10px;
-    width: 100px;
+    margin: 5px;
+    width: 90px;
     height: 50px;
     font-size: 13px;
     border-radius: 5px;
@@ -154,37 +186,44 @@
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
-}
-  .ImageStyle {
-    height: 80px;
   }
 
   .AppButtonOrder {
-    margin-top: 10px;
+    margin-top: 5px;
   }
-
+  .ContainerSpan {
+    width: 150px;
+  }
   .ImgVector {
-    width: 70px;
-    height: 50px;
-    padding: 20px 10px 0 20px;
+    width: 40px;
+    height: 30px;
+    padding: 10px 5px 0 5px;
     /* padding-top: 30px; */
   }
 
   .TastyThursdays {
-    width: 100px;
+    width: 80px;
     padding: 5px;
-    height: 120px;
+    height: 90px;
     position: relative;
-    padding-top: 30px;
+    padding-top: 10px;
   }
   .Thursdays {
-    font-size: 18px !important;
+    font-size: 15px !important;
   }
   .Off {
-    font-size: 18px;
+    font-size: 15px;
   }
 
-  .ContainerSpan {
+  .SpanText {
+    width: 95%;
+    font-size: 15px;
+    color: #ffffff;
+    font-family: 'Inter';
+  }
+
+  .AppImageStyle {
+    height: 200px;
     width: 250px;
   }
 }
@@ -193,19 +232,16 @@
 /* --------- Mobile M --------- */
 @media (min-width: 321px) and (max-width: 375px) {
   .Title {
-    font-size: 30px;
+    font-size: 43px;
     margin-top: 10px;
   }
   .AppContentFrame {
-    padding: 0 5px 10px 5px;
     direction: ltr;
     position: relative;
     width: 100% !important;
     height: 100dvh;
   }
-  .ParagraphContent {
-    font-size: 15px;
-  }
+
   .ButtonOrder {
     margin: 10px;
     width: 150px;
@@ -217,10 +253,10 @@
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
   }
-  .ImageStyle {
-    height: 100px;
-    animation: slideInFromLeft 0.5s forwards;
-    -webkit-animation: slideInFromLeft 0.5s forwards;
+
+  .AppImageStyle {
+    height: 200px;
+    width: 250px;
   }
 
   .AppButtonOrder {
@@ -248,25 +284,32 @@
     font-size: 18px;
   }
 
-  .ContainerSpan {
-    width: 250px;
+  .SpanText {
+    width: 95%;
+    font-size: 15px;
+    color: #ffffff;
+    font-family: 'Inter';
+  }
+  .AppImageStyle {
+    position: absolute;
+    bottom: 0;
+    margin-right: 17px;
+    height: 150px !important;
+    width: 150px !important;
   }
 }
 /* ============================================= */
 /* --------- Mobile L --------- */
 @media (min-width: 376px) and (max-width: 425px) {
-   .Title {
+  .Title {
     font-size: 40px;
-    margin-top: 15px;
+    margin-top: 10px;
   }
   .AppContentFrame {
-    padding: 0 2px 10px 2px;
     width: 100% !important;
     height: 100dvh;
   }
-  .ParagraphContent {
-    font-size: 12px !important;
-  }
+
   .ButtonOrder {
     margin: 10px;
     width: 150px;
@@ -277,12 +320,12 @@
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
-}
-  .ImageStyle {
+  }
+
+  .AppImageStyle {
     height: 140px;
     width: 170px;
   }
-
   .AppButtonOrder {
     margin-top: 10px;
   }
@@ -308,25 +351,34 @@
     font-size: 18px;
   }
 
-  .ContainerSpan {
-    width: 250px;
+  .SpanText {
+    width: 90%;
+    text-align: center;
+    font-size: 15px;
+    color: #ffffff;
+    font-family: 'Inter';
+  }
+  .AppImageStyle {
+    position: absolute;
+    bottom: 0;
+    margin-right: 17px;
+    height: 180px !important;
+    width: 180px !important;
   }
 }
 /* ============================================= */
 /* --------- Tablet --------- */
 @media (min-width: 426px) and (max-width: 768px) {
-    .Title {
-    font-size: 40px;
-    margin-top: 15px;
+  .Title {
+    font-size: 60px !important;
+    margin-top: 10px;
   }
   .AppContentFrame {
     padding: 0 2px 10px 2px;
     width: 100% !important;
     height: 100dvh;
   }
-  .ParagraphContent {
-    font-size: 12px !important;
-  }
+
   .ButtonOrder {
     margin: 10px;
     width: 160px;
@@ -337,12 +389,12 @@
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
-}
-  .ImageStyle {
+  }
+
+  .AppImageStyle {
     height: 160px;
     width: 180px;
   }
-
   .AppButtonOrder {
     margin-top: 10px;
   }
@@ -368,17 +420,65 @@
     font-size: 25px;
   }
 
-  .ContainerSpan {
-    width: 250px;
+  .SpanText {
+    width: 85%;
+    text-align: center;
+    font-size: 20px;
+    color: #ffffff;
+    font-family: 'Inter';
+  }
+  .Title {
+    font-size: 50px !important;
+    margin-top: 10px;
+  }
+      .AppImageStyle {
+    position: absolute;
+    bottom: 0;
+    margin-right: 17px;
+    height: 170px !important;
+    width: 170px !important;
   }
 }
 /* ============================================= */
 /* --------- Laptop S --------- */
 @media (min-width: 769px) and (max-width: 1024px) {
+  .SpanText {
+    width: 90% !important;
+    font-size: 20px;
+    color: #ffffff;
+    font-family: 'Inter';
+  }
+  .Title {
+    font-size: 60px !important;
+    margin-top: 10px;
+  }
+ 
+      .AppImageStyle {
+    position: absolute;
+    bottom: 0;
+    margin-right: 50px;
+    height: 200px !important;
+    width: 250px !important;
+  }
 }
 /* ============================================= */
 /* --------- Laptop L --------- */
 @media (min-width: 1025px) and (max-width: 1440px) {
+  .Title {
+    font-size: 70px !important;
+    margin-top: 10px;
+  }
+  .AppImageStyle {
+    height: 200px;
+    width: 310px;
+  }
+    .AppImageStyle {
+    position: absolute;
+    bottom: 0;
+    margin-right: 50px;
+    height: 200px !important;
+    width: 250px !important;
+  }
 }
 /* ============================================= */
 /* --------- Desktop --------- */
