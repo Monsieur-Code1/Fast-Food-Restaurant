@@ -23,7 +23,7 @@ export default function Meals() {
                   <p className="description-card">{el.description}</p>
                   <div className="container-rating">
                     <img
-                      src="/public/images/star.png"
+                      src="/images/star.png"
                       alt="star"
                       className="star-rating"
                     />

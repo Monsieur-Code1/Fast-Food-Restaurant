@@ -6,7 +6,7 @@ export const meal = [
       'Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque',
     rating: 4.3,
     price: 23.0,
-    src: '/public/images/meals/pizza1.png',
+    src: '/images/meals/pizza1.png',
   },
   {
     id: 2,
