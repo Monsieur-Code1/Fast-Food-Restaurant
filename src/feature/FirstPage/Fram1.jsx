@@ -14,7 +14,7 @@ useEffect(() => {
       setMeal(meals[next - 1]); // نحدّث اسم الوجبة بناءً على active
       return next;
     });
-  }, 3000);
+  }, 2000);
 
   return () => clearInterval(interval); // تنظيف الـ interval عند فك المكون
 }, []);

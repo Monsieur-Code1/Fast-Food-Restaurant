@@ -46,8 +46,8 @@
 .ImageStyle {
   width: 100%;
   height: 100%;
-  animation: slideInFromLeft 0.5s forwards;
-  -webkit-animation: slideInFromLeft 0.5s forwards;
+  animation: slideInFromLeft 0.8s forwards;
+  -webkit-animation: slideInFromLeft 0.8s forwards;
 }
 
 .AppButtonOrder {
