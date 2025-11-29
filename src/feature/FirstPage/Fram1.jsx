@@ -1,23 +1,23 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './styleFram1.css';
 
-import useScreens from '../../hook/useMediaQuery';
 import Header from '../header/Header';
 
 export default function Frame1() {
   const [meal, setMeal] = useState('Burger');
+  const meals = ['Burger', 'Pizza', 'Pasta'];
   const [active, setActive] = useState(1);
-  const {
-    mobileS,
-    mobileM,
-    mobileL,
-    tablet,
-    laptopS,
-    laptopL,
-    desktop,
-    bigScreen,
-  } = useScreens();
+useEffect(() => {
+  const interval = setInterval(() => {
+    setActive((prev) => {
+      const next = prev === meals.length ? 1 : prev + 1; // يدوّر بين 1 و 2 و 3
+      setMeal(meals[next - 1]); // نحدّث اسم الوجبة بناءً على active
+      return next;
+    });
+  }, 3000);
 
+  return () => clearInterval(interval); // تنظيف الـ interval عند فك المكون
+}, []);
   return (
     <div className="AppContentFrame">
       <Header />
@@ -28,7 +28,7 @@ export default function Frame1() {
         mollitia laborum quam quisquam esse error unde. Tempora ex doloremque,
         labore,sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
       </p>
-      <div className='container-btn-and-img'>
+      <div className="container-btn-and-img">
         <div className="AppButtonOrder">
           <button className="ButtonOrder">ORDER NOW</button>
           <img className="ImgVector" src="/images/Vector 4.png" alt="Vector" />
@@ -86,21 +86,14 @@ export default function Frame1() {
       <div className="ContainerSpan">
         <span
           className={`${meal == 'Burger' && 'SpanTreeDotToShowMealActive'} SpanTreeDotToShowMeal`}
-          onClick={() => {
-            (setMeal('Burger'), setActive(1));
-          }}
         ></span>
         <span
           className={`${meal == 'Pizza' && 'SpanTreeDotToShowMealActive'} SpanTreeDotToShowMeal`}
-          onClick={() => {
-            (setMeal('Pizza'), setActive(2));
-          }}
+         
         ></span>
         <span
           className={`${meal == 'Pasta' && 'SpanTreeDotToShowMealActive'} SpanTreeDotToShowMeal`}
-          onClick={() => {
-            (setMeal('Pasta'), setActive(3));
-          }}
+         
         ></span>
       </div>
     </div>

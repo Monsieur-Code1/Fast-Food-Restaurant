@@ -69,6 +69,12 @@
   height: 130px;
   position: relative;
   padding-top: 30px;
+  /* border:2px solid white;
+  border-radius: 40px 60px 60px 70px;
+  -webkit-border-radius: 40px 60px 60px 70px;
+  -moz-border-radius: 40px 60px 60px 70px;
+  -ms-border-radius: 40px 60px 60px 70px;
+  -o-border-radius: 40px 60px 60px 70px; */
 }
 .Thursdays {
   font-size: 25;
@@ -160,7 +166,7 @@
 /* --------- Mobile S --------- */
 @media (max-width: 320px) {
   .Title {
-    font-size: 35px;
+    font-size: 30px;
     margin-top: 15px;
   }
   .AppContentFrame {
@@ -170,8 +176,8 @@
   }
   .AppImageStyle {
     position: absolute;
-    bottom: 0.9;
-    margin-right: 17px;
+    bottom: 10px;
+    margin-right: 5px;
     height: 170px !important;
     width: 170px !important;
   }
@@ -217,14 +223,14 @@
 
   .SpanText {
     width: 95%;
-    font-size: 15px;
+    font-size: 13px;
     color: #ffffff;
     font-family: 'Inter';
   }
 
   .AppImageStyle {
-    height: 200px;
-    width: 250px;
+    height: 120px !important;
+    width: 140px !important;
   }
 }
 
@@ -232,7 +238,7 @@
 /* --------- Mobile M --------- */
 @media (min-width: 321px) and (max-width: 375px) {
   .Title {
-    font-size: 43px;
+    font-size: 35px;
     margin-top: 10px;
   }
   .AppContentFrame {
@@ -243,10 +249,10 @@
   }
 
   .ButtonOrder {
-    margin: 10px;
-    width: 150px;
+    margin: 5px;
+    width: 120px;
     height: 50px;
-    font-size: 18px;
+    font-size: 15px;
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -255,7 +261,7 @@
   }
 
   .AppImageStyle {
-    height: 200px;
+    height: 180px;
     width: 250px;
   }
 
@@ -264,8 +270,8 @@
   }
 
   .ImgVector {
-    width: 100px;
-    height: 50px;
+    width: 50px !important;
+    height: 40px !important;
     padding: 20px 10px 0 20px;
     /* padding-top: 30px; */
   }
@@ -285,7 +291,7 @@
   }
 
   .SpanText {
-    width: 95%;
+    width: 98%;
     font-size: 15px;
     color: #ffffff;
     font-family: 'Inter';
@@ -293,7 +299,7 @@
   .AppImageStyle {
     position: absolute;
     bottom: 0;
-    margin-right: 17px;
+    margin-right: 5px;
     height: 150px !important;
     width: 150px !important;
   }
@@ -338,11 +344,12 @@
   }
 
   .TastyThursdays {
-    width: 120px;
+    width: 80px;
     padding: 5px;
-    height: 120px;
+    height: 110px;
     position: relative;
     padding-top: 30px;
+    
   }
   .Thursdays {
     font-size: 18px !important;
@@ -431,7 +438,7 @@
     font-size: 50px !important;
     margin-top: 10px;
   }
-      .AppImageStyle {
+  .AppImageStyle {
     position: absolute;
     bottom: 0;
     margin-right: 17px;
@@ -452,8 +459,8 @@
     font-size: 60px !important;
     margin-top: 10px;
   }
- 
-      .AppImageStyle {
+
+  .AppImageStyle {
     position: absolute;
     bottom: 0;
     margin-right: 50px;
@@ -472,7 +479,7 @@
     height: 200px;
     width: 310px;
   }
-    .AppImageStyle {
+  .AppImageStyle {
     position: absolute;
     bottom: 0;
     margin-right: 50px;
@@ -488,3 +495,4 @@
 /* --------- Big Screen --------- */
 @media (min-width: 1825px) {
 }
+
