@@ -16,6 +16,7 @@
 
 .AppContentFrame {
   display: flex;
+  overflow: hidden;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
@@ -69,12 +70,6 @@
   height: 130px;
   position: relative;
   padding-top: 30px;
-  /* border:2px solid white;
-  border-radius: 40px 60px 60px 70px;
-  -webkit-border-radius: 40px 60px 60px 70px;
-  -moz-border-radius: 40px 60px 60px 70px;
-  -ms-border-radius: 40px 60px 60px 70px;
-  -o-border-radius: 40px 60px 60px 70px; */
 }
 .Thursdays {
   font-size: 25;
@@ -146,8 +141,8 @@
   position: absolute;
   bottom: 0;
   margin-right: 170px;
-  height: 50px !important;
-  width: 150px !important;
+  height: 220px !important;
+  width: 200px !important;
 }
 .SpanTreeDotToShowMealActive {
   background-color: #d9d9d9;
@@ -177,9 +172,9 @@
   .AppImageStyle {
     position: absolute;
     bottom: 10px;
-    margin-right: 5px;
-    height: 170px !important;
-    width: 170px !important;
+    margin-right: 20px;
+    height: 200px !important;
+    width: 220px !important;
   }
 
   .ButtonOrder {
@@ -207,13 +202,6 @@
     /* padding-top: 30px; */
   }
 
-  .TastyThursdays {
-    width: 80px;
-    padding: 5px;
-    height: 90px;
-    position: relative;
-    padding-top: 10px;
-  }
   .Thursdays {
     font-size: 15px !important;
   }
@@ -227,10 +215,12 @@
     color: #ffffff;
     font-family: 'Inter';
   }
-
-  .AppImageStyle {
-    height: 120px !important;
-    width: 140px !important;
+  .TastyThursdays {
+    width: 120px;
+    padding: 10px;
+    height: 100px;
+    position: relative;
+    padding-top: 30px;
   }
 }
 
@@ -258,11 +248,6 @@
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
-  }
-
-  .AppImageStyle {
-    height: 180px;
-    width: 250px;
   }
 
   .AppButtonOrder {
@@ -299,9 +284,16 @@
   .AppImageStyle {
     position: absolute;
     bottom: 0;
-    margin-right: 5px;
-    height: 150px !important;
-    width: 150px !important;
+    margin-right: 20px;
+    height: 200px !important;
+    width: 250px !important;
+  }
+  .TastyThursdays {
+    width: 100px;
+    padding: 10px;
+    height: 120px;
+    position: relative;
+    padding-top: 30px;
   }
 }
 /* ============================================= */
@@ -328,28 +320,14 @@
     -o-border-radius: 5px;
   }
 
-  .AppImageStyle {
-    height: 140px;
-    width: 170px;
-  }
   .AppButtonOrder {
     margin-top: 10px;
   }
-
   .ImgVector {
     width: 90px;
     height: 50px;
     padding: 20px 10px 0 20px;
     /* padding-top: 30px; */
-  }
-
-  .TastyThursdays {
-    width: 80px;
-    padding: 5px;
-    height: 110px;
-    position: relative;
-    padding-top: 30px;
-    
   }
   .Thursdays {
     font-size: 18px !important;
@@ -357,9 +335,8 @@
   .Off {
     font-size: 18px;
   }
-
   .SpanText {
-    width: 90%;
+    width: 98% !important;
     text-align: center;
     font-size: 15px;
     color: #ffffff;
@@ -368,9 +345,16 @@
   .AppImageStyle {
     position: absolute;
     bottom: 0;
-    margin-right: 17px;
-    height: 180px !important;
-    width: 180px !important;
+    margin-right: 20px;
+    height: 200px !important;
+    width: 250px !important;
+  }
+  .TastyThursdays {
+    width: 100px;
+    padding: 10px;
+    height: 120px;
+    position: relative;
+    padding-top: 30px;
   }
 }
 /* ============================================= */
@@ -398,10 +382,6 @@
     -o-border-radius: 5px;
   }
 
-  .AppImageStyle {
-    height: 160px;
-    width: 180px;
-  }
   .AppButtonOrder {
     margin-top: 10px;
   }
@@ -413,13 +393,6 @@
     /* padding-top: 30px; */
   }
 
-  .TastyThursdays {
-    width: 140px;
-    padding: 5px;
-    height: 120px;
-    position: relative;
-    padding-top: 30px;
-  }
   .Thursdays {
     font-size: 20px !important;
   }
@@ -428,9 +401,9 @@
   }
 
   .SpanText {
-    width: 85%;
+    width: 93%;
     text-align: center;
-    font-size: 20px;
+    font-size: 18px;
     color: #ffffff;
     font-family: 'Inter';
   }
@@ -441,9 +414,16 @@
   .AppImageStyle {
     position: absolute;
     bottom: 0;
-    margin-right: 17px;
-    height: 170px !important;
-    width: 170px !important;
+    margin-right: 70px;
+    height: 190px !important;
+    width: 250px !important;
+  }
+  .TastyThursdays {
+    width: 120px;
+    padding: 10px;
+    height: 140px;
+    position: relative;
+    padding-top: 30px;
   }
 }
 /* ============================================= */
@@ -463,14 +443,28 @@
   .AppImageStyle {
     position: absolute;
     bottom: 0;
-    margin-right: 50px;
-    height: 200px !important;
-    width: 250px !important;
+    margin-right: 70px;
+    height: 220px !important;
+    width: 300px !important;
+    /* background-color: red; */
+  }
+  .TastyThursdays {
+    width: 140px;
+    padding: 10px;
+    height: 160px;
+    position: relative;
+    padding-top: 30px;
   }
 }
 /* ============================================= */
 /* --------- Laptop L --------- */
 @media (min-width: 1025px) and (max-width: 1440px) {
+  .SpanText {
+    width: 85% !important;
+    font-size: 20px;
+    color: #ffffff;
+    font-family: 'Inter';
+  }
   .Title {
     font-size: 70px !important;
     margin-top: 10px;
@@ -483,8 +477,23 @@
     position: absolute;
     bottom: 0;
     margin-right: 50px;
-    height: 200px !important;
-    width: 250px !important;
+    height: 220px !important;
+    width: 270px !important;
+  }
+  .AppImageStyle {
+    position: absolute;
+    bottom: 0;
+    margin-right: 70px;
+    height: 220px !important;
+    width: 300px !important;
+    /* background-color: red; */
+  }
+  .TastyThursdays {
+    width: 140px;
+    padding: 10px;
+    height: 160px;
+    position: relative;
+    padding-top: 30px;
   }
 }
 /* ============================================= */
@@ -495,4 +504,3 @@
 /* --------- Big Screen --------- */
 @media (min-width: 1825px) {
 }
-
