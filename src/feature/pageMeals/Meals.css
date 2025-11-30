@@ -37,11 +37,12 @@
   height: 67px;
   margin-top: 20px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 }
 .container-btn-filter button {
   width: 116px;
+  margin: 0 5px;
   height: 67px;
   font-family: 'Inter';
   font-size: 30px;
@@ -191,14 +192,15 @@
     font-size: 40px;
   }
   .container-btn-filter {
-    width: 90%;
+    width: 95%;
+    margin: 10px !important;
     height: 67px;
     margin-top: 5px;
   }
   .container-btn-filter button {
-    width: 50px;
-    height: 50px;
-    font-size: 15px;
+    width: 40px;
+    height: 40px;
+    font-size: 12px;
   }
   .btnFilterActive {
     background-color: #ffffff;
@@ -259,12 +261,12 @@
     font-size: 50px;
   }
   .container-btn-filter {
-    width: 90%;
+    width: 95%;
     height: 67px;
     margin-top: 5px;
   }
   .container-btn-filter button {
-    width: 50px;
+    width: 55px;
     height: 50px;
     font-size: 15px;
   }
@@ -322,12 +324,12 @@
     font-size: 60px;
   }
   .container-btn-filter {
-    width: 90%;
+    width: 95%;
     height: 67px;
     margin-top: 5px;
   }
   .container-btn-filter button {
-    width: 70px;
+    width: 60px;
     height: 50px;
     font-size: 15px;
   }
@@ -390,7 +392,7 @@
     margin-top: 5px;
   }
   .container-btn-filter button {
-    width: 90px;
+    width: 70px;
     height: 50px;
     font-size: 15px;
   }
