@@ -39,7 +39,7 @@
   display: flex;
   justify-content: space-around !important;
   align-items: center;
-  width: 80%;
+  width: 90%;
 }
 
 .Image {
@@ -296,7 +296,7 @@
   }
 
   .ContainerSearch {
-    width: 180px;
+    width: 210px !important;
   }
   .StyleAppMobile {
     display: flex;
@@ -322,14 +322,20 @@
 /* --------- Laptop L --------- */
 @media (min-width: 1025px) and (max-width: 1440px) {
   .ContainerSearch {
-    width: 220px;
+    width: 310px;
   }
 }
 
 /* --------- Desktop --------- */
 @media (min-width: 1441px) and (max-width: 1824px) {
+   .ContainerSearch {
+    width: 350px;
+  }
 }
 
 /* --------- Big Screen --------- */
 @media (min-width: 1825px) {
+   .ContainerSearch {
+    width: 380px;
+  }
 }
