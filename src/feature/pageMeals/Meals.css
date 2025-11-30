@@ -44,7 +44,6 @@
 .btnFilterActive {
   background-color: #ffffff;
   color: #61481c;
-
 }
 .card {
   width: 380px;
@@ -160,14 +159,22 @@
   -o-border-radius: 50px 0px 50px 0px;
 }
 .line-hor {
-  height: 234.63px;
-  width: 1px;
+  position: absolute;
+  width: 90%;
+  height: 2px;
   background-color: #bf9742;
+  top: 0;
+  right: 0;
+  margin-top: 10px;
 }
 .line-vert {
-  height: 1px;
+  position: absolute;
+  height: 75%;
   background-color: #bf9742;
-  width: 222px;
+  width: 2px;
+  top: 0;
+  right: 0 !important;
+  margin-right: 20px;
 }
 .btn-show-more {
   width: 446px;
@@ -241,16 +248,6 @@
     right: 0;
   }
 
-  .line-hor {
-    height: 234.63px;
-    width: 1px;
-    background-color: #bf9742;
-  }
-  .line-vert {
-    height: 1px;
-    background-color: #bf9742;
-    width: 222px;
-  }
   .btn-show-more {
     width: 50%;
   }
@@ -306,16 +303,6 @@
     width: 170px;
   }
 
-  .line-hor {
-    height: 234.63px;
-    width: 1px;
-    background-color: #bf9742;
-  }
-  .line-vert {
-    height: 1px;
-    background-color: #bf9742;
-    width: 222px;
-  }
   .btn-show-more {
     width: 50%;
   }
@@ -370,16 +357,6 @@
     width: 190px;
   }
 
-  .line-hor {
-    height: 234.63px;
-    width: 1px;
-    background-color: #bf9742;
-  }
-  .line-vert {
-    height: 1px;
-    background-color: #bf9742;
-    width: 222px;
-  }
   .btn-show-more {
     width: 50%;
   }
@@ -404,7 +381,7 @@
     background-color: #ffffff;
     color: #61481c;
   }
- 
+
   .containerCards {
     padding: 10px;
   }
@@ -426,20 +403,9 @@
     width: 170px;
   }
 
-  .line-hor {
-    height: 234.63px;
-    width: 1px;
-    background-color: #bf9742;
-  }
-  .line-vert {
-    height: 1px;
-    background-color: #bf9742;
-    width: 222px;
-  }
   .btn-show-more {
     width: 50%;
   }
-  
 }
 /* ============================================= */
 /* --------- Laptop S --------- */
@@ -490,16 +456,6 @@
     width: 191px;
   }
 
-  .line-hor {
-    height: 234.63px;
-    width: 1px;
-    background-color: #bf9742;
-  }
-  .line-vert {
-    height: 1px;
-    background-color: #bf9742;
-    width: 222px;
-  }
   .btn-show-more {
     width: 50%;
   }
