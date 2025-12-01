@@ -1,0 +1,405 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.containerPage {
+  background-color: #171715;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+}
+.containerTitle {
+  margin: 0 0 20px 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  padding: 0;
+  height: 10% !important;
+  margin-bottom: 20px;
+}
+.titlePage {
+  width: 100%;
+  text-align: center;
+  font-family: 'JockeyOne';
+  font-weight: bolder;
+  font-size: 80px !important;
+  color: #fdf8f8;
+}
+.imgUnderLine {
+  height: 20px;
+}
+.ContainerTextAndPhoto {
+  display: grid;
+  height: 88%;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.containerText {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  text-align: start;
+  width: 40%;
+  height: 100%;
+  /* padding:  ; */
+}
+.h4 {
+  font-family: 'JockeyOne';
+  font-weight: bolder;
+  font-size: 80px;
+  color: #fdf8f8;
+}
+.paragraph {
+  color: #fdf8f8;
+  font-family: 'Inter';
+  font-size: 30px;
+  align-items: start;
+  margin: 30px;
+}
+.containerBtnOrder {
+  /* width: 50%; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.btnOrderNow {
+  color: #ffffff;
+  font-family: 'Inter';
+  width: 327px;
+  height: 72px;
+  background-color: #61481c;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+}
+.photoVector {
+  margin-top: 30px;
+  margin-left: 20px;
+}
+.PhotoMan {
+  width: 40% !important;
+  height: 82% !important;
+  /* object-fit: contain; */
+  /* display: block; */
+}
+
+/* --------- Mobile S --------- */
+@media (max-width: 320px) {
+  .containerPage {
+    height: auto;
+  }
+  .ContainerTextAndPhoto {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .titlePage {
+    font-size: 25px !important;
+  }
+  .imgUnderLine {
+    height: 5px;
+    width: 120px;
+  }
+  .containerText {
+    width: 100%;
+    padding: 3px 7px;
+    height: auto;
+  }
+  .h4 {
+    font-size: 22px;
+  }
+  .paragraph {
+    font-size: 13px;
+    padding: 5px;
+    margin: 0;
+  }
+  .btnOrderNow {
+    font-size: 15px;
+    width: 115px;
+    height: 35px;
+  }
+  .PhotoMan {
+    width: 90% !important;
+    height: 280px !important;
+  }
+  .photoVector {
+    width: 40px;
+  }
+}
+
+/* ============================================= */
+/* --------- Mobile M --------- */
+@media (min-width: 320px) and (max-width: 375px) {
+  .containerPage {
+    height: auto;
+  }
+  .ContainerTextAndPhoto {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .titlePage {
+    font-size: 30px !important;
+  }
+  .imgUnderLine {
+    height: 7px;
+    width: 120px;
+  }
+  .containerText {
+    width: 100%;
+    padding: 5px 10px;
+    height: auto;
+  }
+  .h4 {
+    font-size: 25px;
+  }
+  .paragraph {
+    font-size: 15px;
+    padding: 5px;
+    margin: 0;
+  }
+  .btnOrderNow {
+    font-size: 20px;
+    width: 130px;
+    height: 35px;
+  }
+  .PhotoMan {
+    width: 90% !important;
+    height: 300px !important;
+  }
+  .photoVector {
+    width: 50px;
+  }
+}
+/* ============================================= */
+/* --------- Mobile L --------- */
+@media (min-width: 376px) and (max-width: 425px) {
+  .containerPage {
+    height: auto;
+  }
+  .ContainerTextAndPhoto {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .titlePage {
+    font-size: 30px !important;
+  }
+  .imgUnderLine {
+    height: 10px;
+    width: 120px;
+  }
+  .containerText {
+    width: 100%;
+    padding: 10px 20px;
+    height: auto;
+  }
+  .h4 {
+    font-size: 30px;
+  }
+  .paragraph {
+    font-size: 15px;
+    padding: 10px;
+    margin: 0;
+  }
+  .btnOrderNow {
+    font-size: 20px;
+    width: 150px;
+    height: 40px;
+  }
+  .PhotoMan {
+    width: 90% !important;
+    height: 350px !important;
+  }
+  .photoVector {
+    width: 50px;
+  }
+}
+/* ============================================= */
+/* --------- Tablet --------- */
+@media (min-width: 426px) and (max-width: 768px) {
+  .containerPage {
+    height: auto;
+  }
+  .ContainerTextAndPhoto {
+    height: auto;
+    width: 100%;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+  }
+
+  .titlePage {
+    font-size: 30px !important;
+  }
+  .imgUnderLine {
+    height: 10px;
+    width: 120px;
+  }
+  .containerText {
+    width: 100%;
+    padding: 10px 20px;
+    height: auto;
+  }
+  .h4 {
+    font-size: 30px;
+  }
+  .paragraph {
+    font-size: 15px;
+    padding: 10px;
+    margin: 0;
+  }
+  .btnOrderNow {
+    font-size: 20px;
+    width: 200px;
+    height: 60px;
+  }
+  .PhotoMan {
+    width: 40% !important;
+    height: 500px !important;
+  }
+}
+/* ============================================= */
+/* --------- Laptop S --------- */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .titlePage {
+    font-size: 30px !important;
+  }
+  .imgUnderLine {
+    height: 20px;
+    width: 120px;
+  }
+  .h4 {
+    font-size: 30px;
+  }
+  .paragraph {
+    font-size: 15px;
+    padding: 10px;
+    margin: 0;
+  }
+  .btnOrderNow {
+    font-size: 20px;
+    width: 150px;
+    height: 40px;
+  }
+  .PhotoMan {
+    width: 40% !important;
+    height: 75% !important;
+    /* object-fit: contain; */
+    /* display: block; */
+  }
+}
+/* ============================================= */
+/* --------- Laptop L --------- */
+@media (min-width: 1025px) and (max-width: 1299px) {
+  .titlePage {
+    font-size: 40px !important;
+  }
+  .imgUnderLine {
+    height: 20px;
+    width: 150px;
+  }
+  .h4 {
+    font-size: 50px;
+  }
+  .paragraph {
+    font-size: 18px;
+
+    margin: 10px;
+  }
+  .btnOrderNow {
+    color: #ffffff;
+    font-family: 'Inter';
+    width: 200px;
+    height: 72px;
+    background-color: #61481c;
+    border-radius: 50px;
+  }
+}
+@media (min-width: 1300px) and (max-width: 1700px) {
+  .titlePage {
+    font-size: 60px !important;
+  }
+  .imgUnderLine {
+    height: 20px;
+    width: 180px;
+  }
+  .h4 {
+    font-size: 60px;
+  }
+  .paragraph {
+    font-size: 20px;
+  }
+  .btnOrderNow {
+    color: #ffffff;
+    font-family: 'Inter';
+    width: 250px;
+    height: 72px;
+    background-color: #61481c;
+    border-radius: 50px;
+  }
+}
+@media (min-width: 1701px) and (max-width: 2000px) {
+  .h4 {
+    font-size: 80px;
+  }
+  .paragraph {
+    font-size: 25px;
+  }
+  .btnOrderNow {
+    color: #ffffff;
+    font-family: 'Inter';
+    width: 300px;
+    height: 72px;
+    background-color: #61481c;
+    border-radius: 50px;
+  }
+}
+/* ============================================= */
+/* --------- Desktop --------- */
+@media (min-width: 2001px) and (max-width: 20500px) {
+  .h4 {
+    font-size: 80px;
+  }
+  .paragraph {
+    font-size: 30px;
+  }
+  .btnOrderNow {
+    color: #ffffff;
+    font-family: 'Inter';
+    width: 350px;
+    height: 72px;
+    background-color: #61481c;
+    border-radius: 50px;
+  }
+}
+@media (min-width: 1441px) and (max-width: 1824px) {
+}
+/* ============================================= */
+/* --------- Big Screen --------- */
+@media (min-width: 1825px) {
+}

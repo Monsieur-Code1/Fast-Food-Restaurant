@@ -5,9 +5,9 @@ export default function Meals() {
   const [meals, setMeals] = useState(meal);
   return (
     <section className="Container">
-      <div className='App-Title'>
-      <h2 className="title-page">Our Menu</h2>
-      <img src="/images/underLine.png" alt="" />
+      <div className="App-Title">
+        <h2 className="title-page">Our Menu</h2>
+        <img src="/images/underLine.png" alt="" />
       </div>
       <div className="container-btn-filter">
         <button>All</button>
