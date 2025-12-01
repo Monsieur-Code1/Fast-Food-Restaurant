@@ -6,6 +6,7 @@
 
 .containerPage {
   background-color: #171715;
+  /* background-color: #111111; */
   width: 100%;
   padding: 0;
   margin: 0;
@@ -62,7 +63,8 @@
   color: #fdf8f8;
   font-family: 'Inter';
   font-size: 30px;
-  align-items: start;
+  /* align-items: center; */
+  text-align: justify;
   margin: 30px;
 }
 .containerBtnOrder {
@@ -137,8 +139,10 @@
     width: 90% !important;
     height: 280px !important;
   }
+
   .photoVector {
-    width: 40px;
+    width: 35px !important;
+    height: 20px !important;
   }
 }
 
@@ -187,7 +191,8 @@
     height: 300px !important;
   }
   .photoVector {
-    width: 50px;
+    width: 40px !important;
+    height: 25px !important;
   }
 }
 /* ============================================= */
@@ -234,8 +239,10 @@
     width: 90% !important;
     height: 350px !important;
   }
+
   .photoVector {
-    width: 50px;
+    width: 35px !important;
+    height: 25px !important;
   }
 }
 /* ============================================= */
@@ -281,6 +288,10 @@
   .PhotoMan {
     width: 40% !important;
     height: 500px !important;
+  }
+  .photoVector {
+    width: 50px !important;
+    height: 25px !important;
   }
 }
 /* ============================================= */

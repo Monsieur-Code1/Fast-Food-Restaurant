@@ -9,15 +9,19 @@
 }
 .App-Title {
   margin-bottom: 20px;
+  text-align: center;
 }
 .title-page {
-  /* width: 281px; */
-  height: 112px;
+  text-align: center;
   margin-top: 55px;
   font-family: 'JockeyOne';
   font-weight: bolder;
   font-size: 80px;
   color: #fdf8f8;
+}
+.imgUnderLine{
+  height: 15px;
+  width: 120px;
 }
 
 .container-btn-filter {
@@ -202,8 +206,9 @@
 /* --------- Mobile S --------- */
 @media (max-width: 320px) {
   .title-page {
-    font-size: 40px;
+    font-size: 25px;
   }
+
   .container-btn-filter {
     width: 95%;
     margin: 10px !important;
@@ -261,7 +266,7 @@
 /* --------- Mobile M --------- */
 @media (min-width: 321px) and (max-width: 375px) {
   .title-page {
-    font-size: 50px;
+    font-size: 30px;
   }
   .container-btn-filter {
     width: 95%;
@@ -315,8 +320,12 @@
 /* --------- Mobile L --------- */
 @media (min-width: 376px) and (max-width: 450px) {
   .title-page {
-    font-size: 60px;
+    font-size: 35px;
   }
+  .imgUnderLine{
+  height: 15px;
+  width: 120px;
+}
   .container-btn-filter {
     width: 95%;
     height: 67px;
@@ -369,8 +378,12 @@
 /* --------- Tablet --------- */
 @media (min-width: 451px) and (max-width: 768px) {
   .title-page {
-    font-size: 70px;
+    font-size: 38px;
   }
+  .imgUnderLine{
+  height: 18px;
+  width: 150px;
+}
   .container-btn-filter {
     width: 90%;
     height: 67px;
@@ -415,8 +428,12 @@
 /* --------- Laptop S --------- */
 @media (min-width: 769px) and (max-width: 1024px) {
   .title-page {
-    font-size: 80px;
+    font-size: 40px;
   }
+  .imgUnderLine{
+  height: 18px;
+  width: 150px;
+}
   .container-btn-filter {
     width: 90%;
     height: 67px;
@@ -467,12 +484,33 @@
 /* ============================================= */
 /* --------- Laptop L --------- */
 @media (min-width: 1025px) and (max-width: 1440px) {
+  .imgUnderLine{
+  height: 18px;
+  width: 220px;
+}
+.title-page {
+    font-size: 60px;
+  }
 }
 /* ============================================= */
 /* --------- Desktop --------- */
 @media (min-width: 1441px) and (max-width: 1824px) {
+   .imgUnderLine{
+  height: 18px;
+  width: 250px;
+}
+.title-page {
+    font-size: 70px;
+  }
 }
 /* ============================================= */
 /* --------- Big Screen --------- */
 @media (min-width: 1825px) {
+     .imgUnderLine{
+  height: 18px;
+  width: 300px;
+}
+.title-page {
+    font-size: 80px;
+  }
 }

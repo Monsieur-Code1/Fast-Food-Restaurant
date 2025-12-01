@@ -7,7 +7,7 @@ export default function Meals() {
     <section className="Container">
       <div className="App-Title">
         <h2 className="title-page">Our Menu</h2>
-        <img src="/images/underLine.png" alt="" />
+        <img className="imgUnderLine" src="/images/underLine.png" alt="" />
       </div>
       <div className="container-btn-filter">
         <button>All</button>
