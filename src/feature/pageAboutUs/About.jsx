@@ -32,7 +32,7 @@ export default function About() {
             />
           </div>
         </div>
-        <img className={style.PhotoMan} src="/images/man photShop.png" alt="" />
+        <img className={style.PhotoMan} src="/images/man.jpg" alt="" />
       </div>
     </section>
   );
