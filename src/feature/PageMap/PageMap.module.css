@@ -1,0 +1,428 @@
+.Container {
+  width: 100%;
+  /* height: 2074px; */
+  background: linear-gradient(to bottom, #c79439 0%, #c79439 79%, #171715 100%);
+  background: linear-gradient(
+    to bottom,
+    #171715 2%,
+    #c79439 12%,
+    #c79439 89%,
+    #171715 100%
+  );
+  display: flex;
+  /* height: 100vh; */
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.ContainerInputAndMap {
+  display: flex;
+  justify-content: space-around;
+  align-items: start;
+  width: 100%;
+  height: 500px !important;
+  padding: 20px;
+}
+
+.map {
+  width: 500px;
+  height:80% !important;
+  border: 1px solid black;
+}
+.containerInputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  
+  /* height: 100%; */
+}
+.input {
+  width: 400px;
+  height: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: #d9d9d9;
+  color: #7d5612fc;
+  margin: 10px 0;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+.input::placeholder {
+  color: #7d5612fc;
+}
+
+
+
+
+
+
+/* --------- Mobile S --------- */
+@media (max-width: 320px) {
+  
+
+ .ContainerInputAndMap {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 800px !important;
+  padding: 20px;
+  margin-bottom: 70px;
+}
+.map {
+  width: 95%;
+  height:75% !important;
+  border: 1px solid black;
+}
+.containerInputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  
+  /* height: 100%; */
+}
+.containerInputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+   width: 95%;
+  /* height: 100%; */
+}
+.input {
+  width: 100%;
+  height: 50px;
+  margin: 8px 0;
+}
+}
+
+/* ============================================= */
+/* --------- Mobile M --------- */
+@media (min-width: 320px) and (max-width: 375px) {
+
+ .ContainerInputAndMap {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 800px !important;
+  padding: 20px;
+  margin-bottom: 70px;
+}
+.map {
+  width: 95%;
+  height:75% !important;
+  border: 1px solid black;
+}
+.containerInputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  
+  /* height: 100%; */
+}
+.containerInputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+   width: 95%;
+  /* height: 100%; */
+}
+.input {
+  width: 100%;
+  height: 50px;
+  margin: 8px 0;
+}
+
+  
+ 
+  
+}
+/* ============================================= */
+/* --------- Mobile L --------- */
+@media (min-width: 376px) and (max-width: 425px) {
+  
+ .ContainerInputAndMap {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 800px !important;
+  padding: 20px;
+  margin-bottom: 70px;
+}
+.map {
+  width: 95%;
+  height:75% !important;
+  border: 1px solid black;
+}
+.containerInputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  
+  /* height: 100%; */
+}
+.containerInputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+   width: 95%;
+  /* height: 100%; */
+}
+.input {
+  width: 100%;
+  height: 50px;
+  margin: 8px 0;
+}
+  
+ 
+}
+/* ============================================= */
+/* --------- Tablet --------- */
+@media (min-width: 426px) and (max-width: 768px) {
+ .ContainerInputAndMap {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 800px !important;
+  padding: 20px;
+  margin-bottom: 70px;
+}
+.map {
+  width: 85%;
+  height:75% !important;
+  border: 1px solid black;
+}
+.containerInputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  
+  /* height: 100%; */
+}
+.containerInputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+   width: 85%;
+  /* height: 100%; */
+}
+.input {
+  width: 95%;
+  height: 50px;
+  margin: 8px 0;
+}
+ 
+}
+/* ============================================= */
+/* --------- Laptop S --------- */
+@media (min-width: 769px) and (max-width: 1024px) {
+.ContainerInputAndMap {
+  display: flex;
+  justify-content: space-around;
+  align-items: start;
+  width: 100%;
+  height: 500px !important;
+  padding: 20px;
+  margin-bottom: 70px;
+}
+.map {
+  width: 50%;
+  height:75% !important;
+  border: 1px solid black;
+}
+.input {
+  width: 350px;
+  height: 50px;
+  margin: 8px 0;
+}
+
+  
+  
+}
+/* ============================================= */
+/* --------- Laptop L --------- */
+@media (min-width: 1025px) and (max-width: 1299px) {
+ .ContainerInputAndMap {
+  display: flex;
+  justify-content: space-around;
+  align-items: start;
+  width: 100%;
+  height: 500px !important;
+  padding: 20px;
+  margin-bottom: 70px;
+}
+.map {
+  width: 500px;
+  height:70% !important;
+  border: 1px solid black;
+}
+}
+@media (min-width: 1300px) and (max-width: 1700px) {
+ 
+.ContainerInputAndMap {
+  display: flex;
+  justify-content: space-around;
+  align-items: start;
+  width: 100%;
+  height: 500px !important;
+  padding: 20px;
+  margin-bottom: 80px;
+}
+
+.map {
+  width: 40%;
+  height:80% !important;
+  border: 1px solid black;
+}
+.containerInputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 40%;
+  
+  /* height: 100%; */
+}
+.input {
+  width: 80%;
+  height: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
+ 
+  margin: 10px 0;
+ 
+}
+ 
+}
+@media (min-width: 1701px) and (max-width: 2000px) {
+ 
+.ContainerInputAndMap {
+  display: flex;
+  justify-content: space-around;
+  align-items: start;
+  width: 100%;
+  height: 500px !important;
+  padding: 20px;
+  margin-bottom: 80px;
+}
+
+.map {
+  width: 40%;
+  height:80% !important;
+  border: 1px solid black;
+}
+.containerInputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 40%;
+  
+  /* height: 100%; */
+}
+.input {
+  width: 80%;
+  height: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
+ 
+  margin: 10px 0;
+}
+ 
+}
+/* ============================================= */
+/* --------- Desktop --------- */
+@media (min-width: 2001px) and (max-width: 20500px) {
+ 
+.ContainerInputAndMap {
+  display: flex;
+  justify-content: space-around;
+  align-items: start;
+  width: 100%;
+  height: 500px !important;
+  padding: 20px;
+  margin-bottom: 80px;
+}
+
+.map {
+  width: 40%;
+  height:80% !important;
+  border: 1px solid black;
+}
+.containerInputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 40%;
+  
+  /* height: 100%; */
+}
+.input {
+  width: 80%;
+  height: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
+ 
+  margin: 10px 0;
+}
+ 
+}
+@media (min-width: 1441px) and (max-width: 1824px) {
+  
+.ContainerInputAndMap {
+  display: flex;
+  justify-content: space-around;
+  align-items: start;
+  width: 100%;
+  height: 500px !important;
+  padding: 20px;
+  margin-bottom: 80px;
+}
+
+.map {
+  width: 40%;
+  height:80% !important;
+  border: 1px solid black;
+}
+.containerInputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 40%;
+  
+  /* height: 100%; */
+}
+.input {
+  width: 80%;
+  height: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
+ 
+  margin: 10px 0;
+}
+}
+/* ============================================= */
+/* --------- Big Screen --------- */
+@media (min-width: 1825px) {
+}
