@@ -4,6 +4,7 @@ export default {
   theme: {
     fontFamily: {
       pizza: 'Roboto Mono , monospace',
+      Inter: 'Inter',
     },
     extend: {
       fontSize: {
@@ -11,6 +12,9 @@ export default {
       },
       height: {
         Screen: '100dvh',
+      },
+      screens: {
+        laptop: '1077px',
       },
     },
   },

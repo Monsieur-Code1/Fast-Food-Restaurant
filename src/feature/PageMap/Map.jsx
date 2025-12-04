@@ -1,33 +1,34 @@
-import React, { useState } from 'react';
-import { MapContainer, Marker, TileLayer, useMapEvents } from 'react-leaflet';
 import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
 import 'leaflet-routing-machine';
 import 'leaflet-routing-machine/dist/leaflet-routing-machine.css';
+import 'leaflet/dist/leaflet.css';
+import { useState } from 'react';
+import { MapContainer, Marker, TileLayer, useMapEvents } from 'react-leaflet';
 
-// أيقونات
+// Icons
 const redIcon = L.icon({
-  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
+  iconUrl:
+    'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
   shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
   iconSize: [25, 41],
   iconAnchor: [12, 41],
 });
 
 const blueIcon = L.icon({
-  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png',
+  iconUrl:
+    'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png',
   shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
   iconSize: [25, 41],
   iconAnchor: [12, 41],
 });
 
 export default function Map() {
-  const defaultLocation = [29.993715, 31.119722]; // موقع المطعم
-
-  const [customerData, setCustomerData] = useState(null); // بيانات العميل
+  const defaultLocation = [29.993715, 31.119722]; // Restaurant location
+  const [customerData, setCustomerData] = useState(null); // كل بيانات العميل
   const [distanceKm, setDistanceKm] = useState(null); // المسافة المباشرة
-  const [routingControl, setRoutingControl] = useState(null); // التحكم في المسار
+  const [routingControl, setRoutingControl] = useState(null);
 
-  // حساب المسافة المباشرة بالكيلومتر
+  // حساب المسافة المباشرة
   const calculateDistance = (lat1, lon1, lat2, lon2) => {
     const R = 6371;
     const dLat = ((lat2 - lat1) * Math.PI) / 180;
@@ -41,64 +42,101 @@ export default function Map() {
     return R * c;
   };
 
-  // تحديد موقع العميل عند الضغط على الخريطة
   function LocationPicker() {
     const map = useMapEvents({
       click: async (e) => {
         const lat = e.latlng.lat;
         const lng = e.latlng.lng;
 
-        // Geocoding عكسي للحصول على تفاصيل العنوان
+        // جلب بيانات الموقع من Nominatim
         const response = await fetch(`
-          https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lng}`
-        );
+          https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lng}
+        `);
         const data = await response.json();
         const address = data.address || {};
 
-        // استخراج البيانات المطلوبة بدقة
+        // حفظ كل بيانات العميل في متغير واحد
         const storedData = {
           country: address.country || '',
           province: address.state || address.county || '',
           city: address.city || address.town || address.village || '',
-          district: address.suburb || address.neighbourhood || address.quarter || '',
+          district: address.suburb || address.neighbourhood || '',
           street: address.road || address.pedestrian || address.footway || '',
           lat,
           lng,
         };
-
         setCustomerData(storedData);
 
         // حساب المسافة المباشرة
-        const dist = calculateDistance(lat, lng, defaultLocation[0], defaultLocation[1]);
+        const dist = calculateDistance(
+          lat,
+          lng,
+          defaultLocation[0],
+          defaultLocation[1],
+        );
         setDistanceKm(dist.toFixed(2));
 
-        // طباعة البيانات في console
-        console.log('بيانات العميل:', storedData);
-        console.log('المسافة المباشرة بالكيلومتر:', dist.toFixed(2), 'km');
+        // Destructuring لسهولة الوصول لكل عنصر
+        const {
+          country,
+          province,
+          city,
+          district,
+          street,
+          lat: userLat,
+          lng: userLng,
+        } = storedData;
 
-        // إزالة أي مسار سابق
+        console.log('📌 بيانات العميل (destructured):');
+        console.log('دولة:', country);
+        console.log('محافظة:', province);
+        console.log('مدينة:', city);
+        console.log('حي/قرية:', district);
+        console.log('شارع:', street);
+        console.log('خط العرض (Lat):', userLat);
+        console.log('خط الطول (Lng):', userLng);
+        console.log('📏 المسافة المباشرة بالكيلومتر:', dist.toFixed(2), 'KM');
+
+        // حذف أي خطوط قديمة
+        map.eachLayer((layer) => {
+          if (layer instanceof L.Polyline && !(layer instanceof L.Marker)) {
+            map.removeLayer(layer);
+          }
+        });
+
+        // 1️⃣ احذف الـ routing control القديم
         if (routingControl) routingControl.remove();
 
-        // إنشاء المسار على الطرق بين المطعم والعميل
+        // 2️⃣ احذف جميع الخطوط القديمة (Polyline)
+        map.eachLayer((layer) => {
+          if (layer instanceof L.Polyline && !(layer instanceof L.Marker)) {
+            map.removeLayer(layer);
+          }
+        });
+
+        // 3️⃣ احذف عناصر التحكم على اليمين
+        document
+          .querySelectorAll('.leaflet-routing-container')
+          .forEach((el) => el.remove());
+
+        // مسار جديد
         const control = L.Routing.control({
           waypoints: [
             L.latLng(defaultLocation[0], defaultLocation[1]),
             L.latLng(lat, lng),
           ],
           lineOptions: { styles: [{ color: 'blue', weight: 4 }] },
-          show: false,
           addWaypoints: false,
           routeWhileDragging: false,
-          createMarker: function(i, wp, nWps) {
-            if (i === 0) return L.marker(wp.latLng, { icon: redIcon }); // المطعم
-            if (i === nWps - 1) return L.marker(wp.latLng, { icon: blueIcon }); // العميل
-            return null;
-          },
+          show: false,
+          createMarker: () => null,
+          createInstructionMarker: () => null,
         }).addTo(map);
 
         setRoutingControl(control);
       },
     });
+
     return null;
   }
 
@@ -112,11 +150,16 @@ export default function Map() {
 
       <LocationPicker />
 
-      {/* Marker ثابت للمطعم */}
+      {/* Restaurant marker */}
       <Marker position={defaultLocation} icon={redIcon} />
 
-      {/* Marker للعميل */}
-      {customerData && <Marker position={[customerData.lat, customerData.lng]} icon={blueIcon} />}
+      {/* Customer marker */}
+      {customerData && (
+        <Marker
+          position={[customerData.lat, customerData.lng]}
+          icon={blueIcon}
+        />
+      )}
     </MapContainer>
   );
 }

@@ -1,0 +1,100 @@
+.Container {
+  width: 100%;
+  /* height: 2074px; */
+  background: linear-gradient(
+    to bottom,
+    #c79439 0%,
+    #000000 15%,
+    #000000 89%,
+    #c79439 100%
+  );
+
+  display: flex;
+  height: auto;
+  padding: 50px 1rem;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.AppContainerCard {
+  width: 75%;
+  margin: auto;
+}
+.containerCard {
+  margin-top: 20px;
+}
+.cardSlider {
+  /* height: 291px; */
+  display: flex;
+  flex-direction: column;
+  height: 100% !important;
+  /* height: ; */
+  padding: 10px 24px;
+  margin: 0;
+  background-color: #d9d9d9;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+.cardAppPhotoAndStar {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  width: 100%;
+}
+.titleCard {
+  font-family: 'Inter';
+  color: #61481c;
+  font-size: 24px;
+}
+.textCard {
+  font-family: 'Manrope';
+  color: #61481c;
+  font-size: 13px;
+}
+.imgCard {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.starCard {
+  width: 136px;
+  color: #e6b325;
+  display: flex;
+  justify-content: center;
+}
+.star {
+  color: #e6b325;
+}
+
+.feedBack {
+  width: 100%;
+  text-align: right;
+  margin: 50px 350px 0 0;
+  font-family: 'Inter';
+  font-weight: 700px;
+  font-weight: bold;
+  color: #ffffff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.AppFeedBackAndImg {
+  display: flex;
+  justify-content: space-between;
+}
+.imgPizza {
+  width: 70%;
+  height: 300px;
+}
+.vector8 {
+  width: 100%;
+  height: 15px;
+  margin: 20px 0;
+}

@@ -1,8 +1,13 @@
+import {useState} from 'react';
 import style2 from './ButtonNow.module.css';
 import Map from './Map';
 import style from './PageMap.module.css';
 import style1 from './TitlePage.module.css';
+
+
 export default function PageMap() {
+
+  
   return (
     <div className={style.Container}>
       <div className={style1.containerTitle}>
@@ -53,7 +58,7 @@ export default function PageMap() {
           </select>
           <input
             placeholder="Date"
-            className={style.input}
+            className={`${style.input}`}
             type="date"
             name=""
             id=""

@@ -1,5 +1,6 @@
 // import './About.css';
 import style from "./About.module.css"
+import style1 from "../style/ButtonNow.module.css"
 export default function About() {
   return (
     <section className={style.containerPage}>
@@ -24,7 +25,9 @@ export default function About() {
           </p>
 
           <div className={style.containerBtnOrder}>
-            <button className={style.btnOrderNow}>READ MORE</button>
+            <button className={style1.btnOrderNow}>READ MORE</button>
+
+            {/* <button className={style.btnOrderNow}> MORE</button> */}
             <img
               src="/images/Vector 4.png"
               className={style.photoVector}

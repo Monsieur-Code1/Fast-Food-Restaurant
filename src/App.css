@@ -5,3 +5,38 @@
 body{
     height: 100%;
 }
+.slick-slide>div{
+    margin: 0 15px;
+}
+/* خلايا السلايدر نفس الارتفاع */
+.slick-track {
+  display: flex !important;
+}
+
+.slick-slide {
+  height: auto !important;
+}
+
+.slick-slide > div {
+  height: 100% !important;
+  display: flex;
+}
+
+/* خلي الكارد يمتد داخل الأب */
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100% !important;
+}
+
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(29%) sepia(54%) saturate(842%) hue-rotate(5deg) brightness(92%) contrast(96%);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(29%) sepia(54%) saturate(842%) hue-rotate(5deg) brightness(92%) contrast(96%);
+}
+input[type="date"]{
+  direction: rtl !important;
+}
