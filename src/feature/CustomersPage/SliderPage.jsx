@@ -46,35 +46,6 @@
 //     ],
 //   };
 //   return (
-
-//       <div className="m-auto w-3/4">
-//         <div className="mt-10">
-//           <Slider {...settings}>
-//             {rating?.map((el) => {
-//               return (
-//                 <div key={el.id} className={style.cardSlider}>
-//                   <div className={style.cardAppPhotoAndStar}>
-//                     <img src={el.img} className={style.imgCard} />
-//                     <span className={style.starCard}>
-//                       <FiStar className={style.star} />
-//                       <FiStar className={style.star} />
-//                       <FiStar className={style.star} />
-//                       <FiStar className={style.star} />
-//                       <FiStar className={style.star} />
-//                     </span>
-//                   </div>
-//                   <h4 className={style.titleCard}>{el.name}</h4>
-//                   <p className={style.textCard}>{el.text}</p>
-//                 </div>
-//               );
-//             })}
-//           </Slider>
-//         </div>
-//       </div>
-
-//   );
-// }
-
 import React, { useState, useEffect, useRef } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
