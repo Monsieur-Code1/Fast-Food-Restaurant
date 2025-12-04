@@ -11,7 +11,7 @@ export default function SimpleSlider() {
     
   var settings = {
     dots: false,
-    arrows:true,
+    arrows: true,
     infinite: false,
     speed: 500,
     slidesToShow: 3,
@@ -24,7 +24,6 @@ export default function SimpleSlider() {
           slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,
-          
         },
       },
       {
@@ -33,25 +32,22 @@ export default function SimpleSlider() {
           slidesToShow: 2,
           slidesToScroll: 2,
           infinite: true,
-          
         },
       },
-      
-     
-      
-      
+
       {
         breakpoint: 817,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          infinite: true,
         },
       },
     ],
   };
   return (
     
-      <div className="m-auto w-3/4">
+      <div className="m-auto w-full md:w-3/4">
         <div className="mt-10">
           <Slider {...settings}>
             {rating?.map((el) => {

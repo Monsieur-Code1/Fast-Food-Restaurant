@@ -18,5 +18,13 @@ export default {
       },
     },
   },
-  plugins: [],
+  
+  plugins: [
+    function({ addUtilities }) {
+      addUtilities({
+        '.rtl': { direction: 'rtl' },
+        '.ltr': { direction: 'ltr' },
+      })
+    }
+  ],
 };

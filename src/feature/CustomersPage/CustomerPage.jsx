@@ -29,7 +29,7 @@ function ContainerPhoto(){
   
 
   return (
-    <div className="mt-0 flex w-full flex-wrap justify-around">
+    <div  className="mt-0 flex w-full flex-row-reverse sm:flex-row flex-wrap justify-around ">
       <img
         src="/images/pizza-black.jpg"
         className="w-[99%] items-start sm:w-[65%] md:w-[500px] lg:w-[600px]"
