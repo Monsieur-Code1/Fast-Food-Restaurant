@@ -3,7 +3,7 @@ import style2 from './ButtonNow.module.css';
 import Map from './Map';
 import style from './PageMap.module.css';
 import style1 from './TitlePage.module.css';
-
+import { FiChevronDown } from 'react-icons/fi';
 
 export default function PageMap() {
 
@@ -63,6 +63,7 @@ export default function PageMap() {
             name=""
             id=""
           />
+          {/* <CustomSelect/> */}
           <div className={style2.containerBtnOrder}>
             <button className={style2.btnOrderNow}>Book Now</button>
             <img
@@ -75,6 +76,25 @@ export default function PageMap() {
         <div className={style.map}>
           <Map />
         </div>
+      </div>
+    </div>
+  );
+}
+
+
+
+
+ function CustomSelect({ options = [] }) {
+  return (
+    <div className={style.customSelectWrapper}>
+      <select className={style.customSelect}>
+        <option value="">How Many Person?</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+      <div className={style.customSelectIcon}>
+        <FiChevronDown />
       </div>
     </div>
   );

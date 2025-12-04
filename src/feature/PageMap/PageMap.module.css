@@ -399,3 +399,66 @@
 /* --------- Big Screen --------- */
 @media (min-width: 1825px) {
 }
+
+
+م.customSelectWrapper {
+  width: 100%; /* يملأ الـ div الأب بالكامل */
+  margin: 10px 0;
+}
+
+.customSelect {
+  width: 100%; /* يملأ wrapper بالكامل */
+  height: 50px;
+  padding-left: 30px;
+  padding-right: 50px; /* مساحة للأيقونة */
+  border-radius: 20px;
+  border: none;
+  background-color: #d9d9d9;
+  color: #7d5612fc;
+  font-size: 16px;
+  appearance: none;
+}
+
+.customSelect:focus {
+  outline: none;
+}
+
+.customSelectIcon {
+  pointer-events: none;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #61481c;
+  font-size: 20px;
+}
+
+/* ===== Responsive ===== */
+/* Mobile S */
+@media (max-width: 320px) {
+  .customSelectWrapper { width: 95%; }
+}
+/* Mobile M */
+@media (min-width: 321px) and (max-width: 375px) {
+  .customSelectWrapper { width: 95%; }
+}
+/* Mobile L */
+@media (min-width: 376px) and (max-width: 425px) {
+  .customSelectWrapper { width: 95%; }
+}
+/* Tablet */
+@media (min-width: 426px) and (max-width: 768px) {
+  .customSelectWrapper { width: 85%; }
+}
+/* Laptop S */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .customSelectWrapper { width: 350px; }
+}
+/* Laptop L */
+@media (min-width: 1025px) and (max-width: 1299px) {
+  .customSelectWrapper { width: 400px; }
+}
+/* Large screens */
+@media (min-width: 1300px) {
+  .customSelectWrapper { width: 400px; }
+}
