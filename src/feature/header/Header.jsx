@@ -6,9 +6,10 @@ import useScreens from '../../hook/useMediaQuery';
 import './header.css';
 
 // jsx
+
 export default function Header() {
   const [showItem, setShowItem] = useState(false);
-  const [activeBtn, setActiveBtn] = useState('Home');
+  const [activeBtn, setActiveBtn] = useState('HOME');
   function handleShowItem() {
     setShowItem((show) => !show);
   }
@@ -72,9 +73,9 @@ export default function Header() {
                 onClick={() => {
                   (scrollToSection(frame1Ref),
                     setShowItem(false),
-                    setActiveBtn('Home'));
+                    setActiveBtn('HOME'));
                 }}
-                className={`ItemHome ${activeBtn === 'HOME' && 'active'}`}
+                className={`ItemHeader ${activeBtn === 'HOME' && 'active'}`}
               >
                 HOME
               </span>
@@ -84,7 +85,7 @@ export default function Header() {
                     setShowItem(false),
                     setActiveBtn('MENU'));
                 }}
-                className={`ItemHome ${activeBtn === 'MENU' && 'active'}`}
+                className={`ItemHeader ${activeBtn === 'MENU' && 'active'}`}
               >
                 MENU
               </span>
@@ -94,7 +95,7 @@ export default function Header() {
                     setShowItem(false),
                     setActiveBtn('ABOUT'));
                 }}
-                className={`ItemHome ${activeBtn === 'ABOUT' && 'active'}`}
+                className={`ItemHeader ${activeBtn === 'ABOUT' && 'active'}`}
               >
                 ABOUT
               </span>
@@ -104,7 +105,7 @@ export default function Header() {
                     setShowItem(false),
                     setActiveBtn('CARD'));
                 }}
-                className={`ItemHome ${activeBtn === 'CARD' && 'active'}`}
+                className={`ItemHeader ${activeBtn === 'CARD' && 'active'}`}
               >
                 CARD
               </span>
@@ -114,7 +115,7 @@ export default function Header() {
                     setShowItem(false),
                     setActiveBtn('BOOK-TABLE'));
                 }}
-                className={`ItemHome ${activeBtn === 'BOOK-TABLE' && 'active'}`}
+                className={`ItemHeader ${activeBtn === 'BOOK-TABLE' && 'active'}`}
               >
                 BOOK TABLE
               </span>
@@ -129,7 +130,7 @@ export default function Header() {
                   scrollToSection(frame1Ref);
                   setActiveBtn('HOME');
                 }}
-                className={`ItemHome ${activeBtn === 'HOME' && 'active'}`}
+                className={`ItemHeader ${activeBtn === 'HOME' && 'active'}`}
               >
                 HOME
               </span>
@@ -138,7 +139,7 @@ export default function Header() {
                   scrollToSection(mealsRef);
                   setActiveBtn('MENU');
                 }}
-                className={`ItemHome ${activeBtn === 'MENU' && 'active'}`}
+                className={`ItemHeader ${activeBtn === 'MENU' && 'active'}`}
               >
                 MENU
               </span>
@@ -147,7 +148,7 @@ export default function Header() {
                   scrollToSection(aboutRef);
                   setActiveBtn('ABOUT');
                 }}
-                className={`ItemHome ${activeBtn === 'ABOUT' && 'active'}`}
+                className={`ItemHeader ${activeBtn === 'ABOUT' && 'active'}`}
               >
                 ABOUT
               </span>
@@ -156,7 +157,7 @@ export default function Header() {
                   scrollToSection(mapRef);
                   setActiveBtn('CARD');
                 }}
-                className={`ItemHome ${activeBtn === 'CARD' && 'active'}`}
+                className={`ItemHeader ${activeBtn === 'CARD' && 'active'}`}
               >
                 CARD
               </span>
@@ -165,7 +166,7 @@ export default function Header() {
                   scrollToSection(customersRef);
                   setActiveBtn('BOOK-TABLE');
                 }}
-                className={`ItemHome ${activeBtn === 'BOOK-TABLE' && 'active'}`}
+                className={`ItemHeader ${activeBtn === 'BOOK-TABLE' && 'active'}`}
               >
                 BOOK TABLE
               </span>
