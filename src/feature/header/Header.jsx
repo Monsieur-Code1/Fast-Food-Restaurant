@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { FiMenu, FiSearch } from 'react-icons/fi';
+import { useData } from '../../context/Context';
 import useScreens from '../../hook/useMediaQuery';
 import './header.css';
 
 // jsx
 export default function Header() {
   const [showItem, setShowItem] = useState(false);
+  const [activeBtn, setActiveBtn] = useState('Home');
   function handleShowItem() {
     setShowItem((show) => !show);
   }
@@ -20,6 +22,15 @@ export default function Header() {
     desktop,
     bigScreen,
   } = useScreens();
+
+  const {
+    aboutRef,
+    frame1Ref,
+    mapRef,
+    customersRef,
+    mealsRef,
+    scrollToSection,
+  } = useData();
   return (
     <header className="AppHeader">
       <span className="Logo">Faene</span>
@@ -57,11 +68,54 @@ export default function Header() {
               <FiSearch fontSize="20px" color="#bf9742" />
             </div>
             <div className="AppItemHeader">
-              <span className="ItemHome">HOME</span>
-              <span className="ItemHeader">MENU</span>
-              <span className="ItemHeader">ABOUT</span>
-              <span className="ItemHeader">CARD</span>
-              <span className="ItemHeader" er>
+              <span
+                onClick={() => {
+                  (scrollToSection(frame1Ref),
+                    setShowItem(false),
+                    setActiveBtn('Home'));
+                }}
+                className={`ItemHome ${activeBtn === 'HOME' && 'active'}`}
+              >
+                HOME
+              </span>
+              <span
+                onClick={() => {
+                  (scrollToSection(mealsRef),
+                    setShowItem(false),
+                    setActiveBtn('MENU'));
+                }}
+                className={`ItemHome ${activeBtn === 'MENU' && 'active'}`}
+              >
+                MENU
+              </span>
+              <span
+                onClick={() => {
+                  (scrollToSection(aboutRef),
+                    setShowItem(false),
+                    setActiveBtn('ABOUT'));
+                }}
+                className={`ItemHome ${activeBtn === 'ABOUT' && 'active'}`}
+              >
+                ABOUT
+              </span>
+              <span
+                onClick={() => {
+                  (scrollToSection(mapRef),
+                    setShowItem(false),
+                    setActiveBtn('CARD'));
+                }}
+                className={`ItemHome ${activeBtn === 'CARD' && 'active'}`}
+              >
+                CARD
+              </span>
+              <span
+                onClick={() => {
+                  (scrollToSection(customersRef),
+                    setShowItem(false),
+                    setActiveBtn('BOOK-TABLE'));
+                }}
+                className={`ItemHome ${activeBtn === 'BOOK-TABLE' && 'active'}`}
+              >
                 BOOK TABLE
               </span>
             </div>
@@ -69,15 +123,54 @@ export default function Header() {
         )}
         {(laptopS || laptopL || desktop || bigScreen) && (
           <>
-            
-              <div className="items AppItemHeader">
-                <span className="ItemHome">HOME</span>
-                <span className="ItemHeader">MENU</span>
-                <span className="ItemHeader">ABOUT</span>
-                <span className="ItemHeader">CARD</span>
-                <span className="ItemHeader">BOOK TABLE</span>
-              </div>
-            
+            <div className="items AppItemHeader">
+              <span
+                onClick={() => {
+                  scrollToSection(frame1Ref);
+                  setActiveBtn('HOME');
+                }}
+                className={`ItemHome ${activeBtn === 'HOME' && 'active'}`}
+              >
+                HOME
+              </span>
+              <span
+                onClick={() => {
+                  scrollToSection(mealsRef);
+                  setActiveBtn('MENU');
+                }}
+                className={`ItemHome ${activeBtn === 'MENU' && 'active'}`}
+              >
+                MENU
+              </span>
+              <span
+                onClick={() => {
+                  scrollToSection(aboutRef);
+                  setActiveBtn('ABOUT');
+                }}
+                className={`ItemHome ${activeBtn === 'ABOUT' && 'active'}`}
+              >
+                ABOUT
+              </span>
+              <span
+                onClick={() => {
+                  scrollToSection(mapRef);
+                  setActiveBtn('CARD');
+                }}
+                className={`ItemHome ${activeBtn === 'CARD' && 'active'}`}
+              >
+                CARD
+              </span>
+              <span
+                onClick={() => {
+                  scrollToSection(customersRef);
+                  setActiveBtn('BOOK-TABLE');
+                }}
+                className={`ItemHome ${activeBtn === 'BOOK-TABLE' && 'active'}`}
+              >
+                BOOK TABLE
+              </span>
+            </div>
+
             <div className="ContainerSearch">
               <input
                 className="SearchInput"

@@ -1,11 +1,13 @@
+import { useData } from '../../context/Context';
 import style from './CustomerPage.module.css';
 import Footer from './Footer';
 import SimpleSlider from './SliderPage';
 import styleT from './TitlePage.module.css';
 
 export default function CustomerPage() {
+  const {customersRef }=useData()
   return (
-    <section className={style.Container}>
+    <section ref={customersRef} className={style.Container}>
       <div className={styleT.containerTitle}>
         <h3 className={styleT.titlePage}>What Says Our Customers?</h3>
         <img

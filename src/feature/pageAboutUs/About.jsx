@@ -1,9 +1,11 @@
 // import './About.css';
 import style from "./About.module.css"
 import style1 from "../style/ButtonNow.module.css"
+import { useData } from "../../context/Context";
 export default function About() {
+  const { aboutRef } = useData();
   return (
-    <section className={style.containerPage}>
+    <section ref={aboutRef} className={style.containerPage}>
       <div className={style.containerTitle}>
         <h3 className={style.titlePage}>About Us</h3>
         <img

@@ -45,12 +45,12 @@ export default function SimpleSlider() {
   };
   return (
     <div className={styleS.AppSlider}>
-      <button
+      {/* <button
         onClick={() => moveSlider('left')}
         className={styleS.navButtonLeft}
       >
         <FiChevronLeft className={styleS.ArrowClick} size={30} />
-      </button>
+      </button> */}
 
       <motion.div
         ref={carouselRef}
@@ -81,12 +81,12 @@ export default function SimpleSlider() {
           ))}
         </motion.div>
       </motion.div>
-      <button
+      {/* <button
         onClick={() => moveSlider('right')}
         className={styleS.navButtonRight}
       >
         <FiChevronRight className={styleS.ArrowClick} size={30} />
-      </button>
+      </button> */}
     </div>
   );
 }

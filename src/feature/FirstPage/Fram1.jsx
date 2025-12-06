@@ -2,8 +2,11 @@ import { useEffect, useState } from 'react';
 import './styleFram1.css';
 
 import Header from '../header/Header';
+import { useData } from '../../context/Context';
 
 export default function Frame1() {
+const { frame1Ref } = useData();
+
   const [meal, setMeal] = useState('Burger');
   const meals = ['Burger', 'Pizza', 'Pasta'];
   const [active, setActive] = useState(1);
@@ -19,7 +22,7 @@ useEffect(() => {
   return () => clearInterval(interval); // تنظيف الـ interval عند فك المكون
 }, []);
   return (
-    <div className="AppContentFrame">
+    <div ref={frame1Ref} className="AppContentFrame">
       <Header />
       <h1 className="Title">Fast Food Restaurant</h1>
 
@@ -89,11 +92,9 @@ useEffect(() => {
         ></span>
         <span
           className={`${meal == 'Pizza' && 'SpanTreeDotToShowMealActive'} SpanTreeDotToShowMeal`}
-         
         ></span>
         <span
           className={`${meal == 'Pasta' && 'SpanTreeDotToShowMealActive'} SpanTreeDotToShowMeal`}
-         
         ></span>
       </div>
     </div>

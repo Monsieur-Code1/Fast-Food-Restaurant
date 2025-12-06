@@ -25,6 +25,13 @@
   position: relative;
   padding-top: 24px;
   height: 52px;
+  position: fixed !important;
+  /* margin-bottom: 850px !important; */
+  top: 0;
+  left: 0;
+  background-color: #171715;
+  padding-bottom: 25px;
+  z-index: 99;
 }
 
 .Logo {
@@ -41,7 +48,9 @@
   align-items: center;
   width: 90%;
 }
-
+.AiFillCloseCircle{
+  cursor: pointer;
+}
 .Image {
   border-radius: 50%;
   border: 1px solid #c79439;
@@ -61,12 +70,17 @@
   font-weight: 400;
   font-size: 20px;
   font-family: 'Inter';
+  cursor: pointer;
 }
 .ItemHome {
-  color: #bf9742;
+  color: #ffffff;
   font-weight: 400;
   font-size: 20px;
   font-family: 'Inter';
+  cursor: pointer;
+}
+.active{
+  color: #bf9742;
 }
 
 .AppItemHeader {
@@ -132,6 +146,7 @@
   top: 0;
   right: 0;
   margin-right: 20px;
+  cursor: pointer;
 }
 
 .AppUserNameAndCloseIcon {
@@ -172,6 +187,7 @@
   }
   .Logo {
     position: absolute;
+    margin-top: 10px;
   }
 }
 /* --------- Mobile M --------- */
@@ -200,6 +216,7 @@
   }
   .Logo {
     position: absolute;
+     margin-top: 20px;
   }
 }
 
@@ -229,6 +246,7 @@
   }
   .Logo {
     position: absolute;
+      margin-top: 20px;
   }
 }
 
@@ -258,11 +276,15 @@
   }
   .Logo {
     position: absolute;
+      margin-top: 20px;
   }
 }
 
 /* --------- Laptop S --------- */
 @media (min-width: 769px) and (max-width: 1024px) {
+  .AppHeader{
+    padding-top: 20px !important;
+  }
   .HeaderStyle {
     justify-content: space-between !important;
   }

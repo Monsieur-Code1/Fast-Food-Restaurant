@@ -4,12 +4,14 @@ import Map from './Map';
 import style from './PageMap.module.css';
 import style1 from './TitlePage.module.css';
 import { FiChevronDown } from 'react-icons/fi';
+import { useData } from '../../context/Context';
 
 export default function PageMap() {
+  const { mapRef}=useData()
 
   
   return (
-    <div className={style.Container}>
+    <div ref={mapRef} className={style.Container}>
       <div className={style1.containerTitle}>
         <h3 className={style1.titlePage}>Book A Table</h3>
         <img
