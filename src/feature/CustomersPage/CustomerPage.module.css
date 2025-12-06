@@ -23,55 +23,8 @@
 .containerCard {
   margin-top: 20px;
 }
-.cardSlider {
-  /* height: 291px; */
-  display: flex;
-  flex-direction: column;
-  height: 100% !important;
-  /* height: ; */
-  padding: 10px 24px;
-  margin: 0;
-  background-color: #d9d9d9;
-  border-radius: 20px;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  -ms-border-radius: 20px;
-  -o-border-radius: 20px;
-}
-.cardAppPhotoAndStar {
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
-  width: 100%;
-}
-.titleCard {
-  font-family: 'Inter';
-  color: #61481c;
-  font-size: 24px;
-}
-.textCard {
-  font-family: 'Manrope';
-  color: #61481c;
-  font-size: 13px;
-}
-.imgCard {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-}
-.starCard {
-  width: 136px;
-  color: #e6b325;
-  display: flex;
-  justify-content: center;
-}
-.star {
-  color: #e6b325;
-}
+/* ... باقي الـ CSS ... */
+
 
 .feedBack {
   width: 100%;
@@ -98,3 +51,99 @@
   height: 15px;
   margin: 20px 0;
 }
+/* ======================================== */
+
+/* ... الكود الذي أرسلته سابقاً ... */
+
+/* 🆕 إضافة حاوية جديدة للأزرار والسلايدر معاً */
+.sliderContainer {
+    position: relative; /* لجعل الأزرار (التي ستكون absolute) تتمركز بالنسبة لهذه الحاوية */
+    width: 90%;
+    margin: 0 auto;
+    display: flex; /* لضمان عرض الأزرار والكاروسيل بشكل صحيح */
+    align-items: center;
+}
+
+.carousel{
+    /* **WIDITH: 100% ضروري لملء الحاوية** */
+    width: 100%; 
+    overflow: hidden; 
+    cursor: grab;
+    /* تأكد من إزالة padding أفقي إذا كان يسبب مشكلة */
+}
+
+.innerCarousel{
+    display: flex;
+    /* إزالة overflow: hidden لتسمح للعرض الكلي بأن يكون كبيراً */
+    white-space: nowrap; 
+}
+
+.cardSlider {
+    height: 291px;
+    display: flex;
+    flex-direction: column;
+    
+    /* 💥 التعديل الأهم لثبات العرض وعدم الانكماش 
+       (العرض سيتم تحديده بواسطة `minWidth` في ملف JSX) */
+    padding: 10px 24px;
+    margin: 0 5px; /* الآن يتم استخدام هامش 5px من كل جانب */
+    background-color: #d9d9d9;
+    border-radius: 20px;
+
+    /* الخاصية التي تضمن أن البطاقة لا تنكمش */
+    flex-shrink: 0; 
+}
+
+/* 🆕 تنسيق الأزرار */
+.navButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #61481c;
+}
+
+.navButton:hover {
+    background-color: #ffffff;
+}
+
+.navButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.leftButton {
+    left: -60px; /* موضع الزر الأيسر خارج حدود الكاروسيل قليلاً */
+}
+
+.rightButton {
+    right: -60px; /* موضع الزر الأيمن خارج حدود الكاروسيل قليلاً */
+}
+
+/* 📱 التجاوب (Media Query) لتصغير حجم البطاقة على الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .cardSlider {
+        /* إزالة عرض 450px الثابت، وسنعتمد على minWidth في JSX */
+        /* min-width: 90vw; /* يمكنك استخدام عرض الشاشة المتجاوب هنا */
+    }
+
+    .leftButton {
+        left: -15px; /* إدخال الأزرار للداخل قليلاً على الشاشات الصغيرة */
+    }
+
+    .rightButton {
+        right: -15px; /* إدخال الأزرار للداخل قليلاً على الشاشات الصغيرة */
+    }
+}
+
+/* ... باقي الـ CSS ... */

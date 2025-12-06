@@ -1,0 +1,120 @@
+.AppSlider {
+  display: flex;
+  width: 100%;
+  padding: 0;
+}
+.carousel {
+  width: 90%;
+  overflow: hidden; /* **تأكد أنها hidden هنا** */
+  cursor: grab;
+}
+.innerCarousel {
+  display: flex;
+}
+
+.cardSlider {
+  /* ... خصائص البطاقة ... */
+  height: 291px;
+  display: flex;
+  flex-direction: column;
+  width: 90vw; /* (اختياري) استخدم 90% من عرض النافذة كحد أقصى للبطاقة */
+  max-width: 390px; /* لا تتجاوز 390 بكسل على الشاشات الكبيرة */
+  padding: 10px 24px;
+  margin: 0 5px;
+  background-color: #d9d9d9;
+  border-radius: 20px;
+  /* **هذا مهم: يمنع البطاقة من الانكماش** */
+  flex-shrink: 0;
+  /* ... باقي الخصائص ... */
+}
+.cardAppPhotoAndStar {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  width: 100%;
+}
+.titleCard {
+  font-family: 'Inter';
+  color: #61481c;
+  font-size: 24px;
+  /* width: 80%; */
+}
+.textCard {
+  font-family: 'Manrope';
+  color: #61481c;
+  font-size: 13px;
+}
+.imgCard {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.starCard {
+  width: 136px;
+  color: #e6b325;
+  display: flex;
+  justify-content: center;
+}
+.star {
+  color: #e6b325;
+}
+
+/* **استعلامات الوسائط (Media Queries) هي الأفضل للتحكم الدقيق:** */
+
+@media (max-width: 500px) {
+  .cardSlider {
+    height: 291px;
+    display: flex;
+    flex-direction: column;
+    width: 61vw;
+    max-width: 280px;
+    padding: 10px 24px;
+    margin: 0 5px;
+    background-color: #d9d9d9;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+  }
+
+  .titleCard {
+    font-family: 'Inter';
+    color: #61481c;
+    font-size: 18px;
+    /* width: 80%; */
+  }
+  .textCard {
+    font-family: 'Manrope';
+    color: #61481c;
+    font-size: 10px;
+  }
+  .imgCard {
+    width: 50px;
+    height: 50px;
+  }
+  .starCard {
+    width: 100px;
+    color: #e6b325;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* تأكد أيضاً من أن الحاوية الأبوية لا تسبب مشكلة */
+.carousel {
+  width: 100%; /* تأكد أن الحاوية تأخذ 100% من عرض الحاوية الأبوية لها */
+  max-width: 1200px; /* (مثال) حد أقصى للحاوية الرئيسية */
+  overflow: hidden;
+  cursor: grab;
+  margin: 0 auto; /* للتوسيط */
+}
+
+.ArrowClick {
+  color: #d9d9d9;
+  font-size: 30px;
+}

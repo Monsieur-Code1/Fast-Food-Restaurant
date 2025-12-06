@@ -16,7 +16,7 @@ export default function CustomerPage() {
       </div>
 
       <SimpleSlider />
-      <ContainerPhoto />
+      {/* <ContainerPhoto /> */}
       <img className={style.vector8} src="/images/Vector 8 (1).png" alt="" />
       <Footer />
     </section>
