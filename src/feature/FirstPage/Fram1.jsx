@@ -6,6 +6,7 @@ import Header from '../header/Header';
 
 export default function Frame1() {
   const { frame1Ref } = useData();
+const {scrollToSection,mealsRef}=useData()
 
   const [meal, setMeal] = useState('Burger');
   const meals = ['Burger', 'Pizza', 'Pasta'];
@@ -33,7 +34,14 @@ export default function Frame1() {
       </p>
       <div className="container-btn-and-img">
         <div className="AppButtonOrder">
-          <button className="ButtonOrder">ORDER NOW</button>
+          <button
+            className="ButtonOrder"
+            onClick={() => {
+              scrollToSection(mealsRef);
+            }}
+          >
+            ORDER NOW
+          </button>
           <img className="ImgVector" src="/images/Vector 4.png" alt="Vector" />
           <div className="TastyThursdays">
             {meal === 'Burger' && (

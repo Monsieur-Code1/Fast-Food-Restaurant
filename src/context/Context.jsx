@@ -2,13 +2,29 @@ import { createContext, useContext, useRef, useState } from 'react';
 const dateContext = createContext();
 function DataProvider({ children }) {
   const [showCart,setShowCart]=useState(false)
+  const [showItem, setShowItem] = useState(false);
+  const [Cart, setCart] = useState([]);
   function handleShowCart(){
     setShowCart(cart=>!cart)
-   
   }
   function handleCloseCart(){
     setShowCart(false)
   }
+  function handleAddItemInCart(product) {
+    setCart((prev) => {
+      const exist = prev?.find((item) => item.id === product.id);
+      if (exist) {
+        return prev.map((meal) =>
+          meal.id === product.id
+            ? { ...meal, quantity: meal.quantity + 1 }
+            : meal,
+        );
+      }
+      return [...prev, { ...product, quantity: 1 }];
+    });
+  }
+
+
   const frame1Ref = useRef();
   const mealsRef = useRef();
   const BookTableRef = useRef();
@@ -37,6 +53,11 @@ function DataProvider({ children }) {
         setShowCart,
         handleShowCart,
         handleCloseCart,
+        showItem,
+        setShowItem,
+        Cart,
+        setCart,
+        handleAddItemInCart,
       }}
     >
       {children}

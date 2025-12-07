@@ -1,31 +1,32 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useState } from 'react';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { FiMenu, FiSearch } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
 import { useData } from '../../context/Context';
 import useScreens from '../../hook/useMediaQuery';
 import './header.css';
-import { useNavigate } from 'react-router-dom';
 
 // jsx
 
 export default function Header() {
-   const {
-     aboutRef,
-     frame1Ref,
-     mapRef,
-     BookTableRef,
-     mealsRef,
-     cardRef,
-     scrollToSection,
-     showCart,
-     setShowCart,
-     handleShowCart,
-     handleCloseCart,
-     
-   } = useData();
-  const [showItem, setShowItem] = useState(false);
+  const {
+    aboutRef,
+    frame1Ref,
+    mapRef,
+    BookTableRef,
+    cardRef,
+    mealsRef,
+    scrollToSection,
+    showCart,
+    setShowCart,
+    handleShowCart,
+    handleCloseCart,
+    showItem,
+    setShowItem,
+    Cart,
+  } = useData();
+
   const [activeBtn, setActiveBtn] = useState('HOME');
-  
 
   function handleShowItem() {
     setShowItem((show) => !show);
@@ -39,11 +40,9 @@ export default function Header() {
     laptopL,
     desktop,
     bigScreen,
-    
   } = useScreens();
 
- 
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   return (
     <header className="AppHeader">
       <span className="Logo">Faene</span>
@@ -113,9 +112,14 @@ export default function Header() {
               </span>
               <span
                 onClick={handleShowCart}
-                className={`ItemHeader ${showCart && 'active'}`}
+                className={`ItemHeader ${showCart && 'active'} relative`}
               >
-                CARD
+                CART
+                {Cart.length > 0 && (
+                  <span className="absolute w-4 rounded-full bg-red-600 text-white">
+                    {Cart.length}
+                  </span>
+                )}
               </span>
               <span
                 onClick={() => {
@@ -162,9 +166,14 @@ export default function Header() {
               </span>
               <span
                 onClick={handleShowCart}
-                className={`ItemHeader ${showCart && 'active'}`}
+                className={`ItemHeader ${showCart && 'active'} relative`}
               >
-                CARD
+                CART
+                {Cart?.length > 0 && (
+                  <span className="absolute w-3 rounded-full bg-red-600 text-white">
+                    {Cart.length}
+                  </span>
+                )}
               </span>
               <span
                 onClick={() => {
@@ -195,8 +204,3 @@ export default function Header() {
     </header>
   );
 }
-
-
-
-
-

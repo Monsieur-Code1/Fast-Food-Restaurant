@@ -5,7 +5,7 @@ import style from './Meals.module.css';
 import { meal } from './mealData';
 export default function Meals() {
   const [mealsFilter, setMealsFilter] = useState('All');
-  const { mealsRef } = useData();
+  const { mealsRef, handleShowCart, Cart } = useData();
   return (
     <section ref={mealsRef} className={style.Container}>
       <div className={style.AppTitle}>
@@ -20,8 +20,15 @@ export default function Meals() {
       <Products {...{ mealsFilter, setMealsFilter }} />
       <div className="flex w-full items-center justify-center"></div>
       {/* <button className={style.btnShowMore}>VIEW MORE</button> */}
-      <div className={style1.containerBtnOrder}>
+      <div
+        className={`${style1.containerBtnOrder} flex items-center justify-around`}
+      >
         <button className={style1.btnOrderNow}>VIEW MORE</button>
+        {Cart.length > 0 && (
+          <button onClick={handleShowCart} className={`${style1.btnOrderNow} ml-3`}>
+            Show Your Cart
+          </button>
+        )}
       </div>
     </section>
   );
@@ -70,6 +77,8 @@ function ButtonsFilter({ setMealsFilter, mealsFilter }) {
 }
 
 function Products({ mealsFilter, setMealsFilter }) {
+  const { Cart, setCart, handleAddItemInCart } = useData();
+
   const [meals, setMeals] = useState(meal);
   if (mealsFilter === 'All') mealsFilter = meals;
   if (mealsFilter === 'Burger')
@@ -103,7 +112,13 @@ function Products({ mealsFilter, setMealsFilter }) {
                 <span className={style.time}>12:00-12:30</span>
               </div>
               <div className={style.price}>{el.price}$</div>
-              <button className={style.btnOrder}>Order now</button>
+
+              <button
+                onClick={() => handleAddItemInCart(el)}
+                className={style.btnOrder}
+              >
+                Order now
+              </button>
             </div>
             <img src={el.src} className={style.photoMeal} alt="" />
           </div>
