@@ -1,11 +1,11 @@
 import { useState } from 'react';
+import { useData } from '../../context/Context';
 import style1 from '../style/ButtonNow.module.css';
 import style from './Meals.module.css';
 import { meal } from './mealData';
-import { useData } from '../../context/Context';
 export default function Meals() {
   const [mealsFilter, setMealsFilter] = useState('All');
-  const{  mealsRef }=useData()
+  const { mealsRef } = useData();
   return (
     <section ref={mealsRef} className={style.Container}>
       <div className={style.AppTitle}>
@@ -27,14 +27,44 @@ export default function Meals() {
   );
 }
 
-function ButtonsFilter({ setMealsFilter }) {
+function ButtonsFilter({ setMealsFilter, mealsFilter }) {
   return (
     <div className={style.containerBtnFilter}>
-      <button onClick={() => setMealsFilter('All')}>All</button>
-      <button onClick={() => setMealsFilter('Burger')}>Burger</button>
-      <button onClick={() => setMealsFilter('Pizza')}>Pizza</button>
-      <button onClick={() => setMealsFilter('Pasta')}>Pasta</button>
-      <button onClick={() => setMealsFilter('Fries')}>Fries</button>
+      <button
+        style={{ cursor: 'pointer' }}
+        onClick={() => setMealsFilter('All')}
+        className={`${mealsFilter === 'All' ? `${style.activeBtn}` : `${style.BtnFilter}`}`}
+      >
+        All
+      </button>
+      <button
+        style={{ cursor: 'pointer' }}
+        onClick={() => setMealsFilter('Burger')}
+        className={`${mealsFilter === 'Burger' ? `${style.activeBtn}` : `${style.BtnFilter}`}`}
+      >
+        Burger
+      </button>
+      <button
+        style={{ cursor: 'pointer' }}
+        onClick={() => setMealsFilter('Pizza')}
+        className={`${mealsFilter === 'Pizza' ? `${style.activeBtn}` : `${style.BtnFilter}`}`}
+      >
+        Pizza
+      </button>
+      <button
+        style={{ cursor: 'pointer' }}
+        onClick={() => setMealsFilter('Pasta')}
+        className={`${mealsFilter === 'Pasta' ? `${style.activeBtn}` : `${style.BtnFilter}`}`}
+      >
+        Pasta
+      </button>
+      <button
+        style={{ cursor: 'pointer' }}
+        onClick={() => setMealsFilter('Fries')}
+        className={`${mealsFilter === 'Fries' ? `${style.activeBtn}` : `${style.BtnFilter}`}`}
+      >
+        Fries
+      </button>
     </div>
   );
 }

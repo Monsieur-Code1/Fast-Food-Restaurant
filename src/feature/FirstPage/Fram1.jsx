@@ -1,26 +1,26 @@
 import { useEffect, useState } from 'react';
 import './styleFram1.css';
 
-import Header from '../header/Header';
 import { useData } from '../../context/Context';
+import Header from '../header/Header';
 
 export default function Frame1() {
-const { frame1Ref } = useData();
+  const { frame1Ref } = useData();
 
   const [meal, setMeal] = useState('Burger');
   const meals = ['Burger', 'Pizza', 'Pasta'];
   const [active, setActive] = useState(1);
-useEffect(() => {
-  const interval = setInterval(() => {
-    setActive((prev) => {
-      const next = prev === meals.length ? 1 : prev + 1; // يدوّر بين 1 و 2 و 3
-      setMeal(meals[next - 1]); // نحدّث اسم الوجبة بناءً على active
-      return next;
-    });
-  }, 2000);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActive((prev) => {
+        const next = prev === meals.length ? 1 : prev + 1; // يدوّر بين 1 و 2 و 3
+        setMeal(meals[next - 1]); // نحدّث اسم الوجبة بناءً على active
+        return next;
+      });
+    }, 2000);
 
-  return () => clearInterval(interval); // تنظيف الـ interval عند فك المكون
-}, []);
+    return () => clearInterval(interval); // تنظيف الـ interval عند فك المكون
+  }, []);
   return (
     <div ref={frame1Ref} className="AppContentFrame">
       <Header />

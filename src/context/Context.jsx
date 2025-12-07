@@ -1,12 +1,13 @@
-import { createContext, useContext, useRef } from 'react';
+import { createContext, useContext, useRef, useState } from 'react';
 const dateContext = createContext();
 function DataProvider({ children }) {
   const frame1Ref = useRef();
   const mealsRef = useRef();
-  const customersRef = useRef();
+  const BookTableRef = useRef();
   const mapRef = useRef();
   const aboutRef = useRef();
-
+  const cardRef = useRef();
+ 
   // 2. دالة التمرير (Scroll Handler Function)
   const scrollToSection = (ref) => {
     ref.current.scrollIntoView({
@@ -20,9 +21,11 @@ function DataProvider({ children }) {
         aboutRef,
         frame1Ref,
         mapRef,
-        customersRef,
+        BookTableRef,
         mealsRef,
         scrollToSection,
+        cardRef,
+        
       }}
     >
       {children}

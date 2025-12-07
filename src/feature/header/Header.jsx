@@ -1,15 +1,28 @@
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { FiMenu, FiSearch } from 'react-icons/fi';
 import { useData } from '../../context/Context';
 import useScreens from '../../hook/useMediaQuery';
 import './header.css';
+import { useNavigate } from 'react-router-dom';
 
 // jsx
 
 export default function Header() {
+   const {
+     aboutRef,
+     frame1Ref,
+     mapRef,
+     BookTableRef,
+     mealsRef,
+     cardRef,
+     scrollToSection,
+     
+   } = useData();
   const [showItem, setShowItem] = useState(false);
   const [activeBtn, setActiveBtn] = useState('HOME');
+  
+
   function handleShowItem() {
     setShowItem((show) => !show);
   }
@@ -22,16 +35,11 @@ export default function Header() {
     laptopL,
     desktop,
     bigScreen,
+    
   } = useScreens();
 
-  const {
-    aboutRef,
-    frame1Ref,
-    mapRef,
-    customersRef,
-    mealsRef,
-    scrollToSection,
-  } = useData();
+ 
+  const navigate=useNavigate()
   return (
     <header className="AppHeader">
       <span className="Logo">Faene</span>
@@ -65,6 +73,7 @@ export default function Header() {
                 className="SearchInput"
                 placeholder="Search"
                 type="search"
+                
               />
               <FiSearch fontSize="20px" color="#bf9742" />
             </div>
@@ -100,18 +109,14 @@ export default function Header() {
                 ABOUT
               </span>
               <span
-                onClick={() => {
-                  (scrollToSection(mapRef),
-                    setShowItem(false),
-                    setActiveBtn('CARD'));
-                }}
+                onClick={() => navigate('card')}
                 className={`ItemHeader ${activeBtn === 'CARD' && 'active'}`}
               >
                 CARD
               </span>
               <span
                 onClick={() => {
-                  (scrollToSection(customersRef),
+                  (scrollToSection(BookTableRef),
                     setShowItem(false),
                     setActiveBtn('BOOK-TABLE'));
                 }}
@@ -153,17 +158,14 @@ export default function Header() {
                 ABOUT
               </span>
               <span
-                onClick={() => {
-                  scrollToSection(mapRef);
-                  setActiveBtn('CARD');
-                }}
+                onClick={() => navigate('card')}
                 className={`ItemHeader ${activeBtn === 'CARD' && 'active'}`}
               >
                 CARD
               </span>
               <span
                 onClick={() => {
-                  scrollToSection(customersRef);
+                  scrollToSection(BookTableRef);
                   setActiveBtn('BOOK-TABLE');
                 }}
                 className={`ItemHeader ${activeBtn === 'BOOK-TABLE' && 'active'}`}
@@ -177,6 +179,7 @@ export default function Header() {
                 className="SearchInput"
                 placeholder="Search"
                 type="search"
+                 
               />
               <FiSearch fontSize="20px" color="#bf9742" />
             </div>
@@ -190,3 +193,8 @@ export default function Header() {
     </header>
   );
 }
+
+
+
+
+

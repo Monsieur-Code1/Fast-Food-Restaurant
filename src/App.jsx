@@ -1,11 +1,22 @@
-import React from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import './App.css';
 import Applayout from './Applayout';
-import "./App.css"
-import SimpleSlider from './feature/CustomersPage/SliderPage';
+import { DataProvider, useData } from './context/Context';
+import Card from './feature/card/Card';
+import NotFound from './feature/PageError/NotFound';
 export default function App() {
+ 
   return (
-    
-    <Applayout/>
-       
-  )
+    <>
+      
+     
+        <Routes>
+          <Route path="/" element={<Applayout />} />
+          <Route path="/card" element={<Card />} />
+
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      
+    </>
+  );
 }

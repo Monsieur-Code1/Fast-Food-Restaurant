@@ -7,11 +7,11 @@ import { FiChevronDown } from 'react-icons/fi';
 import { useData } from '../../context/Context';
 
 export default function PageMap() {
-  const { mapRef}=useData()
+  const { BookTableRef } = useData();
 
   
   return (
-    <div ref={mapRef} className={style.Container}>
+    <div ref={BookTableRef} className={style.Container}>
       <div className={style1.containerTitle}>
         <h3 className={style1.titlePage}>Book A Table</h3>
         <img
