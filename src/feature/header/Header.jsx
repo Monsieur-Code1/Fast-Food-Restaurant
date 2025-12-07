@@ -17,6 +17,10 @@ export default function Header() {
      mealsRef,
      cardRef,
      scrollToSection,
+     showCart,
+     setShowCart,
+     handleShowCart,
+     handleCloseCart,
      
    } = useData();
   const [showItem, setShowItem] = useState(false);
@@ -73,7 +77,6 @@ export default function Header() {
                 className="SearchInput"
                 placeholder="Search"
                 type="search"
-                
               />
               <FiSearch fontSize="20px" color="#bf9742" />
             </div>
@@ -109,8 +112,8 @@ export default function Header() {
                 ABOUT
               </span>
               <span
-                onClick={() => navigate('card')}
-                className={`ItemHeader ${activeBtn === 'CARD' && 'active'}`}
+                onClick={handleShowCart}
+                className={`ItemHeader ${showCart && 'active'}`}
               >
                 CARD
               </span>
@@ -158,8 +161,8 @@ export default function Header() {
                 ABOUT
               </span>
               <span
-                onClick={() => navigate('card')}
-                className={`ItemHeader ${activeBtn === 'CARD' && 'active'}`}
+                onClick={handleShowCart}
+                className={`ItemHeader ${showCart && 'active'}`}
               >
                 CARD
               </span>
@@ -179,7 +182,6 @@ export default function Header() {
                 className="SearchInput"
                 placeholder="Search"
                 type="search"
-                 
               />
               <FiSearch fontSize="20px" color="#bf9742" />
             </div>

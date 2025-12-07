@@ -1,6 +1,14 @@
 import { createContext, useContext, useRef, useState } from 'react';
 const dateContext = createContext();
 function DataProvider({ children }) {
+  const [showCart,setShowCart]=useState(false)
+  function handleShowCart(){
+    setShowCart(cart=>!cart)
+   
+  }
+  function handleCloseCart(){
+    setShowCart(false)
+  }
   const frame1Ref = useRef();
   const mealsRef = useRef();
   const BookTableRef = useRef();
@@ -25,7 +33,10 @@ function DataProvider({ children }) {
         mealsRef,
         scrollToSection,
         cardRef,
-        
+        showCart,
+        setShowCart,
+        handleShowCart,
+        handleCloseCart,
       }}
     >
       {children}
