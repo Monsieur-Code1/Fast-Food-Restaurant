@@ -50,9 +50,9 @@
 /* --------- Mobile M --------- */
 @media (min-width: 320px) and (max-width: 375px) {
   .btnOrderNow {
-    font-size: 20px;
+    font-size: 12px;
     /* width: 130px; */
-    height: 35px;
+    /* height: 35px; */
   }
 
   .photoVector {
@@ -64,9 +64,9 @@
 /* --------- Mobile L --------- */
 @media (min-width: 376px) and (max-width: 425px) {
   .btnOrderNow {
-    font-size: 20px;
+    font-size: 15px;
     /* width: 150px; */
-    height: 40px;
+    /* height: 40px; */
   }
 
   .photoVector {
@@ -80,7 +80,7 @@
   .btnOrderNow {
     font-size: 20px;
     /* width: 200px; */
-    height: 60px;
+    /* height: 60px; */
   }
 
   .photoVector {
@@ -93,9 +93,9 @@
 @media (min-width: 769px) and (max-width: 1024px) {
   .btnOrderNow {
     font-size: 20px;
-    width: 180px;
+    width: 250px;
     padding: 0 30px;
-    height: 50px;
+    /* height: 50px; */
   }
 }
 /* ============================================= */
