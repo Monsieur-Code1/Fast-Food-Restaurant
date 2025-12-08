@@ -1,9 +1,10 @@
 import { useState } from 'react';
+import { FaShoppingCart } from 'react-icons/fa';
+import { FiEyeOff } from 'react-icons/fi';;
 import { useData } from '../../context/Context';
 import style1 from '../style/ButtonNow.module.css';
 import style from './Meals.module.css';
 import { meal } from './mealData';
-import { FiEye } from 'react-icons/fi';
 export default function Meals() {
   const [mealsFilter, setMealsFilter] = useState('All');
   const { mealsRef, handleShowCart, Cart } = useData();
@@ -19,21 +20,6 @@ export default function Meals() {
       </div>
       <ButtonsFilter {...{ mealsFilter, setMealsFilter }} />
       <Products {...{ mealsFilter, setMealsFilter }} />
-      <div className="flex w-full items-center justify-center"></div>
-      {/* <button className={style.btnShowMore}>VIEW MORE</button> */}
-      <div
-        className={`${style1.containerBtnOrder} flex items-center justify-around`}
-      >
-        <button className={style1.btnOrderNow}>VIEW MORE</button>
-        {Cart.length > 0 && (
-          <button
-            onClick={handleShowCart}
-            className={`${style1.btnOrderNow} ml-3`}
-          >
-            Show Your Cart
-          </button>
-        )}
-      </div>
     </section>
   );
 }
@@ -79,27 +65,32 @@ function ButtonsFilter({ setMealsFilter, mealsFilter }) {
     </div>
   );
 }
+function Products({ mealsFilter }) { 
+  const { Cart, setCart, handleAddItemInCart, handleShowCart, showCart,setShowCart } =
+    useData();
+  const [meals] = useState(meal);
+  const [showAll, setShowAll] = useState(false);
 
-function Products({ mealsFilter, setMealsFilter }) {
-  const { Cart, setCart, handleAddItemInCart, handleShowCart } = useData();
- function handleRemoveMeal(el) {
-   setCart((prev) => prev.filter((meal) => meal.id !== el.id));
- }
-  const [meals, setMeals] = useState(meal);
-  if (mealsFilter === 'All') mealsFilter = meals;
-  if (mealsFilter === 'Burger')
-    mealsFilter = meals.filter((meal) => meal.type === 'Burger');
-  if (mealsFilter === 'Pizza')
-    mealsFilter = meals.filter((meal) => meal.type === 'Pizza');
-  if (mealsFilter === 'Pasta')
-    mealsFilter = meals.filter((meal) => meal.type === 'Pasta');
-  if (mealsFilter === 'Fries')
-    mealsFilter = meals.filter((meal) => meal.type === 'Fries');
+  function handleRemoveMeal(el) {
+    setCart((prev) => prev.filter((meal) => meal.id !== el.id));
+  }
+
+  // فلترة
+  let filteredMeals = meals;
+  if (mealsFilter !== 'All') {
+    filteredMeals = meals.filter((meal) => meal.type === mealsFilter);
+  }
+
+  // تحديد الكروت المرئية
+  let visibleMeals = filteredMeals;
+  if (mealsFilter === 'All' && !showAll) {
+    visibleMeals = filteredMeals.slice(0, 5);
+  }
 
   return (
-    <div className={style.containerCards}>
-      {mealsFilter?.map((el) => {
-        return (
+    <>
+      <div className={style.containerCards}>
+        {visibleMeals.map((el) => (
           <div key={el.id} className={style.card}>
             <div className={style.cardParent}>
               <span className={style.lineHor}></span>
@@ -107,27 +98,30 @@ function Products({ mealsFilter, setMealsFilter }) {
               <p className={style.titleCard}>{el.name}</p>
               <p className={style.descriptionCard}>{el.description}</p>
               <div className={style.containerRating}>
-                <img
-                  src="/images/star.png"
-                  alt={style.star}
-                  className={style.starRating}
-                />
+                <img src="/images/star.png" className={style.starRating} />
                 <span className={style.numberRating}>4.3</span>
               </div>
               <div className={style.containerTime}>
-                <img src="/images/watch.png" alt="" className={style.watch} />
+                <img src="/images/watch.png" className={style.watch} />
                 <span className={style.time}>12:00-12:30</span>
               </div>
               <div className={style.price}>{el.price}$</div>
               {Cart.some((meal) => meal.id === el.id) ? (
                 <button
-                  className={`${style.btnOrder} flex items-center justify-center text-green-900`}
+                  className={`${style.btnOrder} flex items-center justify-center text-orange-950`}
                 >
                   <span onClick={() => handleRemoveMeal(el)}>In Cart</span>
-                  <FiEye
-                    onClick={handleShowCart}
-                    className="ml-[8px] text-[30px] text-[#fdf8f8]"
-                  />
+                  {showCart ? (
+                    <FiEyeOff
+                      className="ml-[8px] text-[30px] text-orange-950"
+                      onClick={() => setShowCart(false)}
+                    />
+                  ) : (
+                    <FaShoppingCart
+                      onClick={() => setShowCart(true)}
+                      className="ml-[8px] text-[30px] text-orange-950"
+                    />
+                  )}
                 </button>
               ) : (
                 <button
@@ -140,8 +134,31 @@ function Products({ mealsFilter, setMealsFilter }) {
             </div>
             <img src={el.src} className={style.photoMeal} alt="" />
           </div>
-        );
-      })}
-    </div>
+        ))}
+      </div>
+
+      {/* زرار VIEW MORE */}
+
+      <div
+        className={`${style1.containerBtnOrder} flex items-center justify-around`}
+      >
+        {mealsFilter === 'All' && (
+          <button
+            onClick={() => setShowAll(!showAll)}
+            className={style1.btnOrderNow}
+          >
+            {showAll ? 'VIEW LESS' : 'VIEW MORE'}
+          </button>
+        )}
+        {Cart.length > 0 && (
+          <button
+            onClick={handleShowCart}
+            className={`${style1.btnOrderNow} ml-3`}
+          >
+            Show Your Cart
+          </button>
+        )}
+      </div>
+    </>
   );
 }
