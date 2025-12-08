@@ -25,7 +25,10 @@ export default function Meals() {
       >
         <button className={style1.btnOrderNow}>VIEW MORE</button>
         {Cart.length > 0 && (
-          <button onClick={handleShowCart} className={`${style1.btnOrderNow} ml-3`}>
+          <button
+            onClick={handleShowCart}
+            className={`${style1.btnOrderNow} ml-3`}
+          >
             Show Your Cart
           </button>
         )}
@@ -78,7 +81,9 @@ function ButtonsFilter({ setMealsFilter, mealsFilter }) {
 
 function Products({ mealsFilter, setMealsFilter }) {
   const { Cart, setCart, handleAddItemInCart } = useData();
-
+ function handleRemoveMeal(el) {
+   setCart((prev) => prev.filter((meal) => meal.id !== el.id));
+ }
   const [meals, setMeals] = useState(meal);
   if (mealsFilter === 'All') mealsFilter = meals;
   if (mealsFilter === 'Burger')
@@ -89,6 +94,7 @@ function Products({ mealsFilter, setMealsFilter }) {
     mealsFilter = meals.filter((meal) => meal.type === 'Pasta');
   if (mealsFilter === 'Fries')
     mealsFilter = meals.filter((meal) => meal.type === 'Fries');
+
   return (
     <div className={style.containerCards}>
       {mealsFilter?.map((el) => {
@@ -112,13 +118,21 @@ function Products({ mealsFilter, setMealsFilter }) {
                 <span className={style.time}>12:00-12:30</span>
               </div>
               <div className={style.price}>{el.price}$</div>
-
-              <button
-                onClick={() => handleAddItemInCart(el)}
-                className={style.btnOrder}
-              >
-                Order now
-              </button>
+              {Cart.some((meal) => meal.id === el.id) ? (
+                <button
+                  onClick={() => handleRemoveMeal(el)}
+                  className={`${style.btnOrder} text-green-900`}
+                >
+                  In Cart
+                </button>
+              ) : (
+                <button
+                  onClick={() => handleAddItemInCart(el)}
+                  className={style.btnOrder}
+                >
+                  Order now
+                </button>
+              )}
             </div>
             <img src={el.src} className={style.photoMeal} alt="" />
           </div>

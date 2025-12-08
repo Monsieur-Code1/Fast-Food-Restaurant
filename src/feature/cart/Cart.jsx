@@ -68,7 +68,7 @@ function CartItem() {
                 <div className="flex items-center justify-center">
                   <span
                     onClick={() => AddQuantityToOneItem(meal)}
-                    className="border-1 h-[30px] w-[35px] cursor-pointer border border-solid border-stone-800 pb-[4px] text-center"
+                    className="border-1  h-[30px] w-[35px] cursor-pointer border border-solid border-stone-800 pb-[4px] text-center font-bold text-green-900"
                   >
                     +
                   </span>
@@ -77,7 +77,7 @@ function CartItem() {
                   </span>
                   <span
                     onClick={() => removeQuantityToOneItem(meal)}
-                    className="border-1 h-[30px] w-[35px] cursor-pointer border border-solid border-stone-800 pb-[4px] text-center"
+                    className="border-1  h-[30px] w-[35px] cursor-pointer border border-solid border-stone-800 pb-[4px] text-center font-bold text-red-900"
                   >
                     -
                   </span>
