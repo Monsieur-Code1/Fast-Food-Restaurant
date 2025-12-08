@@ -3,6 +3,7 @@ import { useData } from '../../context/Context';
 import style1 from '../style/ButtonNow.module.css';
 import style from './Meals.module.css';
 import { meal } from './mealData';
+import { FiEye } from 'react-icons/fi';
 export default function Meals() {
   const [mealsFilter, setMealsFilter] = useState('All');
   const { mealsRef, handleShowCart, Cart } = useData();
@@ -80,7 +81,7 @@ function ButtonsFilter({ setMealsFilter, mealsFilter }) {
 }
 
 function Products({ mealsFilter, setMealsFilter }) {
-  const { Cart, setCart, handleAddItemInCart } = useData();
+  const { Cart, setCart, handleAddItemInCart, handleShowCart } = useData();
  function handleRemoveMeal(el) {
    setCart((prev) => prev.filter((meal) => meal.id !== el.id));
  }
@@ -120,10 +121,13 @@ function Products({ mealsFilter, setMealsFilter }) {
               <div className={style.price}>{el.price}$</div>
               {Cart.some((meal) => meal.id === el.id) ? (
                 <button
-                  onClick={() => handleRemoveMeal(el)}
-                  className={`${style.btnOrder} text-green-900`}
+                  className={`${style.btnOrder} flex items-center justify-center text-green-900`}
                 >
-                  In Cart
+                  <span onClick={() => handleRemoveMeal(el)}>In Cart</span>
+                  <FiEye
+                    onClick={handleShowCart}
+                    className="ml-[8px] text-[30px] text-[#fdf8f8]"
+                  />
                 </button>
               ) : (
                 <button
