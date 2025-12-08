@@ -68,7 +68,7 @@ function CartItem() {
                 <div className="flex items-center justify-center">
                   <span
                     onClick={() => AddQuantityToOneItem(meal)}
-                    className="border-1  h-[30px] w-[35px] cursor-pointer border border-solid border-stone-800 pb-[4px] text-center font-bold text-green-900"
+                    className="border-1 h-[30px] w-[35px] cursor-pointer border border-solid border-stone-800 pb-[4px] text-center font-bold text-green-900"
                   >
                     +
                   </span>
@@ -77,7 +77,7 @@ function CartItem() {
                   </span>
                   <span
                     onClick={() => removeQuantityToOneItem(meal)}
-                    className="border-1  h-[30px] w-[35px] cursor-pointer border border-solid border-stone-800 pb-[4px] text-center font-bold text-red-900"
+                    className="border-1 h-[30px] w-[35px] cursor-pointer border border-solid border-stone-800 pb-[4px] text-center font-bold text-red-900"
                   >
                     -
                   </span>
@@ -140,10 +140,18 @@ function TotalPrice() {
     return accumulator + itemTotal;
   }, 0); // ✅ البدء بقيمة أولية 0 (رقمية)
   return (
-    <div className="flex w-full justify-center gap-1 font-Inter font-medium text-[#171715]">
-      <span>TotaL Price:</span>
-      <span>{totalPrice}$</span>
-    </div>
+    <>
+      {Cart.length > 0 ? (
+        <div className="flex w-full justify-center gap-1 font-Inter text-lg font-medium text-[#171715]">
+          <span>TotaL Price:</span>
+          <span>{totalPrice}$</span>
+        </div>
+      ) : (
+        <p className="mx-4 text-center mt-7 text-red-900">
+          Not Found Meals in Your Cart yet
+        </p>
+      )}
+    </>
   );
 }
 
