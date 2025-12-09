@@ -242,7 +242,6 @@
     font-size: 12px;
   }
   .activeBtn {
-    background-color: #121693;
     height: 40px;
     font-size: 12px;
   }
@@ -266,9 +265,9 @@
     width: 92%;
   }
   .titleCard {
-    margin-top: 50px;
+    margin-top: 45px;
 
-    font-size: 20px;
+    font-size: 22px;
   }
   .descriptionCard {
     font-size: 15px;
@@ -330,7 +329,7 @@
   }
   .titleCard {
     margin-top: 50px;
-    font-size: 20px;
+    font-size: 22px;
   }
   .descriptionCard {
     font-size: 15px;
@@ -339,7 +338,7 @@
   }
 
   .photoMeal {
-    height: 140px;
+    height: 120px;
     width: 170px;
   }
 
@@ -396,14 +395,14 @@
     font-size: 25px;
   }
   .descriptionCard {
-    margin-top: 15px;
+    margin-top: 10px;
     font-size: 14px;
     width: 90%;
   }
 
   .photoMeal {
-    height: 140px;
-    width: 170px;
+    height: 120px;
+    width: 150px;
   }
 
   .btnShowMore {
