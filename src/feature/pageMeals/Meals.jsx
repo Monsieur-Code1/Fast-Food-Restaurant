@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
-import { FiEyeOff } from 'react-icons/fi';
+import { FiEyeOff, FiTrash } from 'react-icons/fi';
 import { useData } from '../../context/Context';
 import style1 from '../style/ButtonNow.module.css';
 import style from './Meals.module.css';
@@ -81,7 +81,13 @@ function Products({ mealsFilter }) {
   function handleRemoveMeal(el) {
     setCart((prev) => prev.filter((meal) => meal.id !== el.id));
     toast.dismiss()
-    toast.success("deleted success")
+    toast(el.name + ' deleted ', {
+      icon: <FiTrash className="text-[25px] text-red-600" />,
+      style: {
+        border: '1px solid #c62828',
+        color: '#c62828',
+      },
+    });
   }
 
   // فلترة

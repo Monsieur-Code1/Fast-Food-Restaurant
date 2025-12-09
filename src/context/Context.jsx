@@ -22,7 +22,7 @@ function DataProvider({ children }) {
         );
       }
       toast.dismiss()
-      toast.success('Added successfully');
+      toast.success(product.name +' Added successfully');
       return [...prev, { ...product, quantity: 1 }];
     });
   }

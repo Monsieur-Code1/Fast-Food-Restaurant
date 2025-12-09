@@ -1,5 +1,7 @@
 import { createPortal } from 'react-dom';
+import toast from 'react-hot-toast';
 import { AiFillCloseSquare, AiFillDelete } from 'react-icons/ai';
+import { FiTrash } from 'react-icons/fi';
 import { useData } from '../../context/Context';
 import style from './cart.module.css';
 export default function Cart() {
@@ -33,58 +35,111 @@ function CartItem() {
       });
     });
   }
+  /*
   function removeQuantityToOneItem(el) {
     setCart((prev) => {
       const update = prev.map((product) => {
         if (product.id === el.id) {
           return { ...product, quantity: el.quantity - 1 };
         }
+        if (el.quantity) {
+          toast(el.name + ' deleted ', {
+            icon: <FiTrash className="text-[25px] text-red-600" />,
+          });
+        }
         return product;
       });
       return update.filter((el) => el.quantity > 0);
     });
   }
-
+*/
   function handleRemoveMeal(el) {
+    toast.dismiss();
+    toast(el.name + ' deleted ', {
+      icon: <FiTrash className="text-[25px] text-red-600" />,
+        style: {
+          border: '1px solid #c62828',
+          color: '#c62828',
+        },
+    });
     setCart((prev) => prev.filter((meal) => meal.id !== el.id));
   }
+
+
+
+  function removeQuantityToOneItem(el) {
+    let removedItem = null; // 👈 1. متغير لتتبع العنصر الذي سيتم حذفه نهائيًا
+
+    setCart((prev) => {
+      const update = prev.map((product) => {
+        if (product.id === el.id) {
+          const newQuantity = product.quantity - 1;
+
+          // 2. إذا كانت الكمية ستصل للصفر، سجل اسم المنتج
+          if (newQuantity === 0) {
+            removedItem = product.name;
+            return { ...product, quantity: newQuantity };
+          }
+
+          return { ...product, quantity: newQuantity };
+        }
+        return product;
+      });
+
+      // 3. فلترة العناصر التي كميتها أكبر من صفر
+      return update.filter((item) => item.quantity > 0);
+    });
+
+    // 4. تنفيذ التأثير الجانبي (Toast) خارج دالة التحديث
+    //  (نتأكد أن removedItem ليس null، أي أن العنصر أُزيل نهائياً)
+    if (removedItem) {
+      toast.dismiss();
+      toast(removedItem + ' deleted', {
+        icon: <FiTrash className="text-[25px] text-red-600" />,
+        style: {
+          border: '1px solid #c62828',
+          color: '#c62828',
+        },
+      });
+    }
+  }
   return (
-    <div className="border-b-[1px] border-solid border-stone-950">
+    <div className="border-b-[2px] border-solid border-stone-950 font-Inter text-[#171715]">
       {Cart?.length > 0 &&
-        Cart.map((meal) => {
+        Cart.map((meal, index) => {
           return (
             <div
               key={meal.id}
-              className="my-4 flex w-full items-center justify-around gap-1"
+              className="my-1 flex w-full items-center justify-start border border-solid border-stone-900 px-3 py-1"
             >
               <img
-                className="h-[80px] w-[80px]"
+                className="mr-3 h-[80px] w-[80px]"
                 src={meal.src}
                 alt={meal.name}
               />
-              <div className="flex flex-col items-start justify-start">
+              <div className="flex w-[60%] flex-col items-start justify-start text-left">
                 <p className="font-medium">{meal.name}</p>
-                <div>{meal.price * meal.quantity}$</div>
-                <div className="flex items-center justify-center">
+                <div className="w-full pl-5">{meal.price * meal.quantity}$</div>
+                <div className="text-c flex items-center justify-center">
                   <span
                     onClick={() => AddQuantityToOneItem(meal)}
-                    className="border-1 h-[30px] w-[35px] cursor-pointer border border-solid border-stone-800 pb-[4px] text-center font-bold text-green-900"
+                    className="border-1 h-[30px] w-[35px] cursor-pointer rounded-[12px] border border-solid border-green-800 bg-green-100 pb-[4px] text-center font-bold text-green-900"
                   >
                     +
                   </span>
-                  <span className="border-1 h-[30px] w-[35px] border border-stone-800 border-x-transparent pb-[4px] text-center">
+                  <span className="text[#61481c] h-[30px] w-[35px] pb-[4px] text-center">
                     {meal.quantity}
                   </span>
                   <span
                     onClick={() => removeQuantityToOneItem(meal)}
-                    className="border-1 h-[30px] w-[35px] cursor-pointer border border-solid border-stone-800 pb-[4px] text-center font-bold text-red-900"
+                    className="border-1 h-[30px] w-[35px] cursor-pointer rounded-[12px] border border-solid border-red-800 bg-red-100 pb-[4px] text-center font-bold text-red-900"
                   >
                     -
                   </span>
                 </div>
               </div>
               <AiFillDelete
-                className="stone-red-800 cursor-pointer text-[30px]"
+                className="cursor-pointer text-[30px] text-red-700"
                 onClick={() => handleRemoveMeal(meal)}
               />
             </div>
@@ -142,7 +197,7 @@ function TotalPrice() {
   return (
     <>
       {Cart.length > 0 ? (
-        <div className="flex w-full justify-center gap-1 font-Inter text-lg font-medium text-[#171715]">
+        <div className="mt-4 flex w-full justify-center gap-1 font-Inter text-lg font-bold text-[#171715]">
           <span>TotaL Price:</span>
           <span>{totalPrice}$</span>
         </div>
@@ -157,7 +212,7 @@ function TotalPrice() {
 
 function Title() {
   return (
-    <div className="flex w-full items-center justify-center">
+    <div className="flex w-full items-center justify-center text-[#171715]">
       <h4 className="font-Inter text-xl">Your Cart</h4>
     </div>
   );
