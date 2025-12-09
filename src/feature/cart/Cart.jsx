@@ -147,7 +147,7 @@ function TotalPrice() {
           <span>{totalPrice}$</span>
         </div>
       ) : (
-        <p className="mx-4 text-center mt-7 text-red-900">
+        <p className="mx-4 mt-7 text-center text-red-900">
           Not Found Meals in Your Cart yet
         </p>
       )}

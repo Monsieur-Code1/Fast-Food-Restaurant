@@ -5,10 +5,31 @@ import { DataProvider, useData } from './context/Context';
 
 import NotFound from './feature/PageError/NotFound';
 import Cart from './feature/cart/Cart';
+import { Toaster } from 'react-hot-toast';
 export default function App() {
   const { showCart, setShowCart } = useData();
   return (
     <>
+    <Toaster
+        position="top-center"
+        gutter={12}
+        containerStyle={{ margin: '8px' }}
+        toastOptions={{
+          success: {
+            duration: 3000,
+          },
+          error: {
+            duration: 3000,
+          },
+          style: {
+            fontSize: '16px',
+            maxWidth: '500px',
+            padding: '12px 24px',
+            backgroundColor: '#eee',
+            color: '#000',
+          },
+        }}
+      />
       {showCart && <Cart />}
      
         <Routes>

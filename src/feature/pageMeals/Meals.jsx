@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
-import { FiEyeOff } from 'react-icons/fi';;
+import { FiEyeOff } from 'react-icons/fi';
 import { useData } from '../../context/Context';
 import style1 from '../style/ButtonNow.module.css';
 import style from './Meals.module.css';
 import { meal } from './mealData';
+import toast from 'react-hot-toast';
 export default function Meals() {
   const [mealsFilter, setMealsFilter] = useState('All');
   const { mealsRef, handleShowCart, Cart } = useData();
@@ -65,14 +66,22 @@ function ButtonsFilter({ setMealsFilter, mealsFilter }) {
     </div>
   );
 }
-function Products({ mealsFilter }) { 
-  const { Cart, setCart, handleAddItemInCart, handleShowCart, showCart,setShowCart } =
-    useData();
+function Products({ mealsFilter }) {
+  const {
+    Cart,
+    setCart,
+    handleAddItemInCart,
+    handleShowCart,
+    showCart,
+    setShowCart,
+  } = useData();
   const [meals] = useState(meal);
   const [showAll, setShowAll] = useState(false);
 
   function handleRemoveMeal(el) {
     setCart((prev) => prev.filter((meal) => meal.id !== el.id));
+    toast.dismiss()
+    toast.success("deleted success")
   }
 
   // فلترة
@@ -128,7 +137,7 @@ function Products({ mealsFilter }) {
                   onClick={() => handleAddItemInCart(el)}
                   className={style.btnOrder}
                 >
-                  Order now
+                  Add to cart
                 </button>
               )}
             </div>

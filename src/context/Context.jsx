@@ -1,14 +1,15 @@
 import { createContext, useContext, useRef, useState } from 'react';
+import toast from 'react-hot-toast';
 const dateContext = createContext();
 function DataProvider({ children }) {
-  const [showCart,setShowCart]=useState(false)
+  const [showCart, setShowCart] = useState(false);
   const [showItem, setShowItem] = useState(false);
   const [Cart, setCart] = useState([]);
-  function handleShowCart(){
-    setShowCart(cart=>!cart)
+  function handleShowCart() {
+    setShowCart((cart) => !cart);
   }
-  function handleCloseCart(){
-    setShowCart(false)
+  function handleCloseCart() {
+    setShowCart(false);
   }
   function handleAddItemInCart(product) {
     setCart((prev) => {
@@ -20,10 +21,11 @@ function DataProvider({ children }) {
             : meal,
         );
       }
+      toast.dismiss()
+      toast.success('Added successfully');
       return [...prev, { ...product, quantity: 1 }];
     });
   }
-
 
   const frame1Ref = useRef();
   const mealsRef = useRef();
@@ -31,7 +33,7 @@ function DataProvider({ children }) {
   const mapRef = useRef();
   const aboutRef = useRef();
   const cardRef = useRef();
- 
+
   // 2. دالة التمرير (Scroll Handler Function)
   const scrollToSection = (ref) => {
     ref.current.scrollIntoView({

@@ -179,7 +179,7 @@
   font-family: 'Inter';
   font-weight: 700;
   font-size: 19px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   border-radius: 50px 0px 50px 0px;
   -webkit-border-radius: 50px 0px 50px 0px;
   -moz-border-radius: 50px 0px 50px 0px;
