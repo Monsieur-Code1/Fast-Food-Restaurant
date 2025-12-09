@@ -11,9 +11,28 @@ function DataProvider({ children }) {
   function handleCloseCart() {
     setShowCart(false);
   }
+  // function handleAddItemInCart(product) {
+  //   setCart((prev) => {
+  //     const exist = prev?.find((item) => item.id === product.id);
+  //     if (exist) {
+  //       return prev.map((meal) =>
+  //         meal.id === product.id
+  //           ? { ...meal, quantity: meal.quantity + 1 }
+  //           : meal,
+  //       );
+  //     }
+  //     toast.dismiss()
+  //     toast.success(product.name +' Added successfully');
+  //     return [...prev, { ...product, quantity: 1 }];
+  //   });
+  // }
+
   function handleAddItemInCart(product) {
+    let wasNewItem = false; // ⭐️ متغير لتتبع إذا كان العنصر جديدًا
+
     setCart((prev) => {
       const exist = prev?.find((item) => item.id === product.id);
+
       if (exist) {
         return prev.map((meal) =>
           meal.id === product.id
@@ -21,10 +40,17 @@ function DataProvider({ children }) {
             : meal,
         );
       }
-      toast.dismiss()
-      toast.success(product.name +' Added successfully');
+
+      // ⭐️ إذا كان العنصر غير موجود، سنقوم بإضافته وتعيين المتغير إلى true
+      wasNewItem = true;
       return [...prev, { ...product, quantity: 1 }];
     });
+
+    // ⭐️ 🛠️ تنفيذ التأثير الجانبي (عرض التوست) خارج دالة setCart 🛠️
+    if (wasNewItem) {
+      toast.dismiss();
+      toast.success(product.name + ' Added successfully');
+    }
   }
 
   const frame1Ref = useRef();

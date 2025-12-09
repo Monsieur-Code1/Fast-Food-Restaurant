@@ -6,6 +6,7 @@ import style1 from '../style/ButtonNow.module.css';
 import style from './Meals.module.css';
 import { meal } from './mealData';
 import toast from 'react-hot-toast';
+import DeleteConfirmationModal from '../Modal/Modal';
 export default function Meals() {
   const [mealsFilter, setMealsFilter] = useState('All');
   const { mealsRef, handleShowCart, Cart } = useData();
@@ -78,18 +79,6 @@ function Products({ mealsFilter }) {
   const [meals] = useState(meal);
   const [showAll, setShowAll] = useState(false);
 
-  function handleRemoveMeal(el) {
-    setCart((prev) => prev.filter((meal) => meal.id !== el.id));
-    toast.dismiss()
-    toast(el.name + ' deleted ', {
-      icon: <FiTrash className="text-[25px] text-red-600" />,
-      style: {
-        border: '1px solid #c62828',
-        color: '#c62828',
-      },
-    });
-  }
-
   // فلترة
   let filteredMeals = meals;
   if (mealsFilter !== 'All') {
@@ -101,7 +90,27 @@ function Products({ mealsFilter }) {
   if (mealsFilter === 'All' && !showAll) {
     visibleMeals = filteredMeals.slice(0, 5);
   }
+  const [ShowModalDelete, setShowModalDelete] = useState(false);
+  const [itemToDelete, setItemToDelete] = useState(null);
+  const handelShowModal = (el) => {
+    setItemToDelete(el); // 👈 تسجيل العنصر
+    setShowModalDelete(true);
+  };
+  const handelCloseModal = () => setShowModalDelete(false);
 
+  // ⭐️ 4. دالة الحذف المؤكدة: تستخدم itemToDelete وتغلق الموديل
+  const handleConfirmDelete = () => {
+    if (itemToDelete) {
+      // تنفيذ منطق الحذف
+      setCart((prev) => prev.filter((meal) => meal.id !== itemToDelete.id));
+      toast.dismiss();
+      toast(itemToDelete.name + ' deleted ', {
+        icon: <FiTrash className="text-[25px] text-red-600" />,
+        style: { border: '1px solid #c62828', color: '#c62828' },
+      });
+    }
+    handelCloseModal(); // إغلاق الموديل بعد الحذف
+  };
   return (
     <>
       <div className={style.containerCards}>
@@ -125,18 +134,8 @@ function Products({ mealsFilter }) {
                 <button
                   className={`${style.btnOrder} flex items-center justify-center text-orange-950`}
                 >
-                  <span onClick={() => handleRemoveMeal(el)}>In Cart</span>
-                  {showCart ? (
-                    <FiEyeOff
-                      className="ml-[8px] text-[30px] text-orange-950"
-                      onClick={() => setShowCart(false)}
-                    />
-                  ) : (
-                    <FaShoppingCart
-                      onClick={() => setShowCart(true)}
-                      className="ml-[8px] text-[30px] text-orange-950"
-                    />
-                  )}
+                  <span onClick={() => handelShowModal(el)}>Remove  </span>
+                  
                 </button>
               ) : (
                 <button
@@ -150,6 +149,14 @@ function Products({ mealsFilter }) {
             <img src={el.src} className={style.photoMeal} alt="" />
           </div>
         ))}
+        {ShowModalDelete && (
+          <DeleteConfirmationModal
+            itemName={itemToDelete?.name}
+            onClose={handelCloseModal}
+            onConfirmDelete={ handleConfirmDelete}
+            isOpen={ShowModalDelete}
+          />
+        )}
       </div>
 
       {/* زرار VIEW MORE */}

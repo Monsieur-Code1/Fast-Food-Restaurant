@@ -4,10 +4,13 @@ import { AiFillCloseSquare, AiFillDelete } from 'react-icons/ai';
 import { FiTrash } from 'react-icons/fi';
 import { useData } from '../../context/Context';
 import style from './cart.module.css';
+import { useState } from 'react';
+import CustomModal from '../Modal/Modal';
+import DeleteConfirmationModal from '../Modal/Modal';
 export default function Cart() {
   const { Cart } = useData();
   return createPortal(
-    <div className={style.Container}>
+    <div className={`${style.Container} `}>
       <div className="border-b-2 border-solid border-stone-950 bg-[#bf9742]">
         <CLoseItem />
         <Title />
@@ -53,19 +56,19 @@ function CartItem() {
     });
   }
 */
+
+
   function handleRemoveMeal(el) {
     toast.dismiss();
     toast(el.name + ' deleted ', {
       icon: <FiTrash className="text-[25px] text-red-600" />,
-        style: {
-          border: '1px solid #c62828',
-          color: '#c62828',
-        },
+      style: {
+        border: '1px solid #c62828',
+        color: '#c62828',
+      },
     });
     setCart((prev) => prev.filter((meal) => meal.id !== el.id));
   }
-
-
 
   function removeQuantityToOneItem(el) {
     let removedItem = null; // 👈 1. متغير لتتبع العنصر الذي سيتم حذفه نهائيًا
@@ -103,6 +106,12 @@ function CartItem() {
       });
     }
   }
+
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => setIsModalOpen(true);
+  const handleCloseModal = () => setIsModalOpen(false);
   return (
     <div className="border-b-[2px] border-solid border-stone-950 font-Inter text-[#171715]">
       {Cart?.length > 0 &&
@@ -140,11 +149,21 @@ function CartItem() {
               </div>
               <AiFillDelete
                 className="cursor-pointer text-[30px] text-red-700"
-                onClick={() => handleRemoveMeal(meal)}
+                onClick={handleOpenModal}
               />
+              {isModalOpen && (
+                <DeleteConfirmationModal
+                  isOpen={isModalOpen}
+                  onClose={handleCloseModal}
+                  itemName={meal.name}
+                  onConfirmDelete={() => handleRemoveMeal(meal)}
+                />
+              )}
             </div>
           );
         })}
+
+      
     </div>
   );
 }
