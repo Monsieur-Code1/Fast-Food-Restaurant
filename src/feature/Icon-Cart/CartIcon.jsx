@@ -8,7 +8,7 @@ export default function CartIcon() {
       {Cart.length > 0 && (
         <div
           onClick={handleShowCart}
-          className="fixed bottom-[100px] cursor-pointer left-3 flex items-center justify-center text-teal-700"
+          className="fixed bg-white rounded-full p-2 bottom-[100px] cursor-pointer left-3 flex items-center justify-center text-amber-900"
         >
           <FaShoppingCart className="text-[35px]" />
           <span>{Cart.length}</span>
