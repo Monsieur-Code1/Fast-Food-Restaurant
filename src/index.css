@@ -2,19 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@import 'react-calendar/dist/Calendar.css';
+@import 'react-clock/dist/Clock.css';
+@import 'react-datetime-picker/dist/DateTimePicker.css';
 /* @import"https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" */
-
-     
 
 @layer components {
   .input {
-    @apply  rounded-full border border-stone-200 px-4 py-2 text-sm transition-all duration-300 placeholder:text-stone-400 focus:outline-none focus:ring focus:ring-yellow-400 md:px-6 md:py-3;
+    @apply rounded-full border border-stone-200 px-4 py-2 text-sm transition-all duration-300 placeholder:text-stone-400 focus:outline-none focus:ring focus:ring-yellow-400 md:px-6 md:py-3;
   }
   /* https://dev.to/afif/i-made-100-css-loaders-for-your-next-project-4eje */
   .loader {
     width: 45px;
     aspect-ratio: 0.75;
-    --c: no-repeat linear-gradient(theme(colors.stone.800) );
+    --c: no-repeat linear-gradient(theme(colors.stone.800));
     background:
       var(--c) 0% 50%,
       var(--c) 50% 50%,
@@ -51,35 +52,35 @@
   }
 }
 /* font 1- */
-@font-face{
-  font-family: "Lobster_Two";
-  src: url("/public/font/LobsterTwo-Regular.ttf") format("truetype");
+@font-face {
+  font-family: 'Lobster_Two';
+  src: url('/public/font/LobsterTwo-Regular.ttf') format('truetype');
   font-weight: normal;
-  font-style: normal;
+  font-style:  normal;
 }
 
 /* font 2- */
-@font-face{
-  font-family: "Inter";
-  src: url("/public/font/Inter_18pt-Regular.ttf") format("truetype");
+@font-face {
+  font-family: 'Inter';
+  src: url('/public/font/Inter_18pt-Regular.ttf') format('truetype');
   font-weight: normal;
-  font-style: normal;
+  font-style:  normal;
 }
 /* font 2- */
-@font-face{
-  font-family: "JockeyOne";
-  src: url("/public/font/JockeyOne-Regular.ttf") format("truetype");
+@font-face {
+  font-family: 'JockeyOne';
+  src: url('/public/font/JockeyOne-Regular.ttf') format('truetype');
   font-weight: normal;
-  font-style: normal;
+  font-style:  normal;
 }
 /* font - */
-@font-face{
-  font-family: "Manrope";
-  src: url("/public/font/Manrope-Regular.ttf") format("truetype");
+@font-face {
+  font-family: 'Manrope';
+  src: url('/public/font/Manrope-Regular.ttf') format('truetype');
   font-weight: 400;
-  font-style: normal;
+  font-style:  normal;
 }
 
-body{
-    height: 100%;
+body {
+  height: 100%;
 }

@@ -1,14 +1,15 @@
+import { useState } from 'react';
 import { createPortal } from 'react-dom';
 import toast from 'react-hot-toast';
 import { AiFillCloseSquare, AiFillDelete } from 'react-icons/ai';
 import { FiTrash } from 'react-icons/fi';
 import { useData } from '../../context/Context';
-import style from './cart.module.css';
-import { useState } from 'react';
-import CustomModal from '../Modal/Modal';
+import CustomModal from '../Modal/CustomeModal';
 import DeleteConfirmationModal from '../Modal/Modal';
+import style from './cart.module.css';
 export default function Cart() {
-  const { Cart } = useData();
+  const { Cart, dataClient } = useData();
+
   return createPortal(
     <div className={`${style.Container} `}>
       <div className="border-b-2 border-solid border-stone-950 bg-[#bf9742]">
@@ -20,6 +21,7 @@ export default function Cart() {
 
       <TotalPrice />
       {Cart?.length < 1 && <BtnOrder />}
+      {Cart?.length > 0 && <PayNow />}
     </div>,
 
     document.body,
@@ -38,27 +40,9 @@ function CartItem() {
       });
     });
   }
-  /*
-  function removeQuantityToOneItem(el) {
-    setCart((prev) => {
-      const update = prev.map((product) => {
-        if (product.id === el.id) {
-          return { ...product, quantity: el.quantity - 1 };
-        }
-        if (el.quantity) {
-          toast(el.name + ' deleted ', {
-            icon: <FiTrash className="text-[25px] text-red-600" />,
-          });
-        }
-        return product;
-      });
-      return update.filter((el) => el.quantity > 0);
-    });
-  }
-*/
-
 
   function handleRemoveMeal(el) {
+    // ... (منطق حذف الوجبة السابق)
     toast.dismiss();
     toast(el.name + ' deleted ', {
       icon: <FiTrash className="text-[25px] text-red-600" />,
@@ -68,6 +52,7 @@ function CartItem() {
       },
     });
     setCart((prev) => prev.filter((meal) => meal.id !== el.id));
+    handleCloseModal(); // أغلق النافذة بعد الحذف
   }
 
   function removeQuantityToOneItem(el) {
@@ -107,15 +92,18 @@ function CartItem() {
     }
   }
 
+  const [mealToDeleteId, setMealToDeleteId] = useState(null);
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // الفتح: قم بتخزين معرّف الوجبة التي تم النقر عليها
+  const handleOpenModal = (mealId) => setMealToDeleteId(mealId);
 
-  const handleOpenModal = () => setIsModalOpen(true);
-  const handleCloseModal = () => setIsModalOpen(false);
+  // الإغلاق: قم بتعيين القيمة إلى null
+  const handleCloseModal = () => setMealToDeleteId(null);
   return (
     <div className="border-b-[2px] border-solid border-stone-950 font-Inter text-[#171715]">
       {Cart?.length > 0 &&
         Cart.map((meal, index) => {
+          const isCurrentMealModalOpen = mealToDeleteId === meal.id;
           return (
             <div
               key={meal.id}
@@ -149,11 +137,11 @@ function CartItem() {
               </div>
               <AiFillDelete
                 className="cursor-pointer text-[30px] text-red-700"
-                onClick={handleOpenModal}
+                onClick={() => handleOpenModal(meal.id)}
               />
-              {isModalOpen && (
+              {isCurrentMealModalOpen && (
                 <DeleteConfirmationModal
-                  isOpen={isModalOpen}
+                  isOpen={true}
                   onClose={handleCloseModal}
                   itemName={meal.name}
                   onConfirmDelete={() => handleRemoveMeal(meal)}
@@ -162,8 +150,6 @@ function CartItem() {
             </div>
           );
         })}
-
-      
     </div>
   );
 }
@@ -233,6 +219,68 @@ function Title() {
   return (
     <div className="flex w-full items-center justify-center text-[#171715]">
       <h4 className="font-Inter text-xl">Your Cart</h4>
+    </div>
+  );
+}
+function PayNow() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isPay, setIsPay] = useState(false);
+  const handleOpenModal = () => setIsModalOpen(true);
+  const handleCloseModal = () => setIsModalOpen(false);
+
+  const {
+    setCart,
+    name,
+    email,
+    phone,
+    persons,
+    date,
+    scrollToSection,
+    InputClient,
+    setShowCart,
+  } = useData();
+  function handelClickPay() {
+    // التحقق من أن جميع البيانات موجودة وليست سلاسل نصية فارغة
+    const isClientDataMissing =
+      name.length === 0 ||
+      email.length === 0 ||
+      phone.length === 0 ||
+      persons.length === 0 ||
+      date.length === 0;
+
+    if (isClientDataMissing) {
+      // 1. ✅ المنطق الصحيح: إذا كانت البيانات ناقصة، اطلب من المستخدم إدخالها.
+      handleOpenModal();
+    } else {
+      // 2. ✅ المنطق الصحيح: إذا كانت جميع البيانات موجودة، قم بإتمام عملية الدفع.
+      setIsPay(true);
+      setCart([]); // تفريغ العربة
+      toast.success('payed successfully');
+    }
+  }
+  function handelPleaseEnterDataClient() {
+    setShowCart(false)
+    scrollToSection(InputClient);
+
+  }
+  return (
+    <div>
+      {!isPay && (
+        <div className="flex w-full justify-center">
+          <button onClick={handelClickPay} className={style.btnOrderNow}>
+            Pay Now
+          </button>
+        </div>
+      )}
+      {isModalOpen && (
+        <CustomModal
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+          okay={'okay'}
+          onConfirmDelete={handelPleaseEnterDataClient}
+          text="please enter your information to complete the booking process"
+        />
+      )}
     </div>
   );
 }

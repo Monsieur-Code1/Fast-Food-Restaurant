@@ -4,6 +4,7 @@ const dateContext = createContext();
 function DataProvider({ children }) {
   const [showCart, setShowCart] = useState(false);
   const [showItem, setShowItem] = useState(false);
+  const [dataClient, setDataCLient] = useState('');
   const [Cart, setCart] = useState([]);
   function handleShowCart() {
     setShowCart((cart) => !cart);
@@ -11,21 +12,15 @@ function DataProvider({ children }) {
   function handleCloseCart() {
     setShowCart(false);
   }
-  // function handleAddItemInCart(product) {
-  //   setCart((prev) => {
-  //     const exist = prev?.find((item) => item.id === product.id);
-  //     if (exist) {
-  //       return prev.map((meal) =>
-  //         meal.id === product.id
-  //           ? { ...meal, quantity: meal.quantity + 1 }
-  //           : meal,
-  //       );
-  //     }
-  //     toast.dismiss()
-  //     toast.success(product.name +' Added successfully');
-  //     return [...prev, { ...product, quantity: 1 }];
-  //   });
-  // }
+  //  data Client-first
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [persons, setPersons] = useState("");
+  const [date, setDate] = useState("");
+
+  
+  //  data Client-end
 
   function handleAddItemInCart(product) {
     let wasNewItem = false; // ⭐️ متغير لتتبع إذا كان العنصر جديدًا
@@ -59,6 +54,7 @@ function DataProvider({ children }) {
   const mapRef = useRef();
   const aboutRef = useRef();
   const cardRef = useRef();
+  const InputClient = useRef();
 
   // 2. دالة التمرير (Scroll Handler Function)
   const scrollToSection = (ref) => {
@@ -86,6 +82,19 @@ function DataProvider({ children }) {
         Cart,
         setCart,
         handleAddItemInCart,
+        dataClient,
+        setDataCLient,
+        name,
+        setName,
+        email,
+        setEmail,
+        phone,
+        setPhone,
+        persons,
+        setPersons,
+        date,
+        setDate,
+        InputClient,
       }}
     >
       {children}

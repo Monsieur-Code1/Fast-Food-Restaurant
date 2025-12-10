@@ -2,7 +2,7 @@ import { createPortal } from 'react-dom';
 import { FaShoppingCart } from 'react-icons/fa';
 import { useData } from '../../context/Context';
 export default function CartIcon() {
-  const { Cart, handleShowCart } = useData();
+  const { Cart, handleShowCart } = useData();  
   return createPortal(
     <>
       {Cart.length > 0 && (

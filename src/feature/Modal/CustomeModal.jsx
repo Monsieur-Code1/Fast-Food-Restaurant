@@ -101,7 +101,7 @@ import { createPortal } from 'react-dom';
 
 
 // Inner component logic
-const ModalOverlay = ({ onClose, onConfirmDelete, itemName = 'this item',text }) => {
+const ModalOverlay = ({ onClose, onConfirmDelete, text, okay }) => {
   const handleDelete = () => {
     onConfirmDelete(); // Execute the passed delete function
     onClose(); // Close the modal after successful execution
@@ -119,21 +119,14 @@ const ModalOverlay = ({ onClose, onConfirmDelete, itemName = 'this item',text })
 
         {/* Modal Content */}
         <ModalContent>
-          {!text ? (
-            <>
-              <h2>Confirm Deletion</h2>
-              <p>Are you sure you want to delete </p>
-              <p className="text-stone-900"> *{itemName}*?</p>
-              <p>This action cannot be undone.</p>
-            </>
-          ):<div>{text}</div>}
+          <div className="mt-2 p-2">{text}</div>
         </ModalContent>
 
         {/* Action Buttons */}
         <ActionButtons>
           <CancelButton onClick={onClose}>Cancel</CancelButton>
           <ConfirmDeleteButton onClick={handleDelete}>
-            Yes, Delete it
+            {okay}
           </ConfirmDeleteButton>
         </ActionButtons>
       </ModalContainer>
@@ -142,12 +135,7 @@ const ModalOverlay = ({ onClose, onConfirmDelete, itemName = 'this item',text })
 };
 
 // External Component (Uses Portal)
-function DeleteConfirmationModal({
-  isOpen,
-  onClose,
-  onConfirmDelete,
-  itemName,
-}) {
+function CustomModal({ isOpen, onClose, onConfirmDelete, text, okay }) {
   if (!isOpen) {
     return null;
   }
@@ -158,10 +146,11 @@ function DeleteConfirmationModal({
     <ModalOverlay
       onClose={onClose}
       onConfirmDelete={onConfirmDelete}
-      itemName={itemName}
+      text={text}
+      okay={okay}
     />,
     document.body,
   );
 }
 
-export default DeleteConfirmationModal;
+export default CustomModal;

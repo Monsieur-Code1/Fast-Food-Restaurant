@@ -1,10 +1,10 @@
-import toast from 'react-hot-toast';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useData } from '../../context/Context';
 import style2 from './ButtonNow.module.css';
 import Map from './Map';
 import style from './PageMap.module.css';
 import style1 from './TitlePage.module.css';
-import { useState } from 'react';
 
 export default function PageMap() {
   const { BookTableRef } = useData();
@@ -29,71 +29,50 @@ export default function PageMap() {
 }
 
 function Inputs() {
-  const {
-    name,
-    setName,
-    email,
-    setEmail,
-    phone,
-    setPhone,
-    persons,
-    setPersons,
-    date,
-    setDate,
-    InputClient,
-  } = useData();
-const [nameInput, setNameInput] = useState("");
-const [emailInput, setEmailInput] = useState("");
-const [phoneInput, setPhoneInput] = useState("");
-const [personsInput, setPersonsInput] = useState("");
-const [dateInput, setDateInput] = useState("");
-
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    if (
-      !nameInput ||
-      !emailInput ||
-      !phoneInput ||
-      !personsInput ||
-      !dateInput
-    ) {
-      toast.error('Please fill in all the required fields');
-      return null;
-    }
-    setName(nameInput);
-    setEmail(emailInput);
-    setDate(dateInput);
-    setPersons(personsInput);
-    setPhone(phoneInput);
-
-    toast.success('Booking successful!');
-    // 3. ✅ خطوة تفريغ الحقول (إعادة تعيين الحالة إلى قيم فارغة):
-    setNameInput('');
-    setEmailInput('');
-    setPhoneInput('');
-    setPersonsInput(''); // تعيين الـ Select إلى القيمة الافتراضية الفارغة
-    setDateInput('');
+  const [data, setData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    persons: '',
+    date: '',
+  });
+  function handelChange(e) {
+    setData({ ...data, [e.target.name]: e.target.value });
   }
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch(
+        'https://api.sheetbest.com/sheets/da49e06f-b7f5-4422-ae96-4073b28112c3',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        },
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
-    <form
-      ref={InputClient}
-      onSubmit={handleSubmit}
-      className={style.containerInputs}
-    >
+    <form onSubmit={handleSubmit} className={style.containerInputs}>
       <input
-        value={nameInput}
+        value={data.name}
         name="name"
-        onChange={(e) => setNameInput(e.target.value)}
+        onChange={handelChange}
         placeholder="Your Name"
         className={style.input}
         type="text"
         id=""
       />
       <input
-        value={emailInput}
-        onChange={(e) => setEmailInput(e.target.value)}
+        value={data.email}
+        onChange={handelChange}
         placeholder="Email"
         className={style.input}
         type="email"
@@ -101,8 +80,8 @@ const [dateInput, setDateInput] = useState("");
         id=""
       />
       <input
-        value={phoneInput}
-        onChange={(e) => setPhoneInput(e.target.value)}
+        value={data.phone}
+        onChange={handelChange}
         placeholder="Phone Number"
         className={style.input}
         type="tel"
@@ -110,8 +89,8 @@ const [dateInput, setDateInput] = useState("");
         id=""
       />
       <select
-        value={personsInput}
-        onChange={(e) => setPersonsInput(e.target.value)}
+        value={data.persons}
+        onChange={handelChange}
         placeholder="How Many Person?"
         className={style.input}
         name="persons"
@@ -127,8 +106,8 @@ const [dateInput, setDateInput] = useState("");
         <option value="7">7</option>
       </select>
       <input
-        value={dateInput}
-        onChange={(e) => setDateInput(e.target.value)}
+        value={data.date}
+        onChange={handelChange}
         placeholder="Date"
         className={`${style.input}`}
         type="datetime-local"
@@ -137,9 +116,7 @@ const [dateInput, setDateInput] = useState("");
       />
 
       <div className={style2.containerBtnOrder}>
-        <button type="submit" className={style2.btnOrderNow}>
-          Book Now
-        </button>
+        <button className={style2.btnOrderNow}>Book Now</button>
         <img src="/images/Vector 4.png" className={style2.photoVector} alt="" />
       </div>
     </form>
