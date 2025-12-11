@@ -3,11 +3,11 @@ import { createPortal } from 'react-dom';
 import toast from 'react-hot-toast';
 import { AiFillCloseSquare, AiFillDelete } from 'react-icons/ai';
 import { FiTrash } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
 import { useData } from '../../context/Context';
 import CustomModal from '../Modal/CustomeModal';
 import DeleteConfirmationModal from '../Modal/Modal';
 import style from './cart.module.css';
-import { useNavigate } from 'react-router-dom';
 export default function Cart() {
   const { Cart, dataClient } = useData();
   console.log(Cart);
@@ -233,8 +233,7 @@ function PayNow() {
     setShowCart,
   } = useData();
 
-
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   function handelClickPay() {
     // التحقق من أن جميع البيانات موجودة وليست سلاسل نصية فارغة
     const isClientDataMissing =
@@ -248,8 +247,8 @@ function PayNow() {
       // 1. ✅ المنطق الصحيح: إذا كانت البيانات ناقصة، اطلب من المستخدم إدخالها.
       handleOpenModal();
     } else {
-    
       navigate('/PaymentApp');
+      setShowCart(false);
     }
   }
   function handelPleaseEnterDataClient() {
