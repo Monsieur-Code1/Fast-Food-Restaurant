@@ -13,13 +13,12 @@ function DataProvider({ children }) {
     setShowCart(false);
   }
   //  data Client-first
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [persons, setPersons] = useState("");
-  const [date, setDate] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [persons, setPersons] = useState('');
+  const [date, setDate] = useState('');
 
-  
   //  data Client-end
 
   function handleAddItemInCart(product) {
@@ -55,6 +54,7 @@ function DataProvider({ children }) {
   const aboutRef = useRef();
   const cardRef = useRef();
   const InputClient = useRef();
+  const invoiceRef = useRef();
 
   // 2. دالة التمرير (Scroll Handler Function)
   const scrollToSection = (ref) => {
@@ -63,6 +63,15 @@ function DataProvider({ children }) {
       block: 'start', // لتثبيت العنصر في أعلى منطقة العرض
     });
   };
+
+  // دالة حساب الإجمالي الصحيحة
+  const totalPrice = Cart.reduce((accumulator, currentItem) => {
+    // 1. حساب السعر الإجمالي للعنصر الحالي
+    const itemTotal = currentItem.price * currentItem.quantity;
+
+    // 2. إضافة هذا الإجمالي إلى القيمة التراكمية السابقة
+    return accumulator + itemTotal;
+  }, 0); // ✅ البدء بقيمة أولية 0 (رقمية)
   return (
     <dateContext.Provider
       value={{
@@ -95,6 +104,8 @@ function DataProvider({ children }) {
         date,
         setDate,
         InputClient,
+        totalPrice,
+        invoiceRef,
       }}
     >
       {children}

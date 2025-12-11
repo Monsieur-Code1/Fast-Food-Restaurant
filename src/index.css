@@ -6,6 +6,7 @@
 @import 'react-clock/dist/Clock.css';
 @import 'react-datetime-picker/dist/DateTimePicker.css';
 /* @import"https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" */
+@layer base {img{display: initial;}}
 
 @layer components {
   .input {

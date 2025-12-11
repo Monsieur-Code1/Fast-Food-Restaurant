@@ -1,10 +1,10 @@
+import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { useData } from '../../context/Context';
 import style2 from './ButtonNow.module.css';
 import Map from './Map';
 import style from './PageMap.module.css';
 import style1 from './TitlePage.module.css';
-import { useState } from 'react';
 
 export default function PageMap() {
   const { BookTableRef } = useData();
@@ -40,14 +40,15 @@ function Inputs() {
     setPersons,
     date,
     setDate,
+    setShowCart,
     InputClient,
+    Cart
   } = useData();
-const [nameInput, setNameInput] = useState("");
-const [emailInput, setEmailInput] = useState("");
-const [phoneInput, setPhoneInput] = useState("");
-const [personsInput, setPersonsInput] = useState("");
-const [dateInput, setDateInput] = useState("");
-
+  const [nameInput, setNameInput] = useState('');
+  const [emailInput, setEmailInput] = useState('');
+  const [phoneInput, setPhoneInput] = useState('');
+  const [personsInput, setPersonsInput] = useState('');
+  const [dateInput, setDateInput] = useState('');
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -75,7 +76,9 @@ const [dateInput, setDateInput] = useState("");
     setPersonsInput(''); // تعيين الـ Select إلى القيمة الافتراضية الفارغة
     setDateInput('');
   }
-
+  function handleGoToPay() {
+    setShowCart(true);
+  }
   return (
     <form
       ref={InputClient}
@@ -137,9 +140,24 @@ const [dateInput, setDateInput] = useState("");
       />
 
       <div className={style2.containerBtnOrder}>
-        <button type="submit" className={style2.btnOrderNow}>
-          Book Now
-        </button>
+        {Cart.length > 0 &&
+        name.length > 0 &&
+        email.length > 0 &&
+        phone.length > 0 &&
+        persons.length > 0 &&
+        date.length > 0 &&
+        date.length > 0 
+        ? (
+          <button onClick={handleGoToPay} className={style2.btnOrderNow}>
+            Go to pay
+          </button>
+        ) : (
+          <button type="submit" className={style2.btnOrderNow}>
+            Book Now
+          </button>
+        )}
+        
+
         <img src="/images/Vector 4.png" className={style2.photoVector} alt="" />
       </div>
     </form>

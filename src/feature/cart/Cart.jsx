@@ -7,9 +7,10 @@ import { useData } from '../../context/Context';
 import CustomModal from '../Modal/CustomeModal';
 import DeleteConfirmationModal from '../Modal/Modal';
 import style from './cart.module.css';
+import { useNavigate } from 'react-router-dom';
 export default function Cart() {
   const { Cart, dataClient } = useData();
-
+  console.log(Cart);
   return createPortal(
     <div className={`${style.Container} `}>
       <div className="border-b-2 border-solid border-stone-950 bg-[#bf9742]">
@@ -189,16 +190,8 @@ function BtnOrder() {
 }
 
 function TotalPrice() {
-  const { Cart, setCart } = useData();
+  const { Cart, setCart, totalPrice } = useData();
 
-  // دالة حساب الإجمالي الصحيحة
-  const totalPrice = Cart.reduce((accumulator, currentItem) => {
-    // 1. حساب السعر الإجمالي للعنصر الحالي
-    const itemTotal = currentItem.price * currentItem.quantity;
-
-    // 2. إضافة هذا الإجمالي إلى القيمة التراكمية السابقة
-    return accumulator + itemTotal;
-  }, 0); // ✅ البدء بقيمة أولية 0 (رقمية)
   return (
     <>
       {Cart.length > 0 ? (
@@ -239,6 +232,9 @@ function PayNow() {
     InputClient,
     setShowCart,
   } = useData();
+
+
+  const navigate=useNavigate()
   function handelClickPay() {
     // التحقق من أن جميع البيانات موجودة وليست سلاسل نصية فارغة
     const isClientDataMissing =
@@ -252,16 +248,13 @@ function PayNow() {
       // 1. ✅ المنطق الصحيح: إذا كانت البيانات ناقصة، اطلب من المستخدم إدخالها.
       handleOpenModal();
     } else {
-      // 2. ✅ المنطق الصحيح: إذا كانت جميع البيانات موجودة، قم بإتمام عملية الدفع.
-      setIsPay(true);
-      setCart([]); // تفريغ العربة
-      toast.success('payed successfully');
+    
+      navigate('/PaymentApp');
     }
   }
   function handelPleaseEnterDataClient() {
-    setShowCart(false)
+    setShowCart(false);
     scrollToSection(InputClient);
-
   }
   return (
     <div>

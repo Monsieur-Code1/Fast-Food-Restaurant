@@ -6,11 +6,14 @@ import { DataProvider, useData } from './context/Context';
 import NotFound from './feature/PageError/NotFound';
 import Cart from './feature/cart/Cart';
 import { Toaster } from 'react-hot-toast';
+import Invoice from './feature/invoice/Invoice';
+import Payment from './feature/invoice/Payment';
+import PaymentApp from './feature/invoice/Payment';
 export default function App() {
   const { showCart, setShowCart } = useData();
   return (
     <>
-    <Toaster
+      <Toaster
         position="top-center"
         gutter={12}
         containerStyle={{ margin: '8px' }}
@@ -31,13 +34,13 @@ export default function App() {
         }}
       />
       {showCart && <Cart />}
-     
-        <Routes>
-          <Route path="/" element={<Applayout />} />
 
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      
+      <Routes>
+        <Route path="/" element={<Applayout />} />
+        <Route path="/PaymentApp" element={<PaymentApp />} />
+
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </>
   );
 }
