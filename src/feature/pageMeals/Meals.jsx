@@ -1,12 +1,11 @@
 import { useState } from 'react';
-import { FaShoppingCart } from 'react-icons/fa';
-import { FiEyeOff, FiTrash } from 'react-icons/fi';
+import toast from 'react-hot-toast';
+import { FiTrash } from 'react-icons/fi';
 import { useData } from '../../context/Context';
+import DeleteConfirmationModal from '../Modal/Modal';
 import style1 from '../style/ButtonNow.module.css';
 import style from './Meals.module.css';
 import { meal } from './mealData';
-import toast from 'react-hot-toast';
-import DeleteConfirmationModal from '../Modal/Modal';
 export default function Meals() {
   const [mealsFilter, setMealsFilter] = useState('All');
   const { mealsRef, handleShowCart, Cart } = useData();
@@ -75,6 +74,8 @@ function Products({ mealsFilter }) {
     handleShowCart,
     showCart,
     setShowCart,
+    searchbar,
+    setSearchbar,
   } = useData();
   const [meals] = useState(meal);
   const [showAll, setShowAll] = useState(false);
@@ -84,7 +85,11 @@ function Products({ mealsFilter }) {
   if (mealsFilter !== 'All') {
     filteredMeals = meals.filter((meal) => meal.type === mealsFilter);
   }
-
+  if (searchbar) {
+    filteredMeals = filteredMeals.filter((meal) =>
+      meal.name.toLowerCase().includes(searchbar.toLowerCase()),
+    );
+  }
   // تحديد الكروت المرئية
   let visibleMeals = filteredMeals;
   if (mealsFilter === 'All' && !showAll) {
@@ -134,8 +139,7 @@ function Products({ mealsFilter }) {
                 <button
                   className={`${style.btnOrder} flex items-center justify-center text-orange-950`}
                 >
-                  <span onClick={() => handelShowModal(el)}>Remove  </span>
-                  
+                  <span onClick={() => handelShowModal(el)}>Remove </span>
                 </button>
               ) : (
                 <button
@@ -153,7 +157,7 @@ function Products({ mealsFilter }) {
           <DeleteConfirmationModal
             itemName={itemToDelete?.name}
             onClose={handelCloseModal}
-            onConfirmDelete={ handleConfirmDelete}
+            onConfirmDelete={handleConfirmDelete}
             isOpen={ShowModalDelete}
           />
         )}

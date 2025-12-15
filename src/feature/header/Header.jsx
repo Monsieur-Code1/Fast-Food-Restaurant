@@ -24,6 +24,8 @@ export default function Header() {
     showItem,
     setShowItem,
     Cart,
+    searchbar,
+    setSearchbar,
   } = useData();
 
   const [activeBtn, setActiveBtn] = useState('HOME');
@@ -76,6 +78,8 @@ export default function Header() {
                 className="SearchInput"
                 placeholder="Search"
                 type="search"
+                value={searchbar}
+                onChange={(e) => setSearchbar(e.target.value)}
               />
               <FiSearch fontSize="20px" color="#bf9742" />
             </div>
@@ -191,6 +195,8 @@ export default function Header() {
                 className="SearchInput"
                 placeholder="Search"
                 type="search"
+                value={searchbar}
+                onChange={(e) => setSearchbar(e.target.value)}
               />
               <FiSearch fontSize="20px" color="#bf9742" />
             </div>

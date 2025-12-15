@@ -23,7 +23,8 @@ function DataProvider({ children }) {
   const [openModelRating,setOpenModelRating]=useState(false)
   //userRating
    const [ratingPersons, setRatingPersons] = useState(personsWasRating);
-
+// searchbar
+const [searchbar,setSearchbar]=useState("")
   //  data Client-end
 
   function handleAddItemInCart(product) {
@@ -115,6 +116,8 @@ function DataProvider({ children }) {
         setOpenModelRating,
         ratingPersons,
         setRatingPersons,
+        searchbar,
+        setSearchbar,
       }}
     >
       {children}

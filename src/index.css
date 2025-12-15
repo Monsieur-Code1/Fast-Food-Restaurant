@@ -6,7 +6,11 @@
 @import 'react-clock/dist/Clock.css';
 @import 'react-datetime-picker/dist/DateTimePicker.css';
 /* @import"https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" */
-@layer base {img{display: initial;}}
+@layer base {
+  img {
+    display: initial;
+  }
+}
 
 @layer components {
   .input {
@@ -86,12 +90,22 @@ body {
   height: 100%;
 }
 
+:root {
+  --primer-color: #61481c;
+  --second-color: #fdf8f8;
+  --three-color: #61481c;
+  --four-color: #171715;
+}
 
+input[type='date'],
+input[type='time'] {
+  color: #7d5612fc; /* لون النص */
+  border: 1px solid #7d5612fc;
+}
 
-:root{
-  --primer-color:#61481c;
-  --second-color:#fdf8f8;
-  --three-color:#61481c;
-  --four-color:#171715;
-  
+input[type='date']::-webkit-calendar-picker-indicator,
+input[type='time']::-webkit-calendar-picker-indicator {
+  filter: invert(37%) sepia(73%) saturate(574%) hue-rotate(26deg)
+    brightness(97%) contrast(90%);
+  cursor: pointer;
 }
