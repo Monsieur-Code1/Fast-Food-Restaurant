@@ -2,6 +2,7 @@ import html2pdf from 'html2pdf.js';
 import { useState } from 'react';
 import { useData } from '../../context/Context';
 
+import { useNavigate } from 'react-router-dom';
 import Invoice from './Invoice';
 
 export default function PaymentApp() {
@@ -26,7 +27,7 @@ const Payment = ({ paymentSuccess, setPaymentSuccess }) => {
     expiryDate: '',
     cvv: '',
   });
-  const { invoiceRef } = useData();
+  const { invoiceRef, Cart, setCart } = useData();
   // حالة لتتبع حالة الدفع
   const [isProcessing, setIsProcessing] = useState(false);
   const [showToast, setShowToast] = useState(false);
@@ -99,9 +100,9 @@ const Payment = ({ paymentSuccess, setPaymentSuccess }) => {
     </div>
   );
   // -------------------------------------------------------------------
-
+  const Navigate = useNavigate();
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100 p-4 font-Inter">
+    <div className="flex min-h-screen items-center justify-center bg-[#bf9742] p-4 font-Inter">
       {/* عرض التوست */}
       {showToast && <Toast message="✅ تم الدفع بنجاح!" />}
 
@@ -130,13 +131,23 @@ const Payment = ({ paymentSuccess, setPaymentSuccess }) => {
             <p className="mb-4 text-xl font-semibold text-green-700">
               Payment processed successfully!
             </p>
-            <button
-              onClick={handlePrintInvoice}
-              className="mt-4 w-full rounded-lg bg-blue-600 px-6 py-3 font-bold text-white shadow-md transition duration-200 hover:bg-blue-700 md:w-auto"
-              disabled={isProcessing}
-            >
-              🖨️ print invoice
-            </button>
+            <div className="flex items-center justify-around">
+              <button
+                className="mt-4 w-full rounded-lg bg-yellow-600 px-6 py-3 font-bold text-white shadow-md transition duration-200 hover:bg-yellow-700 md:w-auto"
+                onClick={() => {
+                  (Navigate('/'), setCart([]));
+                }}
+              >
+                &larr; back
+              </button>
+              <button
+                onClick={handlePrintInvoice}
+                className="mt-4 w-full rounded-lg bg-green-600 px-6 py-3 font-bold text-white shadow-md transition duration-200 hover:bg-green-700 md:w-auto"
+                disabled={isProcessing}
+              >
+                🖨️ print invoice
+              </button>
+            </div>
           </div>
         ) : (
           /* نموذج الدفع */
