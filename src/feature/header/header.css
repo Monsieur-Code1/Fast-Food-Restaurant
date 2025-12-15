@@ -76,7 +76,9 @@
 .active{
   color: #bf9742;
 }
-
+.ItemHeader:hover{
+  color: #bf9742;
+}
 .AppItemHeader {
   display: flex;
   justify-content: space-between;

@@ -34,7 +34,7 @@ function ContainerPhoto() {
       <p
         role="button"
         onClick={handelShowModalRating}
-        className="w-full cursor-pointer p-0 pt-5 text-right font-Inter text-[20px] text-[#ffffff] md:pr-8"
+        className={` ${style.feedback}w-full feedback cursor-pointer p-0 pt-5 text-right font-Inter text-[20px] text-[#ffffff] underline md:pr-8`}
       >
         Add Your Feedback
       </p>
@@ -43,7 +43,7 @@ function ContainerPhoto() {
         className="w-[99%] items-start sm:w-[65%] md:w-[500px] lg:w-[600px]"
         alt=""
       />
-      {openModelRating&&<InputsUserRating/>}
+      {openModelRating && <InputsUserRating />}
     </div>
   );
 }

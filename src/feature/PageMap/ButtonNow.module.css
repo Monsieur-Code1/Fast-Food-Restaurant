@@ -27,7 +27,9 @@
   -ms-border-radius: 50px;
   -o-border-radius: 50px;
 }
-
+.btnOrderNow:hover {
+  background-color: #3e2e0c !important;
+}
 .photoVector {
   margin-top: 30px;
   margin-left: 20px;

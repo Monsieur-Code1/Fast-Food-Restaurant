@@ -6,7 +6,7 @@
 
 .containerBtnOrder {
   /* width: 50%; */
- 
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,7 +17,7 @@
   color: #ffffff;
   font-family: 'Inter';
   /* width: 327px; */
-   padding: 0 30px;
+  padding: 0 30px;
   height: 72px;
   background-color: #61481c;
   border-radius: 50px;
@@ -26,7 +26,9 @@
   -ms-border-radius: 50px;
   -o-border-radius: 50px;
 }
-
+.btnOrderNow:hover {
+  background-color: #3e2e0c !important;
+}
 .photoVector {
   margin-top: 30px;
   margin-left: 20px;

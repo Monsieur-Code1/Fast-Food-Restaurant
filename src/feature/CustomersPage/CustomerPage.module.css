@@ -147,3 +147,23 @@
 }
 
 /* ... باقي الـ CSS ... */
+
+
+.feedback{
+  font-family: "Inter";
+}
+
+
+.feedback:hover {
+  color: #ffffff;
+  font-family: 'Inter';
+  /* width: 327px; */
+   padding: 0 30px;
+  height: 72px;
+  background-color: #61481c;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+}
