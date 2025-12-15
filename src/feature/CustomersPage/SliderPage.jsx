@@ -1,92 +1,75 @@
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
-import { FiChevronLeft, FiChevronRight, FiStar } from 'react-icons/fi';
-import { persons } from './rating';
-// ... باقي الاستيرادات
+import { FaUser } from 'react-icons/fa';
+
 import styleS from './Slider.module.css';
+import StarRating from '../starsRating/StarRating';
+import { useData } from '../../context/Context';
+
 export default function SimpleSlider() {
-  const [rating, setRating] = useState(persons);
-  const [width, setWidth] = useState(0);
-  const controls = useAnimation();
-  let margin = 0;
-  const widthMargin = rating.map((el) => {
-    margin += 2;
-  });
-  const carouselRef = useRef();
-  useEffect(() => {
-    setWidth(carouselRef.current.scrollWidth - carouselRef.current.offsetWidth);
-  }, []);
+  const { ratingPersons } = useData();
 
-  // تحديد عرض الخطوة (عرض البطاقة الواحدة + هامشها)
-  // نفترض أن عرض البطاقة هو 390px والهامش الكلي هو 10px
-  const CARD_STEP_WIDTH = 400; // 390 + 10
+  const carouselRef = useRef(null);
+  const innerRef = useRef(null);
 
-  const moveSlider = (direction) => {
-    // الموضع الحالي للسلايدر (القيمة الافتراضية 0)
-    const currentX = controls.current?.x || 0;
-    let targetX;
+  const [dragLimit, setDragLimit] = useState(0);
 
-    // حساب الموضع المستهدف
-    if (direction === 'right') {
-      // التحرك نحو اليسار (قيم سالبة)
-      // نضمن أننا لا نتجاوز الحد الأقصى للسحب (-width)
-      targetX = Math.max(currentX - CARD_STEP_WIDTH, -width);
-    } else {
-      // التحرك نحو اليمين (قيم موجبة أو 0)
-      // نضمن أننا لا نتجاوز الصفر (بداية السلايدر)
-      targetX = Math.min(currentX + CARD_STEP_WIDTH, 0);
-    }
+  const calculateDrag = () => {
+    if (!carouselRef.current || !innerRef.current) return;
 
-    // بدء الحركة باستخدام Framer Motion
-    controls.start({
-      x: targetX,
-      transition: { type: 'spring', stiffness: 300, damping: 30 },
-    });
+    const carouselWidth = carouselRef.current.offsetWidth;
+    const innerWidth = innerRef.current.scrollWidth;
+
+    const maxDrag = innerWidth - carouselWidth;
+
+    setDragLimit(maxDrag > 0 ? -maxDrag : 0);
   };
+
+  useEffect(() => {
+    calculateDrag();
+
+    window.addEventListener('resize', calculateDrag);
+    return () => window.removeEventListener('resize', calculateDrag);
+  }, [ratingPersons.length]);
+
   return (
     <div className={styleS.AppSlider}>
-      {/* <button
-        onClick={() => moveSlider('left')}
-        className={styleS.navButtonLeft}
-      >
-        <FiChevronLeft className={styleS.ArrowClick} size={30} />
-      </button> */}
-
       <motion.div
         ref={carouselRef}
         className={styleS.carousel}
         whileTap={{ cursor: 'grabbing' }}
       >
         <motion.div
-          drag="x"
-          animate={controls}
-          dragConstraints={{ right: 0, left: -(width + margin) }}
+          ref={innerRef}
           className={styleS.innerCarousel}
+          drag="x"
+          dragConstraints={{ left: dragLimit, right: 0 }}
         >
-          {rating.map((el) => (
+          {ratingPersons.map((el) => (
             <div key={el.id} className={styleS.cardSlider}>
               <div className={styleS.cardAppPhotoAndStar}>
-                <img src={el.img} className={styleS.imgCard} alt={el.name} />
+                {el.img ? (
+                  <img src={el.img} alt={el.name} className={styleS.imgCard} />
+                ) : (
+                  <FaUser size={40} />
+                )}
+
                 <span className={styleS.starCard}>
-                  <FiStar className={styleS.star} />
-                  <FiStar className={styleS.star} />
-                  <FiStar className={styleS.star} />
-                  <FiStar className={styleS.star} />
-                  <FiStar className={styleS.star} />
+                  <StarRating
+                    defaultRating={el.rating}
+                    size={26}
+                    maxRating={5}
+                    messages={['Terrible', 'Bad', 'Okay', 'Good', 'Amazing']}
+                  />
                 </span>
               </div>
+
               <h4 className={styleS.titleCard}>{el.name}</h4>
               <p className={styleS.textCard}>{el.text}</p>
             </div>
           ))}
         </motion.div>
       </motion.div>
-      {/* <button
-        onClick={() => moveSlider('right')}
-        className={styleS.navButtonRight}
-      >
-        <FiChevronRight className={styleS.ArrowClick} size={30} />
-      </button> */}
     </div>
   );
 }

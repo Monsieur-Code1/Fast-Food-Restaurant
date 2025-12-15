@@ -1,5 +1,6 @@
 import { createContext, useContext, useRef, useState } from 'react';
 import toast from 'react-hot-toast';
+import { personsWasRating } from './../feature/CustomersPage/rating';
 const dateContext = createContext();
 function DataProvider({ children }) {
   const [showCart, setShowCart] = useState(false);
@@ -18,6 +19,10 @@ function DataProvider({ children }) {
   const [phone, setPhone] = useState('');
   const [persons, setPersons] = useState('');
   const [date, setDate] = useState('');
+  //غلق موديل الخاص بالتقييم 
+  const [openModelRating,setOpenModelRating]=useState(false)
+  //userRating
+   const [ratingPersons, setRatingPersons] = useState(personsWasRating);
 
   //  data Client-end
 
@@ -106,6 +111,10 @@ function DataProvider({ children }) {
         InputClient,
         totalPrice,
         invoiceRef,
+        openModelRating,
+        setOpenModelRating,
+        ratingPersons,
+        setRatingPersons,
       }}
     >
       {children}

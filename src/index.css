@@ -85,3 +85,13 @@
 body {
   height: 100%;
 }
+
+
+
+:root{
+  --primer-color:#61481c;
+  --second-color:#fdf8f8;
+  --three-color:#61481c;
+  --four-color:#171715;
+  
+}
