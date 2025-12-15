@@ -61,6 +61,7 @@ const [searchbar,setSearchbar]=useState("")
   const cardRef = useRef();
   const InputClient = useRef();
   const invoiceRef = useRef();
+   const FirstInput = useRef(null);
 
   // 2. دالة التمرير (Scroll Handler Function)
   const scrollToSection = (ref) => {
@@ -118,6 +119,7 @@ const [searchbar,setSearchbar]=useState("")
         setRatingPersons,
         searchbar,
         setSearchbar,
+        FirstInput,
       }}
     >
       {children}

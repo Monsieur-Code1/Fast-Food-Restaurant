@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useData } from '../../context/Context';
 import style2 from './ButtonNow.module.css';
@@ -42,14 +42,15 @@ function Inputs() {
     setDate,
     setShowCart,
     InputClient,
-    Cart
+    Cart,
+    FirstInput,
   } = useData();
   const [nameInput, setNameInput] = useState('');
   const [emailInput, setEmailInput] = useState('');
   const [phoneInput, setPhoneInput] = useState('');
   const [personsInput, setPersonsInput] = useState('');
   const [dateInput, setDateInput] = useState('');
-
+ 
   function handleSubmit(e) {
     e.preventDefault();
     if (
@@ -60,6 +61,10 @@ function Inputs() {
       !dateInput
     ) {
       toast.error('Please fill in all the required fields');
+      FirstInput.current?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
       return null;
     }
     setName(nameInput);
@@ -87,6 +92,7 @@ function Inputs() {
     >
       <input
         value={nameInput}
+        ref={FirstInput}
         name="name"
         onChange={(e) => setNameInput(e.target.value)}
         placeholder="Your Name"
@@ -148,8 +154,7 @@ function Inputs() {
         phone.length > 0 &&
         persons.length > 0 &&
         date.length > 0 &&
-        date.length > 0 
-        ? (
+        date.length > 0 ? (
           <button onClick={handleGoToPay} className={style2.btnOrderNow}>
             Go to pay
           </button>
@@ -158,7 +163,6 @@ function Inputs() {
             Book Now
           </button>
         )}
-        
 
         <img src="/images/Vector 4.png" className={style2.photoVector} alt="" />
       </div>

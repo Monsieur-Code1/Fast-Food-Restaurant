@@ -3,7 +3,7 @@ export const meal = [
     id: 1,
     name: 'Delicious Pizza',
     description:
-      'Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque',
+      'A classic blend of rich tomato sauce, premium mozzarella, and fresh basil, baked to perfection.',
     type: 'Pizza',
     rating: 4.3,
     price: 23.0,
@@ -13,7 +13,7 @@ export const meal = [
     id: 2,
     name: 'Delicious Burger',
     description:
-      'Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque',
+      'Juicy, flame-grilled beef patty topped with cheddar cheese, lettuce, and our signature sauce.',
     type: 'Burger',
     rating: 4.3,
     price: 15.0,
@@ -23,7 +23,7 @@ export const meal = [
     id: 3,
     name: 'Delicious Pizza',
     description:
-      'Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque',
+      'Thin crust pizza loaded with exotic vegetables and spicy pepperoni for a flavorful kick.',
     type: 'Pizza',
     rating: 4.3,
     price: 17.0,
@@ -33,7 +33,7 @@ export const meal = [
     id: 4,
     name: 'Delicious Pasta',
     description:
-      'Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque',
+      'Creamy Alfredo sauce with tender chicken breast, parmesan cheese, and a hint of garlic.',
     type: 'Pasta',
     rating: 4.3,
     price: 30.0,
@@ -43,7 +43,7 @@ export const meal = [
     id: 5,
     name: 'French Fries',
     description:
-      'Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque',
+      'Crispy golden potato fries, perfectly seasoned with sea salt, ideal as a side dish.',
     type: 'Fries',
     rating: 4.3,
     price: 10.0,
@@ -53,7 +53,7 @@ export const meal = [
     id: 6,
     name: 'Delicious Pizza',
     description:
-      'Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque',
+      'A hearty deep-dish pizza featuring a thick crust, ground beef, and three types of cheese.',
     type: 'Pizza',
     rating: 4.3,
     price: 23.0,
@@ -63,7 +63,7 @@ export const meal = [
     id: 7,
     name: 'Delicious Burger',
     description:
-      'Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque',
+      'A triple-decker burger with smoked bacon, crispy onions, and a special tangy mustard sauce.',
     type: 'Burger',
     rating: 4.3,
     price: 25.0,
@@ -73,7 +73,7 @@ export const meal = [
     id: 8,
     name: 'Delicious Burger',
     description:
-      'Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque',
+      'Vegetarian delight featuring a black bean patty, avocado slices, and fresh cilantro lime aioli.',
     type: 'Burger',
     rating: 4.3,
     price: 20.0,
@@ -83,12 +83,10 @@ export const meal = [
     id: 9,
     name: 'Delicious Pasta',
     description:
-      'Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque',
-
+      'Spicy arrabiata pasta with sun-dried tomatoes, fresh chili flakes, and a sprinkle of basil.',
     type: 'Pasta',
     rating: 4.3,
     price: 17.0,
-
     src: '/images/meals/pasta2.png',
   },
 ];

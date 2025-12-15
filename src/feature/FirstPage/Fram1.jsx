@@ -28,9 +28,10 @@ const {scrollToSection,mealsRef}=useData()
       <h1 className="Title">Fast Food Restaurant</h1>
 
       <p className="SpanText">
-        Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapientead
-        mollitia laborum quam quisquam esse error unde. Tempora ex doloremque,
-        labore,sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
+        We offer you the tastiest fast food prepared with fresh ingredients and
+        unbeatable quality. Explore our diverse menu of delicious burgers, hot
+        pizzas, and crispy appetizers, and enjoy a quick and fun dining
+        experience for the whole family.
       </p>
       <div className="container-btn-and-img">
         <div className="AppButtonOrder">

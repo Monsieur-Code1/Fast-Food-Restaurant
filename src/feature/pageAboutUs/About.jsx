@@ -21,23 +21,8 @@ export default function About() {
           <h4 className={style.h4}>We Are Feane</h4>
           <p className={style.paragraph}>
             {ShowMore
-              ? `There are many variations of passages of Lorem Ipsum available, but
-            the majority have suffered alteration in some form, by injected
-            humour, or randomised words which don't look even slightly
-            believable. If you are going to use a passage of Lorem Ipsum, you
-            need to be sure there isn't anything embarrassing hidden in the
-            middle of text.There are many variations of passages of Lorem Ipsum available, but
-            the majority have suffered alteration in some form, by injected
-            humour, or randomised words which don't look even slightly
-            believable. If you are going to use a passage of Lorem Ipsum, you
-            need to be sure there isn't anything embarrassing hidden in the
-            middle of text.`
-              : `There are many variations of passages of Lorem Ipsum available, but
-            the majority have suffered alteration in some form, by injected
-            humour, or randomised words which don't look even slightly
-            believable. If you are going to use a passage of Lorem Ipsum, you
-            need to be sure there isn't anything embarrassing hidden in the
-            middle of text.`}
+              ? `At Faene, we don't just serve fast food; we redefine the entire experience. Our commitment has always been built on a simple principle: quality must always be the priority, even in the fastest meals. We meticulously select every cut of meat, every fresh vegetable, and every type of bread baked exclusively for us, ensuring every bite exceeds your expectations. Our story is one of passion for speedy cooking that never compromises on high standards of taste and health. We work tirelessly to ensure your ordering process, from the initial request to the moment the meal arrives, is seamless and enjoyable. We combine superior speed and excellent ingredients to provide you with the perfect, reliable meal at any time, whether you dine with us or order delivery, making Faene the premier destination for food lovers seeking the best and fastest in the city.`
+              : `At Faene, we don't just serve fast food; we redefine the entire experience. Our commitment has always been built on a simple principle: quality must always be the priority, even in the fastest meals.We meticulously select every cut of meat, every fresh vegetable, and every type of bread baked exclusively for us, ensuring every bite exceeds your expectations.`}
           </p>
 
           <div className={style.containerBtnOrder}>

@@ -22,8 +22,9 @@ function Faene() {
     <div className="mt-4 w-[420px] px-1">
       <h3 className="text-[30px]">Faene</h3>
       <p>
-        Necessary, making this the first true generator on the Internet. It uses
-        a dictionary of over 200 Latin words, combined with
+        Faene is dedicated to crafting extraordinary fast meals, utilizing only
+        the freshest daily ingredients to ensure every experience is satisfying
+        and truly memorable.
       </p>
       <div className="mt-2 flex items-start justify-start gap-3 bg-[#] text-xl">
         <span className="rounded-full bg-[#BF9742] p-1 text-[#000000]">
