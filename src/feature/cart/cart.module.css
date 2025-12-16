@@ -31,14 +31,16 @@
   justify-content: center;
   align-items: center;
   gap: 3;
-  background-color: #61481c;
+  background-color: #156930;
   border-radius: 20px;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
 }
-
+.btnOrderNow:hover {
+  background-color: #2cca5e;
+}
 @media (max-width: 410px) {
   .Container {
     width: 90%;
